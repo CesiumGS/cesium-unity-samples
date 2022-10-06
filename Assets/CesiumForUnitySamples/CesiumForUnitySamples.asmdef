@@ -1,3 +1,6 @@
 {
-	"name": "CesiumForUnitySamples"
+	"name": "CesiumForUnitySamples",
+	   "references": [
+        "Unity.InputSystem"
+    ]
 }
