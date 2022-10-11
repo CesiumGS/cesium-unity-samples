@@ -985,7 +985,7 @@ MonoBehaviour:
   _maximumScreenSpaceError: 16
   _preloadAncestors: 1
   _preloadSiblings: 1
-  _forbidHoles: 0
+  _forbidHoles: 1
   _maximumSimultaneousTileLoads: 20
   _maximumCachedBytes: 536870912
   _loadingDescendantLimit: 20
