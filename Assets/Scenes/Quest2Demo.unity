@@ -149,9 +149,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 161818292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1133817149, guid: 63cab5ddbd23cf34ca160a9b3d74438d, type: 3}
+  m_Script: {fileID: 11500000, guid: 844ac86b07dcfa3468f56da55d787510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tilesetSource: 0
   _url: 
   _ionAssetID: 354307
   _ionAccessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5ZGNmNTljZi0zMmY2LTQ0OTQtOWRlMS1hZmY0NmY3Yjg2NjEiLCJpZCI6MjU5LCJpYXQiOjE2NjQ0MTY1MDZ9.e3l3LykMjGexLoZxvRN0Cdr23EjCqVN7n5M8suyGPxM
@@ -166,7 +167,7 @@ MonoBehaviour:
   _enableFogCulling: 1
   _enforceCulledScreenSpaceError: 1
   _culledScreenSpaceError: 64
-  _opaqueMaterial: {fileID: 2100000, guid: b5a097fa462ce9749a494ca920bdbde0, type: 2}
+  _opaqueMaterial: {fileID: 0}
   _useLodTransitions: 0
   _lodTransitionLength: 0.5
   _generateSmoothNormals: 0
@@ -849,7 +850,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 819515652}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 438492692, guid: f12ba0c9ffefccb49a06e911740ddee8, type: 3}
+  m_Script: {fileID: 11500000, guid: d1305e05d46db92498ce698a4c366a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _latitude: 39.7522
