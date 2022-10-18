@@ -1,6 +1,17 @@
 {
-	"name": "CesiumForUnitySamples",
-	   "references": [
-        "Unity.InputSystem"
-    ]
+    "name": "CesiumForUnitySamples",
+    "rootNamespace": "",
+    "references": [
+        "Unity.InputSystem",
+        "CesiumRuntime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
