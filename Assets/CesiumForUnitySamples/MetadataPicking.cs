@@ -23,8 +23,7 @@ public class MetadataPicking : MonoBehaviour
                     var metadataScript = hit.transform.GetComponentInParent<CesiumMetadata>();
                     if (metadataScript != null)
                     {
-                        metadataScript.loadMetadata(hit.transform, hit.triangleIndex);
-                        foreach (MetadataProperty property in metadataScript.Properties())
+                        foreach (MetadataProperty property in metadataScript.GetProperties(hit.transform, hit.triangleIndex))
                         {
                             string propertyName = property.GetPropertyName();
                             string propertyValue = property.GetString("null");
