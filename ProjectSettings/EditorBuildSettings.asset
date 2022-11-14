@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/01_CesiumWorld.unity
+    guid: f247585a97d347241b998d973481c4f5
   m_configObjects:
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1373729890a11f648b049c0d3a6768d9,
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c5bdd339397b37449a0ca8fd7d427f05,
       type: 2}
-    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 8a2bd8408a77d29408f61a1f7c0584db,
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 5ea1830bd94aed442a4f7c91ae2e895e,
       type: 2}
