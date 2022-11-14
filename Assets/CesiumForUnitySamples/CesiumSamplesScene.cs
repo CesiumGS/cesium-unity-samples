@@ -8,7 +8,9 @@ using UnityEngine.InputSystem;
 #if UNITY_EDITOR 
 using UnityEditor;
 using UnityEditor.SceneManagement;
+#endif
 
+#if UNITY_EDITOR 
 [InitializeOnLoad]
 static class CesiumSamplesSceneManager
 {
@@ -66,7 +68,6 @@ class CesiumSamplesScene : MonoBehaviour
         #if UNITY_EDITOR
         // Only show the panel outside of play mode.
         this._canvasGameObject.SetActive(!EditorApplication.isPlaying);
-
         #else
         this._canvasGameObject.SetActive(false);
         #endif
