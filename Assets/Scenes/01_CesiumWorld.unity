@@ -339,12 +339,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655f0d1084ebee849acfd5aec920bb0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetViewOnSceneLoad: 1
   _lookAtPosition: {x: -100, y: -188, z: -1230}
   _lookAtRotation: {x: 5, y: 280, z: 0}
   _lookAtSize: 60
-  _cameraPosition: {x: 0, y: -185, z: -1250}
-  _cameraRotation: {x: 5, y: 280, z: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,17 +541,17 @@ MonoBehaviour:
     content like photogrammetry, terrain, and imagery.\r\n\r\nThis Cesium for Unity
     Samples project is set up to get you started with creating global-scale simulations,
     apps, and games. \r\n\r\nThis first level shows the basic components that are
-    the foundations of your levels. You will notice the object \"Cesium\" in the
-    Hierarchy window containing a Cesium Georeference component. This is used to
-    set your current global coordinates and position any child objects with respect
-    to those coordinates.\r\n\r\nThe \"Cesium\" object contains two children: Cesium
-    World Terrain, a global terrain dataset, and Cesium OSM Buildings, a world-wide
+    the foundations of your levels. You will notice an object \"Cesium\" in the Hierarchy
+    window. This contains a Cesium Georeference component, which is used to set your
+    current global coordinates.\n\r\nThe \"Cesium\" object contains two children:
+    Cesium World Terrain, a global terrain dataset, and Cesium OSM Buildings, a world-wide
     3D buildings layer derived from OpenStreetMap.\r\n\r\nTo get started with your
-    own 3D content, go to \"Cesium/Cesium\" in the menu tab to sign into your Cesium
+    own 3D content, go to \"Cesium/Cesium\" in the menu to sign into your Cesium
     ion account, or create one for free. Your Cesium ion account includes access
     to curated global content and high-resolution photogrammetry data.\r\n\r\nClick
-    the play button to explore the world in Unity, then load scene 2 when you want
-    to explore more types of data.\r\n\r\nPress \"1\" to return to this view."
+    the play button to explore the world in Unity, then load \"02_CesiumMelbourne\"
+    when you want to explore more types of data.\r\n\r\nPress \"1\" in the editor
+    to return to this view."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

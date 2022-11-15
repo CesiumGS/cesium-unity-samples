@@ -237,7 +237,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 246124270}
   m_LocalRotation: {x: 0.056050077, y: 0.8819667, z: 0.03462506, w: 0.46668434}
-  m_LocalPosition: {x: 273.8, y: 5.4, z: -1599.5}
+  m_LocalPosition: {x: 273.5, y: 1.5, z: -1599.9}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -257,12 +257,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655f0d1084ebee849acfd5aec920bb0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetViewOnSceneLoad: 1
   _lookAtPosition: {x: 290, y: 95, z: -1750}
   _lookAtRotation: {x: 9.81, y: 28.5, z: 0}
   _lookAtSize: 50
-  _cameraPosition: {x: 245, y: 120, z: -1817.5}
-  _cameraRotation: {x: 9.81, y: 28.5, z: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,20 +458,17 @@ MonoBehaviour:
     geospatial content, you can stream real-world 3D content anywhere.
 
 
-
-    In
-    this level, we''ve added photogrammetry of Melbourne streamed from Cesium ion
-    as 3D Tiles hierarchical spatial index.
-
+    In this
+    level, we''ve added photogrammetry of Melbourne streamed from Cesium ion as 3D
+    Tiles hierarchical spatial index.
 
 
-    Press play to begin exploring.
-    Capture a few screenshots and share it with us on Twitter @CesiumJS!
+    Press play to begin exploring. Capture
+    a few screenshots and share it with us on Twitter @CesiumJS!
 
 
-
-    Press
-    "1" to return to this view.'
+    Press "1"
+    in the editor to return to this view.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1050,5 +1044,5 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 350, y: 175}
+  m_SizeDelta: {x: 350, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}

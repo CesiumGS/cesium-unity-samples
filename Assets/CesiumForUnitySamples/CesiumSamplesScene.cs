@@ -52,13 +52,6 @@ class CesiumSamplesScene : MonoBehaviour
 
     private readonly float _sceneViewFarClip = 1000000;
 
-    [Header("Default In-Game Camera Settings")]
-    [SerializeField]
-    private Vector3 _cameraPosition = Vector3.zero;
-
-    [SerializeField]
-    private Vector3 _cameraRotation = Vector3.zero;
-
     private GameObject _canvasGameObject;
 
     void OnEnable()
@@ -83,7 +76,7 @@ class CesiumSamplesScene : MonoBehaviour
         bool resetView = Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1);
         #endif
         
-        if (resetView)
+        if (resetView && EditorWindow.focusedWindow == SceneView.lastActiveSceneView)
         {
             ResetSceneView();
         }
@@ -91,26 +84,15 @@ class CesiumSamplesScene : MonoBehaviour
 
     void ResetSceneView()
     {
-        if (EditorApplication.isPlaying)
-        {
-            Camera.main.transform.position = this._cameraPosition;
-            Camera.main.transform.rotation = Quaternion.Euler(this._cameraRotation);
-        }
-        else if (EditorWindow.focusedWindow == SceneView.lastActiveSceneView)
-        {
-            SceneView.lastActiveSceneView.LookAtDirect(
-               this._lookAtPosition,
-               Quaternion.Euler(this._lookAtRotation),
-               this._lookAtSize);
-        }
+        SceneView.lastActiveSceneView.LookAtDirect(
+            this._lookAtPosition,
+            Quaternion.Euler(this._lookAtRotation),
+            this._lookAtSize);
     }
 
     public void ResetSceneViewOnLoad()
     {
-        SceneView.lastActiveSceneView.LookAtDirect(
-           this._lookAtPosition,
-           Quaternion.Euler(this._lookAtRotation),
-           this._lookAtSize);
+        ResetSceneView();
         SceneView.lastActiveSceneView.cameraSettings.farClip = this._sceneViewFarClip;
 
         EditorApplication.update -= ResetSceneViewOnLoad;
