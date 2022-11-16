@@ -236,15 +236,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 246124270}
-  m_LocalRotation: {x: 0.056050077, y: 0.8819667, z: 0.03462506, w: 0.46668434}
-  m_LocalPosition: {x: 273.5, y: 1.5, z: -1599.9}
+  m_LocalRotation: {x: 0.04382173, y: 0.19095476, z: -0.016492719, w: 0.9804815}
+  m_LocalPosition: {x: 273.49936, y: 1.4904894, z: -1599.9}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1718256436}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: -0.502, y: 124.197, z: 7.538}
+  m_LocalEulerAnglesHint: {x: 5.292, y: 22, z: -0.898}
 --- !u!114 &246124272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +260,9 @@ MonoBehaviour:
   _lookAtPosition: {x: 290, y: 95, z: -1750}
   _lookAtRotation: {x: 9.81, y: 28.5, z: 0}
   _lookAtSize: 50
+  _objectsToDisable:
+  - {fileID: 1718256432}
+  _objectsToEnable: []
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,7 +751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.98039216}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.9882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -957,7 +960,7 @@ GameObject:
   - component: {fileID: 1718256434}
   - component: {fileID: 1718256433}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Cesium Tooltip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1031,7 +1034,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718256432}
-  m_LocalRotation: {x: -0, y: -0.7719314, z: -0, w: 0.6357058}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1040,7 +1043,7 @@ RectTransform:
   - {fileID: 532081052}
   m_Father: {fileID: 246124271}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -101.055, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
