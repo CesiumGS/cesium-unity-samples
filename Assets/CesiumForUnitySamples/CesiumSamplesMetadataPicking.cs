@@ -1,5 +1,5 @@
-using UnityEngine;
 using CesiumForUnity;
+using UnityEngine;
 using UnityEngine.UI;
 
 #if ENABLE_INPUT_SYSTEM
@@ -52,7 +52,7 @@ public class CesiumSamplesMetadataPicking : MonoBehaviour
                     MetadataProperty[] properties =
                         metadata.GetProperties(hit.transform, hit.triangleIndex);
 
-                    // List out each metadata property in the target UI.
+                    // List out each metadata property in the UI.
                     foreach (MetadataProperty property in properties)
                     {
                         string propertyName = property.GetPropertyName();

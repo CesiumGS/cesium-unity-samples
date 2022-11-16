@@ -31,8 +31,8 @@ static class CesiumSamplesSceneManager
     // the way of the UI.
     static void DisableTextMeshProIcons()
     {
-        Assembly asm = Assembly.GetAssembly(typeof(Editor));
-        Type AnnotationUtility = asm.GetType("UnityEditor.AnnotationUtility");
+        Assembly assembly = Assembly.GetAssembly(typeof(Editor));
+        Type AnnotationUtility = assembly.GetType("UnityEditor.AnnotationUtility");
         if (AnnotationUtility != null)
         {
             Type Annotation = Type.GetType("UnityEditor.Annotation, UnityEditor");
@@ -86,19 +86,19 @@ class CesiumSamplesScene : MonoBehaviour
     [SerializeField]
     [Tooltip("The position for the editor camera to look at when the scene " +
         "view is reset (i.e. when \"1\" is pressed in the editor). This is used " +
-        "as an input to SceneView.LookAtDirect.")]
+        "as an input for SceneView.LookAtDirect.")]
     private Vector3 _lookAtPosition = Vector3.zero;
 
     [SerializeField]
     [Tooltip("The rotation of the editor camera when the scene view is reset " +
         "(i.e. when \"1\" is pressed in the editor). This is used as an input " +
-        "to SceneView.LookAtDirect.")]
+        "for SceneView.LookAtDirect.")]
     private Vector3 _lookAtRotation = Vector3.zero;
 
     [SerializeField]
     [Tooltip("The size of the editor camera's view when the scene view is reset " +
         "(i.e. when \"1\" is pressed in the editor). This is used as an input " +
-        "to SceneView.LookAtDirect.")]
+        "for SceneView.LookAtDirect.")]
     private float _lookAtSize = 0;
 
     private readonly float _sceneViewFarClip = 1000000;
