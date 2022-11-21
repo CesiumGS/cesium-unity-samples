@@ -152,10 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 844ac86b07dcfa3468f56da55d787510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showCreditsOnScreen: 0
   _tilesetSource: 0
   _url: 
   _ionAssetID: 354307
-  _ionAccessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5ZGNmNTljZi0zMmY2LTQ0OTQtOWRlMS1hZmY0NmY3Yjg2NjEiLCJpZCI6MjU5LCJpYXQiOjE2NjQ0MTY1MDZ9.e3l3LykMjGexLoZxvRN0Cdr23EjCqVN7n5M8suyGPxM
+  _ionAccessToken: 
   _maximumScreenSpaceError: 16
   _preloadAncestors: 1
   _preloadSiblings: 1
@@ -172,6 +173,7 @@ MonoBehaviour:
   _lodTransitionLength: 0.5
   _generateSmoothNormals: 0
   _suspendUpdate: 0
+  _showTilesInHierarchy: 0
   _updateInEditor: 1
   _logSelectionStats: 0
   _createPhysicsMeshes: 1
@@ -835,7 +837,7 @@ GameObject:
   - component: {fileID: 819515654}
   - component: {fileID: 819515653}
   m_Layer: 0
-  m_Name: Georeferenced
+  m_Name: Cesium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -853,12 +855,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1305e05d46db92498ce698a4c366a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _originAuthority: 0
   _latitude: 39.7522
   _longitude: -104.9989
   _height: 2250
+  _ecefX: -1271248.0723497425
+  _ecefY: -4744726.762016942
+  _ecefZ: 4058309.410459045
 --- !u!4 &819515654
 Transform:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 10
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
