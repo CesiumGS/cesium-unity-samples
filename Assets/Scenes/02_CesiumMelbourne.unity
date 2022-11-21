@@ -319,7 +319,7 @@ MonoBehaviour:
   _tilesetSource: 0
   _url: 
   _ionAssetID: 1
-  _ionAccessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5ZGNmNTljZi0zMmY2LTQ0OTQtOWRlMS1hZmY0NmY3Yjg2NjEiLCJpZCI6MjU5LCJpYXQiOjE2NjQ0MTY1MDZ9.e3l3LykMjGexLoZxvRN0Cdr23EjCqVN7n5M8suyGPxM
+  _ionAccessToken: 
   _maximumScreenSpaceError: 16
   _preloadAncestors: 1
   _preloadSiblings: 1
@@ -733,7 +733,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835163111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 50, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -756,7 +756,7 @@ MonoBehaviour:
   _tilesetSource: 0
   _url: 
   _ionAssetID: 69380
-  _ionAccessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5ZGNmNTljZi0zMmY2LTQ0OTQtOWRlMS1hZmY0NmY3Yjg2NjEiLCJpZCI6MjU5LCJpYXQiOjE2NjQ0MTY1MDZ9.e3l3LykMjGexLoZxvRN0Cdr23EjCqVN7n5M8suyGPxM
+  _ionAccessToken: 
   _maximumScreenSpaceError: 16
   _preloadAncestors: 1
   _preloadSiblings: 1
@@ -776,4 +776,4 @@ MonoBehaviour:
   _showTilesInHierarchy: 0
   _updateInEditor: 1
   _logSelectionStats: 0
-  _createPhysicsMeshes: 0
+  _createPhysicsMeshes: 1

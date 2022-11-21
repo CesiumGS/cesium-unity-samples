@@ -317,7 +317,7 @@ MonoBehaviour:
   _tilesetSource: 0
   _url: 
   _ionAssetID: 75343
-  _ionAccessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5ZGNmNTljZi0zMmY2LTQ0OTQtOWRlMS1hZmY0NmY3Yjg2NjEiLCJpZCI6MjU5LCJpYXQiOjE2NjQ0MTY1MDZ9.e3l3LykMjGexLoZxvRN0Cdr23EjCqVN7n5M8suyGPxM
+  _ionAccessToken: 
   _maximumScreenSpaceError: 16
   _preloadAncestors: 1
   _preloadSiblings: 1
@@ -403,7 +403,7 @@ MonoBehaviour:
   _tilesetSource: 0
   _url: 
   _ionAssetID: 1
-  _ionAccessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5ZGNmNTljZi0zMmY2LTQ0OTQtOWRlMS1hZmY0NmY3Yjg2NjEiLCJpZCI6MjU5LCJpYXQiOjE2NjQ0MTY1MDZ9.e3l3LykMjGexLoZxvRN0Cdr23EjCqVN7n5M8suyGPxM
+  _ionAccessToken: 
   _maximumScreenSpaceError: 16
   _preloadAncestors: 1
   _preloadSiblings: 1
@@ -490,7 +490,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.5
   far clip plane: 100000
   field of view: 60
   orthographic: 0
