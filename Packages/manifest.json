@@ -1,5 +1,13 @@
 {
+  "scopedRegistries": [
+    {
+      "name": "Cesium",
+      "url": "http://cesium-unity-packages.s3-website-us-east-1.amazonaws.com/",
+      "scopes": ["com.cesium.unity"]
+    }
+  ],
   "dependencies": {
+    "com.cesium.unity": "0.1.0",
     "com.unity.cinemachine": "2.8.9",
     "com.unity.collab-proxy": "1.17.2",
     "com.unity.ide.rider": "3.0.15",
