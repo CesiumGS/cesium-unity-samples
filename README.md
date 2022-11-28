@@ -6,8 +6,8 @@ The Cesium for Unity Samples is a starter project to learn and explore the [Cesi
 
 The levels in this project will walk you through the plugin's features and demonstrate global-scale content, applications, and experiences in Unity 3D.
 
-![TODO: Image](Images/melbourne.jpg)
-*<p align="center">Photogrammetry of Melbourne, Australia visualized in Unity using Cesium for Unity.<br>Open the <b>02_CesiumMelbourne</b> level in Cesium for Unity Samples to experience it yourself!</p>*
+![Aerometrex Photogrammetry of San Francisco in Cesium for Unity](Assets/Cesium_for_Unity-SanFrancisco.jpg)
+*<p align="center">Photogrammetry of San Francisco, California visualized in Unity using Cesium for Unity.<br>Open the <b>03_CesiumSanFrancisco</b> level in Cesium for Unity Samples to experience it yourself!</p>*
 
 ### :rocket: Get Started
 
