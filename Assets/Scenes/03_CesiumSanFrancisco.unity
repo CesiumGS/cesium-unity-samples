@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18278202, g: 0.22848725, b: 0.30703014, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -212,14 +212,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58893791}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.09, z: 0}
+  m_LocalRotation: {x: 0.023167789, y: 0.00031213462, z: -0.009345526, w: 0.99968785}
+  m_LocalPosition: {x: 0, y: -0.089999974, z: 0}
   m_LocalScale: {x: 5, y: 0.3, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1914986409}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 2.655, y: 0.011, z: -1.071}
 --- !u!1001 &189260201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -422,7 +422,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.9
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -450,13 +450,13 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 5000
+  m_ColorTemperature: 5250
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -470,14 +470,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
-  m_LocalRotation: {x: 0.4082179, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: -0, y: -110.98, z: 0}
+  m_LocalRotation: {x: 0.47981974, y: 0.20077702, z: -0.7878886, w: 0.32968658}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 39.254, y: -53.654, z: -155.034}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -579,8 +579,6 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 1
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 0}
-  _useLodTransitions: 0
-  _lodTransitionLength: 0.5
   _generateSmoothNormals: 0
   _suspendUpdate: 0
   _showTilesInHierarchy: 0
@@ -777,13 +775,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1305e05d46db92498ce698a4c366a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _originAuthority: 0
-  _latitude: 39.752721
-  _longitude: -104.999553
-  _height: 1571.486163
-  _ecefX: -1271157.5619469138
-  _ecefY: -4744172.654264168
-  _ecefZ: 4057920.006476283
+  _originAuthority: 1
+  _latitude: 37.79514641597104
+  _longitude: -122.39387693298949
+  _height: -28.40501702727627
+  _ecefX: -2703526.780877584
+  _ecefY: -4261083.010513387
+  _ecefZ: 3887484.0774455736
 --- !u!4 &1412293156
 Transform:
   m_ObjectHideFlags: 10
@@ -811,11 +809,12 @@ PrefabInstance:
     - target: {fileID: 7752603225714643755, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_text
-      value: "\rThis is Denver's Union Station, captured at sub-centimeter resolution
-        for incredible photorealistic detail.\r\n\r\nIn this level, we have set up
+      value: "\rThis is San Francisco's Ferry Building, captured at sub-centimeter
+        resolution for photorealistic detail.\r\n\r\nIn this level, we have set up
         a third-person character controller which lets you explore this photogrammetry
         from the ground level. Meshes streamed by Cesium for Unity are fully interactable
-        and capable of handling physics in Unity.\r\n\r\nData provided by Aerometrex.
+        and capable of handling physics in Unity. Feel free to walk around the Ferry
+        Building, or turn around to explore downtown.\n\r\nData provided by Aerometrex.
         Third person controller provided by Unity on the Asset Store.\r\n\r\nPress
         \"1\" in the editor to return to this view.\r\n"
       objectReference: {fileID: 0}
@@ -827,22 +826,27 @@ PrefabInstance:
     - target: {fileID: 7752603225896829094, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: _lookAtPosition.x
-      value: -7.84
+      value: 3.27
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829094, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: _lookAtPosition.y
-      value: -2.7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829094, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: _lookAtPosition.z
-      value: 6.22
+      value: 5.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752603225896829094, guid: d1f6fb4b452d026489986bf620a2d8bc,
+        type: 3}
+      propertyPath: _lookAtRotation.x
+      value: 340
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829094, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: _lookAtRotation.y
-      value: 315.5
+      value: 32.26
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829094, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
@@ -867,67 +871,67 @@ PrefabInstance:
     - target: {fileID: 7752603225896829113, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.017
+      value: 0.035
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829113, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.017
+      value: 0.035
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829113, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.017
+      value: 0.035
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829113, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.84
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829113, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.37
+      value: 4.8
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829113, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.22
+      value: 15.68
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829113, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9252019
+      value: 0.9597093
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829113, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.1592394
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829113, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.37947536
+      value: 0.22663666
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829113, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.04729415
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829113, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -19.092
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829113, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -44.602
+      value: 26.384
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829113, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 1.128
       objectReference: {fileID: 0}
     - target: {fileID: 7752603227654311266, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
@@ -937,7 +941,7 @@ PrefabInstance:
     - target: {fileID: 7752603227654311266, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 160
+      value: 170
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1f6fb4b452d026489986bf620a2d8bc, type: 3}
@@ -970,8 +974,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914986408}
-  m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -11.5, y: -7.6, z: 9.61}
+  m_LocalRotation: {x: 0, y: 0.20087278, z: 0, w: 0.97961736}
+  m_LocalPosition: {x: 1.257597, y: 0.93, z: 2.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -981,7 +985,7 @@ Transform:
   - {fileID: 58893796}
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 23.176, z: 0}
 --- !u!1 &2091011212
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,7 +997,7 @@ GameObject:
   - component: {fileID: 2091011214}
   - component: {fileID: 2091011213}
   m_Layer: 0
-  m_Name: Aerometrex Denver
+  m_Name: Aerometrex San Francisco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1014,10 +1018,10 @@ MonoBehaviour:
   _showCreditsOnScreen: 0
   _tilesetSource: 0
   _url: 
-  _ionAssetID: 354307
+  _ionAssetID: 1415196
   _ionAccessToken: 
-  _maximumScreenSpaceError: 8
-  _preloadAncestors: 1
+  _maximumScreenSpaceError: 2
+  _preloadAncestors: 0
   _preloadSiblings: 1
   _forbidHoles: 0
   _maximumSimultaneousTileLoads: 20
@@ -1026,10 +1030,8 @@ MonoBehaviour:
   _enableFrustumCulling: 0
   _enableFogCulling: 1
   _enforceCulledScreenSpaceError: 1
-  _culledScreenSpaceError: 16
+  _culledScreenSpaceError: 8
   _opaqueMaterial: {fileID: 0}
-  _useLodTransitions: 0
-  _lodTransitionLength: 0.5
   _generateSmoothNormals: 0
   _suspendUpdate: 0
   _showTilesInHierarchy: 0
@@ -1044,7 +1046,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091011212}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
