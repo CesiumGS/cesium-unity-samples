@@ -1692,8 +1692,8 @@ PrefabInstance:
     - target: {fileID: 7752603225714643755, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_text
-      value: 'This level is configured for the Oculus Quest 2. Follow the instructions
-        below to build this level appropriately.
+      value: 'This scene is configured for the Oculus Quest 2. Follow the instructions
+        below to build this scene appropriately.
 
 
         1. In the menu, go to
