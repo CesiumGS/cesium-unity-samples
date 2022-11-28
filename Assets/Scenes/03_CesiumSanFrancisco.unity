@@ -567,7 +567,7 @@ MonoBehaviour:
   _url: 
   _ionAssetID: 1
   _ionAccessToken: 
-  _maximumScreenSpaceError: 16
+  _maximumScreenSpaceError: 32
   _preloadAncestors: 1
   _preloadSiblings: 1
   _forbidHoles: 0
@@ -1020,8 +1020,8 @@ MonoBehaviour:
   _url: 
   _ionAssetID: 1415196
   _ionAccessToken: 
-  _maximumScreenSpaceError: 2
-  _preloadAncestors: 0
+  _maximumScreenSpaceError: 8
+  _preloadAncestors: 1
   _preloadSiblings: 1
   _forbidHoles: 0
   _maximumSimultaneousTileLoads: 20
