@@ -50,7 +50,7 @@ Cesium for Unity enables you to access metadata encoded in your 3D Tiles dataset
 
 ### :goggles: :one: VR Level 1 - Denver Photogrammetry
 
-In this scene, explore high-resolution photogrammetry data of Denver, CO in virtual reality. This scene is set up to work with the Oculus Quest 2 and includes VR controller support. It requires an `APK` file to be built and run on the Quest 2. To build this file, open **VR01_CesiumDenver** in the Unity Editor and follow the instructions below. These instructions also appear in the UI of the scene itself.
+Cesium for Unity supports virtual reality platforms. This level is set up for users with VR headsets to get started quickly. In this scene, explore high-resolution photogrammetry data of Denver, Colorado with VR controller support. To build this for the Oculus Quest 2, open **VR01_CesiumDenver** in the Unity Editor and follow the instructions to build an `APK` file for the headset. These instructions also appear in the UI of the scene itself.
 
 1. Ensure that your Unity Editor has Android build support. If not, follow the instructions [here](https://docs.unity3d.com/Manual/android-sdksetup.html) to set it up.
 2. Go to `File -> Build Settings` and change the platform to Android.
