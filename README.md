@@ -48,6 +48,17 @@ Cesium for Unity enables you to access metadata encoded in your 3D Tiles dataset
 ![Metadata of New York City buildings visualized.](Images~/metadata.jpg)
 *<p align="center">Metadata of New York City buildings visualized.<br>Open <b>04_CesiumMetadata</b> in the Cesium for Unity Samples to explore the New York City buildings' metadata.</p>*
 
+### :goggles: :one: VR Level 1 - Denver Photogrammetry
+
+Cesium for Unity supports virtual reality platforms. This level is set up for users with VR headsets to get started quickly. In this scene, explore high-resolution photogrammetry data of Denver, Colorado with VR controller support. To build this for the Oculus Quest 2, open **VR01_CesiumDenver** in the Unity Editor and follow the instructions to build an `APK` file for the headset. These instructions also appear in the UI of the scene itself.
+
+1. Ensure that your Unity Editor has Android build support. If not, follow the instructions [here](https://docs.unity3d.com/Manual/android-sdksetup.html) to set it up.
+2. Go to `File -> Build Settings` and change the platform to Android.
+3. Remove the original sample scene from the scenes list, then click the "Add Open Scenes" button.
+4. Go to `Edit -> Project Settings`. Scroll down to find and click on "XR Plug-in Management".
+5. Go to the "Android" section and check the box next to "OpenXR".
+6. Finally, in the Build Settings window, click "Build and Run" to build an `APK`.
+
 ### :green_book:License
 
 [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). Cesium for Unity Samples is free to use as starter project for both commercial and non-commercial use.
