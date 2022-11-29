@@ -18,15 +18,11 @@ using UnityEditor.SceneManagement;
 [InitializeOnLoad]
 static class CesiumSamplesSceneManager
 {
-    static readonly string samplesKey = "OpenedCesiumSamples";
-
     static CesiumSamplesSceneManager()
     {
         DisableTextMeshProIcons();
 
         EditorSceneManager.sceneOpened += ResetSceneViewCamera;
-        EditorApplication.update += OpenFirstSampleScene;
-        EditorApplication.quitting += RemoveSamplesKeyFromPlayerPrefs;
     }
 
     // There's no public API to disable component icons in the SceneView, which
@@ -63,26 +59,6 @@ static class CesiumSamplesSceneManager
                 }
             }
         }
-    }
-
-    // Unity will not open the first sample scene on its own, so this manually opens
-    // the sample scene when the Editor is first opened. The PlayerPref prevents
-    // the first scene from being re-opened whenever the user's code compiles.
-    static void OpenFirstSampleScene()
-    {
-        EditorApplication.update -= OpenFirstSampleScene;
-        if(PlayerPrefs.GetInt(samplesKey, -1) > 0)
-        {
-            return;
-        }
-
-        PlayerPrefs.SetInt(samplesKey, 1);
-        EditorSceneManager.OpenScene("Assets/Scenes/01_CesiumWorld.unity");
-    }
-
-    static void RemoveSamplesKeyFromPlayerPrefs()
-    {
-        PlayerPrefs.DeleteKey(samplesKey);
     }
 
     static void ResetSceneViewCamera(Scene scene, OpenSceneMode mode)
