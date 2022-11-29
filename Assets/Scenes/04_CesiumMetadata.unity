@@ -330,9 +330,6 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 1
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 0}
-  _useLodTransitions: 0
-  _lodTransitionLength: 0.5
-  _generateSmoothNormals: 0
   _suspendUpdate: 0
   _showTilesInHierarchy: 0
   _updateInEditor: 1
@@ -386,7 +383,7 @@ MonoBehaviour:
   _maximumSimultaneousTileLoads: 20
   _subTileCacheBytes: 16777216
   _ionAssetID: 2
-  _ionAccessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5ZGNmNTljZi0zMmY2LTQ0OTQtOWRlMS1hZmY0NmY3Yjg2NjEiLCJpZCI6MjU5LCJpYXQiOjE2NjQ0MTY1MDZ9.e3l3LykMjGexLoZxvRN0Cdr23EjCqVN7n5M8suyGPxM
+  _ionAccessToken: 
 --- !u!114 &161818294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,9 +413,6 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 1
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 0}
-  _useLodTransitions: 0
-  _lodTransitionLength: 0.5
-  _generateSmoothNormals: 0
   _suspendUpdate: 0
   _showTilesInHierarchy: 0
   _updateInEditor: 1
@@ -983,7 +977,7 @@ MonoBehaviour:
   _ecefZ: 4138350.2623599432
 --- !u!4 &819515654
 Transform:
-  m_ObjectHideFlags: 10
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
