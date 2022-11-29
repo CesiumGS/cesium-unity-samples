@@ -2,7 +2,7 @@
   "scopedRegistries": [
     {
       "name": "Cesium",
-      "url": "http://cesium-unity-packages.s3-website-us-east-1.amazonaws.com/",
+      "url": "https://unity.pkg.cesium.com",
       "scopes": ["com.cesium.unity"]
     }
   ],
