@@ -2,7 +2,7 @@
 
 # Cesium for Unity Samples
 
-The Cesium for Unity Samples is a starter project to learn and explore the [Cesium for Unity](https://cesium.com/platform/cesium-unity?utm_source=cesium-unity&utm_medium=github&utm_campaign=unity) plugin.
+The Cesium for Unity Samples is a starter project to learn and explore the [Cesium for Unity](https://cesium.com/platform/cesium-for-unity?utm_source=github&utm_medium=github&utm_campaign=unityy) plugin.
 
 The scenes in this project will walk you through the plugin's features and demonstrate global-scale content, applications, and experiences in Unity 3D.
 
@@ -11,7 +11,7 @@ The scenes in this project will walk you through the plugin's features and demon
 
 ### :rocket: Get Started
 
-1. **[Download Cesium for Unity Samples](https://github.com/CesiumGS/cesium-unity-samples/releases)**.
+1. **[Download Cesium for Unity Samples](https://github.com/CesiumGS/cesium-unity-samples/releases/latest)**.
 2. Extract the `.zip` file into a suitable location on your computer.
 3. If you have [Unity Hub](https://unity.com/unity-hub) installed, click the "Open" button under the "Projects" tab. Otherwise, open the Unity Editor directly and select "Open Project". Then, point it to the extracted directory. Unity will load the project and also download Cesium for Unity using the Package Manager.
 4. In the Asset Browser, select and load `Assets -> Scenes -> 01_CesiumWorld`. You can also select other scenes as you browse and explore the samples.
