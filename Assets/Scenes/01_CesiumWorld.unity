@@ -579,7 +579,7 @@ MonoBehaviour:
   _ecefZ: 3888494.7188496506
 --- !u!4 &819515654
 Transform:
-  m_ObjectHideFlags: 10
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
