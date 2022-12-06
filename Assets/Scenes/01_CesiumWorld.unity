@@ -185,7 +185,6 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 0
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 0}
-  _generateSmoothNormals: 0
   _suspendUpdate: 0
   _showTilesInHierarchy: 0
   _updateInEditor: 1
@@ -269,7 +268,6 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 0
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 0}
-  _generateSmoothNormals: 0
   _suspendUpdate: 0
   _showTilesInHierarchy: 0
   _updateInEditor: 1
@@ -552,7 +550,7 @@ GameObject:
   - component: {fileID: 819515654}
   - component: {fileID: 819515653}
   m_Layer: 0
-  m_Name: Cesium
+  m_Name: CesiumGeoreference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

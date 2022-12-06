@@ -619,7 +619,7 @@ GameObject:
   - component: {fileID: 819515654}
   - component: {fileID: 819515653}
   m_Layer: 0
-  m_Name: Cesium
+  m_Name: CesiumGeoreference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
