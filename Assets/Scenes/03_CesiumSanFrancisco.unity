@@ -756,7 +756,7 @@ GameObject:
   - component: {fileID: 1412293156}
   - component: {fileID: 1412293155}
   m_Layer: 0
-  m_Name: Cesium
+  m_Name: CesiumGeoreference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -796,7 +796,7 @@ Transform:
   - {fileID: 639430961}
   - {fileID: 2091011214}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1672146797
 PrefabInstance:
@@ -983,7 +983,7 @@ Transform:
   - {fileID: 1112646931}
   - {fileID: 58893796}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 23.176, z: 0}
 --- !u!1 &2091011212
 GameObject:
