@@ -1,6 +1,7 @@
 using CesiumForUnity;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Mathematics;
 
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -101,10 +102,10 @@ public class CesiumSamplesSubSceneManager : MonoBehaviour
     void FlyToSubScene(int index)
     {
        CesiumSubScene subScene = this.subScenes[index];
-        Vector3 coordinatesECEF = new Vector3(
-            (float)subScene.ecefX,
-            (float)subScene.ecefY,
-            (float)subScene.ecefZ);
+        double3 coordinatesECEF = new double3(
+            subScene.ecefX,
+            subScene.ecefY,
+            subScene.ecefZ);
 
         Vector2 pitchAndYaw = Vector2.zero;
         if(index < this.subScenePitchAndYaw.Count)
