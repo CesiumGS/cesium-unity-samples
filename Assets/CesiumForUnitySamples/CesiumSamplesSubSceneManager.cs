@@ -12,17 +12,19 @@ public class CesiumSamplesSubSceneManager : MonoBehaviour
     [Tooltip("The CesiumSubScenes to fly between at runtime." +
         "\n\n" +
         "Note that this script only handles four CesiumSubScenes. " +
-        "These can be flown to with the keyboard by pressing the " +
+        "These subscene locations can be flown to by pressing the " +
         "1, 2, 3, 4 keys.")]
     public List<CesiumSubScene> subScenes = new List<CesiumSubScene>();
 
-    [Tooltip("The desired pitch and yaw angles that the camera should have upon " +
+    [Tooltip("The desired yaw and pitch angles that the camera should have upon " +
         "flying to the target CesiumSubScene." +
         "\n\n" +
-        "The first element represents pitch, i.e. rotation around the X-axis. " +
-        "The second element represents yaw, i.e. rotation around the Y-axis. " +
+        "The first element represents yaw, i.e. horizontal rotation or " +
+        "rotation around the Y-axis.\n" +
+        "The second element represents yaw, i.e. vertical rotation or " +
+        "rotation around the Y-axis.\n" +
         "If no value is provided for a sub-scene, Vector2.zero is used by default.")]
-    public List<Vector2> subScenePitchAndYaw = new List<Vector2>();
+    public List<Vector2> subSceneYawAndPitch = new List<Vector2>();
 
     public CesiumCameraController cameraController;
 
@@ -33,11 +35,11 @@ public class CesiumSamplesSubSceneManager : MonoBehaviour
             this.subScenes.RemoveRange(4, this.subScenes.Count - 4);
         }
 
-        if (this.subScenePitchAndYaw.Count > this.subScenes.Count)
+        if (this.subSceneYawAndPitch.Count > this.subScenes.Count)
         {
-            this.subScenePitchAndYaw.RemoveRange(
+            this.subSceneYawAndPitch.RemoveRange(
                 this.subScenes.Count - 1,
-                this.subScenePitchAndYaw.Count - this.subScenes.Count);
+                this.subSceneYawAndPitch.Count - this.subScenes.Count);
         }
     }
 
@@ -55,10 +57,10 @@ public class CesiumSamplesSubSceneManager : MonoBehaviour
         }
 
         int index = (int)keyboardInput - 1;
-        FlyToSubScene(index);
+        this.FlyToSubScene(index);
     }
 
-    int? GetKeyboardInput()
+    static int? GetKeyboardInput()
     {
         #if ENABLE_INPUT_SYSTEM
         if (Keyboard.current.digit1Key.isPressed || Keyboard.current.numpad1Key.isPressed)
@@ -107,18 +109,18 @@ public class CesiumSamplesSubSceneManager : MonoBehaviour
             subScene.ecefY,
             subScene.ecefZ);
 
-        Vector2 pitchAndYaw = Vector2.zero;
-        if(index < this.subScenePitchAndYaw.Count)
+        Vector2 yawAndPitch = Vector2.zero;
+        if(index < this.subSceneYawAndPitch.Count)
         {
-            pitchAndYaw = this.subScenePitchAndYaw[index];
+            yawAndPitch = this.subSceneYawAndPitch[index];
         }
 
         if(this.cameraController != null)
         {
             this.cameraController.FlyToLocationEarthCenteredEarthFixed(
                 coordinatesECEF,
-                pitchAndYaw.y,
-                pitchAndYaw.x,
+                yawAndPitch.x,
+                yawAndPitch.y,
                 true);
         }
     }

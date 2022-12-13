@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 126742915}
   - component: {fileID: 126742916}
+  - component: {fileID: 126742917}
   m_Layer: 0
   m_Name: Cesium OSM Buildings
   m_TagString: Untagged
@@ -189,6 +190,18 @@ MonoBehaviour:
   _updateInEditor: 1
   _logSelectionStats: 0
   _createPhysicsMeshes: 1
+--- !u!114 &126742917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126742914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1942b8938da484cab4fe52e17a3cc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &161818292
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +556,7 @@ MonoBehaviour:
   _enableDynamicSpeed: 1
   _dynamicSpeedMinHeight: 20
   _enableDynamicClippingPlanes: 1
-  _dynamicClippingPlanesMinHeight: 2000
+  _dynamicClippingPlanesMinHeight: 10000
   _flyToAltitudeProfileCurve:
     serializedVersion: 2
     m_Curve:
