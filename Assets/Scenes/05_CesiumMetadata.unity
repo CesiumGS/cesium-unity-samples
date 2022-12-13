@@ -1098,7 +1098,7 @@ GameObject:
   - component: {fileID: 1646079158}
   - component: {fileID: 1646079157}
   m_Layer: 0
-  m_Name: Dynamic Camera
+  m_Name: DynamicCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
