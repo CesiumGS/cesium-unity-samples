@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/01_CesiumWorld.unity
     guid: f247585a97d347241b998d973481c4f5
   m_configObjects:
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c5bdd339397b37449a0ca8fd7d427f05,
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2ad2a2d3bd8b13e4184c24fd6372936b,
       type: 2}
-    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 5ea1830bd94aed442a4f7c91ae2e895e,
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 4c2f6452390c537449b82eb225874a40,
       type: 2}

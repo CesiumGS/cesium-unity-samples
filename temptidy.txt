@@ -1,0 +1,609 @@
+R=1 C=1: Returning doctype node <html> stream
+R=1 C=16: Returning starttag node <html> stream
+>>>Entering ParseHTML, count: 1, depth 1
+R=1 C=22: Returning starttag node <body> stream
+
+-->PUSH original: html @ 0000019AC63CE160
+         reentry: head @ 0000019AC63CEC60
+     stack depth: 0 @ 0000019B20513760
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseHTML at STATE_PARSE_HEAD, count: 1, depth 0
+>>>Enter ParseHead...
+R=1 C=22: Returning lex-token node <body> lexer
+<<<Exit ParseHead at bottom
+>>>Entering ParseHTML, count: 2, depth 1
+
+<--POP  original: html @ 0000019AC63CE160
+         reentry: head @ 0000019AC63CEC60
+     stack depth: 0 @ 0000019B20513760
+      register 1: 0
+      register 2: 0
+
+R=1 C=22: Returning lex-token node <body> lexer
+Before: HT20|HT32|H40S|H40T|H40F|H41S|H41T|H41F|X10S|X10T|X10F|XH11|XB10|----|HT50|XH50
+After : HT20|HT32|H40S|H40T|----|H41S|H41T|----|X10S|X10T|----|XH11|XB10|----|HT50|XH50
+
+-->PUSH original: html @ 0000019AC63CE160
+         reentry: none @ 0000000000000000
+     stack depth: 0 @ 0000019B20513760
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseHTML at STATE_PARSE_BODY, count: 2, depth 0
+>>>Enter ParseBody...
+After : ----|----|H40S|H40T|----|H41S|H41T|----|X10S|X10T|----|XH11|XB10|----|HT50|XH50
+R=1 C=28: Returning starttag node <span> stream
+---ParseBody got token span with mode 0
+After : ----|----|----|H40T|----|----|H41T|----|----|X10T|----|XH11|XB10|----|HT50|XH50
+
+-->PUSH original: body @ 0000019AC63CEBB0
+         reentry: span @ 0000019AC63CED10
+     stack depth: 1 @ 0000019B20513790
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseBody with a node to parse: span
+>>>Entering ParseInline 1...
+R=1 C=34: Returning starttag node <a href="https://cesium.com" target="_blank"> stream
+
+-->PUSH original: span @ 0000019AC63CED10
+         reentry: a @ 0000019AC63CE790
+     stack depth: 2 @ 0000019B205137C0
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseInline 1 with a node to parse: a
+>>>Entering ParseBlock 1... 1 a
+R=1 C=79: Returning starttag node <img alt="Cesium ion" src="https://assets.cesium.com/ion-credit.png"> stream
+---ParseBlock got token img with mode 0
+
+-->PUSH original: a @ 0000019AC63CE790
+         reentry: img @ 0000019AC63CEDC0
+     stack depth: 3 @ 0000019B205137F0
+      register 1: 0
+      register 2: 0
+
+<<<Leave ParseBlock to return node img
+
+<--POP  original: a @ 0000019AC63CE790
+         reentry: img @ 0000019AC63CEDC0
+     stack depth: 3 @ 0000019B205137F0
+      register 1: 0
+      register 2: 0
+
+>>>Re-Enter ParseBlock with img
+R=1 C=148: Returning endtag node <a> stream
+---ParseBlock got token a with mode 0
+<<<Exit ParseBlock 2 0...
+
+<--POP  original: span @ 0000019AC63CED10
+         reentry: a @ 0000019AC63CE790
+     stack depth: 2 @ 0000019B205137C0
+      register 1: 0
+      register 2: 0
+
+>>>Re-Enter ParseInline with a
+R=1 C=152: Returning endtag node <span> stream
+<<<Exit ParseInline 2 0...
+
+<--POP  original: body @ 0000019AC63CEBB0
+         reentry: span @ 0000019AC63CED10
+     stack depth: 1 @ 0000019B20513790
+      register 1: 0
+      register 2: 0
+
+>>>Re-Enter ParseBody with span
+R=1 C=159: Returning endtag node <body> stream
+---ParseBody got token body with mode 0
+R=1 C=166: Returning endtag node <html> stream
+---ParseBody got token html with mode 0
+Returning NULL...
+<<<Exit ParseBody at bottom
+
+<--POP  original: html @ 0000019AC63CE160
+         reentry: none @ 0000000000000000
+     stack depth: 0 @ 0000019B20513760
+      register 1: 0
+      register 2: 0
+
+Returning NULL...
+---ParseHTMLWithNode got token (null) with mode 0.
+After : ----|----|----|H40T|----|----|H41T|----|----|X10T|----|----|----|----|HT50|XH50
+R=1 C=1: Returning doctype node <html> stream
+R=1 C=16: Returning starttag node <html> stream
+>>>Entering ParseHTML, count: 3, depth 1
+R=1 C=22: Returning starttag node <body> stream
+
+-->PUSH original: html @ 0000019AC63CE790
+         reentry: head @ 0000019AC63CE160
+     stack depth: 0 @ 0000019B20517030
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseHTML at STATE_PARSE_HEAD, count: 3, depth 0
+>>>Enter ParseHead...
+R=1 C=22: Returning lex-token node <body> lexer
+<<<Exit ParseHead at bottom
+>>>Entering ParseHTML, count: 4, depth 1
+
+<--POP  original: html @ 0000019AC63CE790
+         reentry: head @ 0000019AC63CE160
+     stack depth: 0 @ 0000019B20517030
+      register 1: 0
+      register 2: 0
+
+R=1 C=22: Returning lex-token node <body> lexer
+After : HT20|HT32|H40S|H40T|----|H41S|H41T|----|X10S|X10T|----|XH11|XB10|----|HT50|XH50
+
+-->PUSH original: html @ 0000019AC63CE790
+         reentry: none @ 0000000000000000
+     stack depth: 0 @ 0000019B20517030
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseHTML at STATE_PARSE_BODY, count: 4, depth 0
+>>>Enter ParseBody...
+R=1 C=28: Returning starttag node <a href="https://cesium.com/pricing/" target="_blank"> stream
+---ParseBody got token a with mode 0
+After : ----|HT32|----|H40T|----|----|H41T|----|----|X10T|----|XH11|XB10|----|HT50|XH50
+
+-->PUSH original: body @ 0000019AC63CEC60
+         reentry: a @ 0000019AC63CED10
+     stack depth: 1 @ 0000019B20517060
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseBody with a node to parse: a
+>>>Entering ParseBlock 1... 2 a
+R=1 C=82: Returning text TextNode [Upgrade ...ial use.]27 stream
+---ParseBlock got token (null) with mode 0
+R=1 C=109: Returning endtag node <a> stream
+---ParseBlock got token a with mode 0
+<<<Exit ParseBlock 2 0...
+
+<--POP  original: body @ 0000019AC63CEC60
+         reentry: a @ 0000019AC63CED10
+     stack depth: 1 @ 0000019B20517060
+      register 1: 0
+      register 2: 0
+
+>>>Re-Enter ParseBody with a
+R=1 C=113: Returning endtag node <body> stream
+---ParseBody got token body with mode 0
+R=1 C=120: Returning endtag node <html> stream
+---ParseBody got token html with mode 0
+Returning NULL...
+<<<Exit ParseBody at bottom
+
+<--POP  original: html @ 0000019AC63CE790
+         reentry: none @ 0000000000000000
+     stack depth: 0 @ 0000019B20517030
+      register 1: 0
+      register 2: 0
+
+Returning NULL...
+---ParseHTMLWithNode got token (null) with mode 0.
+After : ----|----|----|H40T|----|----|H41T|----|----|X10T|----|----|----|----|HT50|XH50
+R=1 C=1: Returning doctype node <html> stream
+R=1 C=16: Returning starttag node <html> stream
+>>>Entering ParseHTML, count: 5, depth 1
+R=1 C=22: Returning starttag node <body> stream
+
+-->PUSH original: html @ 0000019AC63CEBB0
+         reentry: head @ 0000019AC63CE160
+     stack depth: 0 @ 0000019B20517030
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseHTML at STATE_PARSE_HEAD, count: 5, depth 0
+>>>Enter ParseHead...
+R=1 C=22: Returning lex-token node <body> lexer
+<<<Exit ParseHead at bottom
+>>>Entering ParseHTML, count: 6, depth 1
+
+<--POP  original: html @ 0000019AC63CEBB0
+         reentry: head @ 0000019AC63CE160
+     stack depth: 0 @ 0000019B20517030
+      register 1: 0
+      register 2: 0
+
+R=1 C=22: Returning lex-token node <body> lexer
+After : HT20|HT32|H40S|H40T|----|H41S|H41T|----|X10S|X10T|----|XH11|XB10|----|HT50|XH50
+
+-->PUSH original: html @ 0000019AC63CEBB0
+         reentry: none @ 0000000000000000
+     stack depth: 0 @ 0000019B20517030
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseHTML at STATE_PARSE_BODY, count: 6, depth 0
+>>>Enter ParseBody...
+R=1 C=28: Returning starttag node <a href="http://www.bing.com"> stream
+---ParseBody got token a with mode 0
+After : ----|HT32|----|H40T|----|----|H41T|----|----|X10T|----|XH11|XB10|----|HT50|XH50
+
+-->PUSH original: body @ 0000019AC63CEE70
+         reentry: a @ 0000019AC63CEC60
+     stack depth: 1 @ 0000019B20517060
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseBody with a node to parse: a
+>>>Entering ParseBlock 1... 3 a
+R=1 C=58: Returning starttag node <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAAATCAMAAAAj1DqpAAAAq1BMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////Nr6iZAAAAOHRSTlMABRRJ0xkgCix/uOGFYTMmHQh7EANWTQ2s5ZSLaURBzZB0blE6MPLav6SfiD81tJpl68kW98NauovCUzcAAAJxSURBVDjLtdTpcpswEADgFQiQzCnAYAMGzGUw+I6P93+yStC0djudZKaJ/kjaXb7RrADAsazAd4zH4xR7fP4G+HEXR/4OePYKozQog5oBqKb6pbCUbTKMcwUCXH4tvOxVizYJeJX3nzApZM9/gtcAl02PUIhAY8gho48UchERsWTMtjxAan0R29DeOXxiSLMtRzheTaQRVqPmTAfpGd7pJqT7iuWR0eLrwKNGdm6NdhAVpHfjPLKSPN6mAHac910AUCTr3OhMBHUUx3SEpbLhb93e3bER1hemO4sUkPFKWyzztMz2IdBNUd3Ob7KoqDMT+cd27UEQe0AqBlXngXtPGZBuQIYJSBnhy6V9iLEsJ1g/42VHJvjsABRLR8UGT82bEbYWPEhmBECJHBFgDi+nvVgeKYrnvy+vbN+EfJxaQUNFvu7DEd5q3NNVGctC1Ce4D0UHuClFKqAhcfu7Be5N5IYI0oOpvMPgGA1fmb96DMfGHuHDBJc4fYINARvKCPuJMR92Ww6PB01z8Il7kH/C6nrzeIWL0wtcbUQuaP6G1S2fw8UOaDK2QjyM5PsI2+bUCX01wb1DTLzQnlsRXlvC7P3bn/BBtTsJ/PnVAjpzANTtDjQfnL2AN20j2NOhRu9fXoY7G1bXgW1zBhBkKqzOeDbbTq2oqcYJV8C5g6hRJvRQg9vFt1tkIlQUJaUcnsbbPtCe/hU7vpHSi2/VPoCy4jvbTKr0VIkKjyCAkDAAxuu8eRFIxOOXVydFxTPkWAQenCY3MyX4eFCs/jPnu/OXfbBoeDOo8wHpy8lKpvoafRoG6YgXFYKP4GSj63gtwWfhHzl7Skq9JTshAAAAAElFTkSuQmCC" title="Bing Imagery"> stream
+---ParseBlock got token img with mode 0
+
+-->PUSH original: a @ 0000019AC63CEC60
+         reentry: img @ 0000019AC63CE210
+     stack depth: 2 @ 0000019B20517090
+      register 1: 0
+      register 2: 0
+
+<<<Leave ParseBlock to return node img
+
+<--POP  original: a @ 0000019AC63CEC60
+         reentry: img @ 0000019AC63CE210
+     stack depth: 2 @ 0000019B20517090
+      register 1: 0
+      register 2: 0
+
+>>>Re-Enter ParseBlock with img
+R=1 C=1358: Returning endtag node <a> stream
+---ParseBlock got token a with mode 0
+<<<Exit ParseBlock 2 0...
+
+<--POP  original: body @ 0000019AC63CEE70
+         reentry: a @ 0000019AC63CEC60
+     stack depth: 1 @ 0000019B20517060
+      register 1: 0
+      register 2: 0
+
+>>>Re-Enter ParseBody with a
+R=1 C=1362: Returning endtag node <body> stream
+---ParseBody got token body with mode 0
+R=1 C=1369: Returning endtag node <html> stream
+---ParseBody got token html with mode 0
+Returning NULL...
+<<<Exit ParseBody at bottom
+
+<--POP  original: html @ 0000019AC63CEBB0
+         reentry: none @ 0000000000000000
+     stack depth: 0 @ 0000019B20517030
+      register 1: 0
+      register 2: 0
+
+Returning NULL...
+---ParseHTMLWithNode got token (null) with mode 0.
+After : ----|----|----|H40T|----|----|H41T|----|----|X10T|----|XH11|XB10|----|HT50|XH50
+R=1 C=1: Returning doctype node <html> stream
+R=1 C=16: Returning starttag node <html> stream
+>>>Entering ParseHTML, count: 7, depth 1
+R=1 C=22: Returning starttag node <body> stream
+
+-->PUSH original: html @ 0000019AC63CEBB0
+         reentry: head @ 0000019AC63CED10
+     stack depth: 0 @ 0000019B20518FC0
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseHTML at STATE_PARSE_HEAD, count: 7, depth 0
+>>>Enter ParseHead...
+R=1 C=22: Returning lex-token node <body> lexer
+<<<Exit ParseHead at bottom
+>>>Entering ParseHTML, count: 8, depth 1
+
+<--POP  original: html @ 0000019AC63CEBB0
+         reentry: head @ 0000019AC63CED10
+     stack depth: 0 @ 0000019B20518FC0
+      register 1: 0
+      register 2: 0
+
+R=1 C=22: Returning lex-token node <body> lexer
+After : HT20|HT32|H40S|H40T|----|H41S|H41T|----|X10S|X10T|----|XH11|XB10|----|HT50|XH50
+
+-->PUSH original: html @ 0000019AC63CEBB0
+         reentry: none @ 0000000000000000
+     stack depth: 0 @ 0000019B20518FC0
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseHTML at STATE_PARSE_BODY, count: 8, depth 0
+>>>Enter ParseBody...
+R=1 C=28: Returning endtag node <body> stream
+---ParseBody got token body with mode 0
+R=1 C=35: Returning endtag node <html> stream
+---ParseBody got token html with mode 0
+Returning NULL...
+<<<Exit ParseBody at bottom
+
+<--POP  original: html @ 0000019AC63CEBB0
+         reentry: none @ 0000000000000000
+     stack depth: 0 @ 0000019B20518FC0
+      register 1: 0
+      register 2: 0
+
+Returning NULL...
+---ParseHTMLWithNode got token (null) with mode 0.
+R=1 C=1: Returning doctype node <html> stream
+R=1 C=16: Returning starttag node <html> stream
+>>>Entering ParseHTML, count: 9, depth 1
+R=1 C=22: Returning starttag node <body> stream
+
+-->PUSH original: html @ 0000019AC63CE370
+         reentry: head @ 0000019AC63CE580
+     stack depth: 0 @ 0000019B20517030
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseHTML at STATE_PARSE_HEAD, count: 9, depth 0
+>>>Enter ParseHead...
+R=1 C=22: Returning lex-token node <body> lexer
+<<<Exit ParseHead at bottom
+>>>Entering ParseHTML, count: 10, depth 1
+
+<--POP  original: html @ 0000019AC63CE370
+         reentry: head @ 0000019AC63CE580
+     stack depth: 0 @ 0000019B20517030
+      register 1: 0
+      register 2: 0
+
+R=1 C=22: Returning lex-token node <body> lexer
+After : HT20|HT32|H40S|H40T|----|H41S|H41T|----|X10S|X10T|----|XH11|XB10|----|HT50|XH50
+
+-->PUSH original: html @ 0000019AC63CE370
+         reentry: none @ 0000000000000000
+     stack depth: 0 @ 0000019B20517030
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseHTML at STATE_PARSE_BODY, count: 10, depth 0
+>>>Enter ParseBody...
+After : ----|----|H40S|H40T|----|H41S|H41T|----|X10S|X10T|----|XH11|XB10|----|HT50|XH50
+R=1 C=28: Returning starttag node <span> stream
+---ParseBody got token span with mode 0
+After : ----|----|----|H40T|----|----|H41T|----|----|X10T|----|XH11|XB10|----|HT50|XH50
+
+-->PUSH original: body @ 0000019AC63CE790
+         reentry: span @ 0000019AC63CEE70
+     stack depth: 1 @ 0000019B20517060
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseBody with a node to parse: span
+>>>Entering ParseInline 1...
+R=1 C=34: Returning text TextNode [Data ava...ustralia]272 stream
+R=1 C=305: Returning endtag node <span> stream
+<<<Exit ParseInline 2 0...
+
+<--POP  original: body @ 0000019AC63CE790
+         reentry: span @ 0000019AC63CEE70
+     stack depth: 1 @ 0000019B20517060
+      register 1: 0
+      register 2: 0
+
+>>>Re-Enter ParseBody with span
+R=1 C=312: Returning endtag node <body> stream
+---ParseBody got token body with mode 0
+R=1 C=319: Returning endtag node <html> stream
+---ParseBody got token html with mode 0
+Returning NULL...
+<<<Exit ParseBody at bottom
+
+<--POP  original: html @ 0000019AC63CE370
+         reentry: none @ 0000000000000000
+     stack depth: 0 @ 0000019B20517030
+      register 1: 0
+      register 2: 0
+
+Returning NULL...
+---ParseHTMLWithNode got token (null) with mode 0.
+R=1 C=1: Returning doctype node <html> stream
+R=1 C=16: Returning starttag node <html> stream
+>>>Entering ParseHTML, count: 11, depth 1
+R=1 C=22: Returning starttag node <body> stream
+
+-->PUSH original: html @ 0000019B19CE46C0
+         reentry: head @ 0000019B19CE4820
+     stack depth: 0 @ 0000019B20519C60
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseHTML at STATE_PARSE_HEAD, count: 11, depth 0
+>>>Enter ParseHead...
+R=1 C=22: Returning lex-token node <body> lexer
+<<<Exit ParseHead at bottom
+>>>Entering ParseHTML, count: 12, depth 1
+
+<--POP  original: html @ 0000019B19CE46C0
+         reentry: head @ 0000019B19CE4820
+     stack depth: 0 @ 0000019B20519C60
+      register 1: 0
+      register 2: 0
+
+R=1 C=22: Returning lex-token node <body> lexer
+After : HT20|HT32|H40S|H40T|----|H41S|H41T|----|X10S|X10T|----|XH11|XB10|----|HT50|XH50
+
+-->PUSH original: html @ 0000019B19CE46C0
+         reentry: none @ 0000000000000000
+     stack depth: 0 @ 0000019B20519C60
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseHTML at STATE_PARSE_BODY, count: 12, depth 0
+>>>Enter ParseBody...
+R=1 C=28: Returning text TextNode [© 2022 ...poration]29 stream
+---ParseBody got token (null) with mode 0
+After : ----|HT32|----|H40T|----|----|H41T|----|----|X10T|----|XH11|XB10|----|HT50|XH50
+R=1 C=56: Returning endtag node <body> stream
+---ParseBody got token body with mode 0
+R=1 C=63: Returning endtag node <html> stream
+---ParseBody got token html with mode 0
+Returning NULL...
+<<<Exit ParseBody at bottom
+
+<--POP  original: html @ 0000019B19CE46C0
+         reentry: none @ 0000000000000000
+     stack depth: 0 @ 0000019B20519C60
+      register 1: 0
+      register 2: 0
+
+Returning NULL...
+---ParseHTMLWithNode got token (null) with mode 0.
+R=1 C=1: Returning doctype node <html> stream
+R=1 C=16: Returning starttag node <html> stream
+>>>Entering ParseHTML, count: 13, depth 1
+R=1 C=22: Returning starttag node <body> stream
+
+-->PUSH original: html @ 0000019B19CE4140
+         reentry: head @ 0000019B19CE4E50
+     stack depth: 0 @ 0000019B20518FC0
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseHTML at STATE_PARSE_HEAD, count: 13, depth 0
+>>>Enter ParseHead...
+R=1 C=22: Returning lex-token node <body> lexer
+<<<Exit ParseHead at bottom
+>>>Entering ParseHTML, count: 14, depth 1
+
+<--POP  original: html @ 0000019B19CE4140
+         reentry: head @ 0000019B19CE4E50
+     stack depth: 0 @ 0000019B20518FC0
+      register 1: 0
+      register 2: 0
+
+R=1 C=22: Returning lex-token node <body> lexer
+After : HT20|HT32|H40S|H40T|----|H41S|H41T|----|X10S|X10T|----|XH11|XB10|----|HT50|XH50
+
+-->PUSH original: html @ 0000019B19CE4140
+         reentry: none @ 0000000000000000
+     stack depth: 0 @ 0000019B20518FC0
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseHTML at STATE_PARSE_BODY, count: 14, depth 0
+>>>Enter ParseBody...
+R=1 C=51: Returning text TextNode [Earthsta...hics SIO]25 stream
+---ParseBody got token (null) with mode 0
+After : ----|HT32|----|H40T|----|----|H41T|----|----|X10T|----|XH11|XB10|----|HT50|XH50
+R=1 C=54: Returning endtag node <body> stream
+---ParseBody got token body with mode 0
+R=1 C=61: Returning endtag node <html> stream
+---ParseBody got token html with mode 0
+Returning NULL...
+<<<Exit ParseBody at bottom
+
+<--POP  original: html @ 0000019B19CE4140
+         reentry: none @ 0000000000000000
+     stack depth: 0 @ 0000019B20518FC0
+      register 1: 0
+      register 2: 0
+
+Returning NULL...
+---ParseHTMLWithNode got token (null) with mode 0.
+R=1 C=1: Returning doctype node <html> stream
+R=1 C=16: Returning starttag node <html> stream
+>>>Entering ParseHTML, count: 15, depth 1
+R=1 C=22: Returning starttag node <body> stream
+
+-->PUSH original: html @ 0000019B247BADD0
+         reentry: head @ 0000019B1E00AC50
+     stack depth: 0 @ 0000019B20517030
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseHTML at STATE_PARSE_HEAD, count: 15, depth 0
+>>>Enter ParseHead...
+R=1 C=22: Returning lex-token node <body> lexer
+<<<Exit ParseHead at bottom
+>>>Entering ParseHTML, count: 16, depth 1
+
+<--POP  original: html @ 0000019B247BADD0
+         reentry: head @ 0000019B1E00AC50
+     stack depth: 0 @ 0000019B20517030
+      register 1: 0
+      register 2: 0
+
+R=1 C=22: Returning lex-token node <body> lexer
+After : HT20|HT32|H40S|H40T|----|H41S|H41T|----|X10S|X10T|----|XH11|XB10|----|HT50|XH50
+
+-->PUSH original: html @ 0000019B247BADD0
+         reentry: none @ 0000000000000000
+     stack depth: 0 @ 0000019B20517030
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseHTML at STATE_PARSE_BODY, count: 16, depth 0
+>>>Enter ParseBody...
+R=1 C=28: Returning text TextNode [© 2022 Maxar]13 stream
+---ParseBody got token (null) with mode 0
+After : ----|HT32|----|H40T|----|----|H41T|----|----|X10T|----|XH11|XB10|----|HT50|XH50
+R=1 C=40: Returning endtag node <body> stream
+---ParseBody got token body with mode 0
+R=1 C=47: Returning endtag node <html> stream
+---ParseBody got token html with mode 0
+Returning NULL...
+<<<Exit ParseBody at bottom
+
+<--POP  original: html @ 0000019B247BADD0
+         reentry: none @ 0000000000000000
+     stack depth: 0 @ 0000019B20517030
+      register 1: 0
+      register 2: 0
+
+Returning NULL...
+---ParseHTMLWithNode got token (null) with mode 0.
+R=1 C=1: Returning doctype node <html> stream
+R=1 C=16: Returning starttag node <html> stream
+>>>Entering ParseHTML, count: 17, depth 1
+R=1 C=22: Returning starttag node <body> stream
+
+-->PUSH original: html @ 0000019B1E00A4C0
+         reentry: head @ 0000019B1E00A6D0
+     stack depth: 0 @ 0000019B20517030
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseHTML at STATE_PARSE_HEAD, count: 17, depth 0
+>>>Enter ParseHead...
+R=1 C=22: Returning lex-token node <body> lexer
+<<<Exit ParseHead at bottom
+>>>Entering ParseHTML, count: 18, depth 1
+
+<--POP  original: html @ 0000019B1E00A4C0
+         reentry: head @ 0000019B1E00A6D0
+     stack depth: 0 @ 0000019B20517030
+      register 1: 0
+      register 2: 0
+
+R=1 C=22: Returning lex-token node <body> lexer
+After : HT20|HT32|H40S|H40T|----|H41S|H41T|----|X10S|X10T|----|XH11|XB10|----|HT50|XH50
+
+-->PUSH original: html @ 0000019B1E00A4C0
+         reentry: none @ 0000000000000000
+     stack depth: 0 @ 0000019B20517030
+      register 1: 0
+      register 2: 0
+
+<<<Exiting ParseHTML at STATE_PARSE_BODY, count: 18, depth 0
+>>>Enter ParseBody...
+R=1 C=28: Returning text TextNode [©CNES (...irbus DS]36 stream
+---ParseBody got token (null) with mode 0
+After : ----|HT32|----|H40T|----|----|H41T|----|----|X10T|----|XH11|XB10|----|HT50|XH50
+R=1 C=63: Returning endtag node <body> stream
+---ParseBody got token body with mode 0
+R=1 C=70: Returning endtag node <html> stream
+---ParseBody got token html with mode 0
+Returning NULL...
+<<<Exit ParseBody at bottom
+
+<--POP  original: html @ 0000019B1E00A4C0
+         reentry: none @ 0000000000000000
+     stack depth: 0 @ 0000019B20517030
+      register 1: 0
+      register 2: 0
+
+Returning NULL...
+---ParseHTMLWithNode got token (null) with mode 0.
