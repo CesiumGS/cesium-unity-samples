@@ -102,6 +102,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _Blend: 0
+    - _BuildingSmoothness: 0.5
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -120,12 +121,16 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Scale: 2
+    - _RoofLightenDarken: -0
+    - _Scale: 3
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _WindowEmissiveBrightness: 0.1
+    - _WindowScale: 2
+    - _WindowSmoothness: 0.9
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _buildingSmoothness: 0.5
@@ -135,6 +140,8 @@ Material:
     - _BuildingColor: {r: 0.8396226, g: 0.8118992, b: 0.8118992, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _RoofColor: {r: 0.13383976, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _WindowColor: {r: 0.30188674, g: 0.29761478, b: 0.29761478, a: 0}
+    - _WindowColor: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 0}
+    - _WindowEmissiveColor: {r: 0.9150943, g: 0.8649346, b: 0.73811847, a: 0}
   m_BuildTextureStacks: []
