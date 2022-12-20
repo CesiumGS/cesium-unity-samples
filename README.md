@@ -43,7 +43,7 @@ Grab some cool screenshots to share with us as you explore and customize the sce
 ![Photogrammetry of the Ferry Building in San Francisco, CA captured by [Aerometrex](https://aerometrex.com.au/) and visualized in Unity 3D using Cesium for Unity.](Images~/ferry_building.jpg)
 *<p align="center">Photogrammetry of the Ferry Building in San Francisco, CA captured by [Aerometrex](https://aerometrex.com.au/).<br>Open <b>03_CesiumSanFrancisco</b> in the Cesium for Unity Samples to walk around the dataset.</p>*
 
-### :four: Level 4 - Metadata
+### :four: Level 4 - Using Subscenes to Explore the World
 
 With Cesium for Unity, you can build experiences in different locations around the world, without even changing scenes. In this level, we've added a few locations around the world that you can explore. Enter play mode and jump between locations by pressing the 1-4 keys on your keyboard. These levels are loaded in and georeferenced using the `CesiumSubScene` component.
 
