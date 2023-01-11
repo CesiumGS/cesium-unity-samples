@@ -26,7 +26,7 @@ public class CesiumSamplesSubSceneManager : MonoBehaviour
         "If no value is provided for a sub-scene, Vector2.zero is used by default.")]
     public List<Vector2> subSceneYawAndPitch = new List<Vector2>();
 
-    public CesiumCameraController cameraController;
+    public CesiumFlyToController flyToController;
 
     private void OnValidate()
     {
@@ -59,41 +59,58 @@ public class CesiumSamplesSubSceneManager : MonoBehaviour
         int index = (int)keyboardInput - 1;
         this.FlyToSubScene(index);
     }
+    static bool GetKey1Down()
+    {
+        #if ENABLE_INPUT_SYSTEM
+        return Keyboard.current.digit1Key.isPressed || Keyboard.current.numpad1Key.isPressed;
+        #elif ENABLE_LEGACY_INPUT_MANAGER
+        return Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
+        #endif
+    }
+
+    static bool GetKey2Down()
+    {
+        #if ENABLE_INPUT_SYSTEM
+        return Keyboard.current.digit2Key.isPressed || Keyboard.current.numpad2Key.isPressed;
+        #elif ENABLE_LEGACY_INPUT_MANAGER
+        return Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
+        #endif
+    }
+    static bool GetKey3Down()
+    {
+        #if ENABLE_INPUT_SYSTEM
+        return Keyboard.current.digit3Key.isPressed || Keyboard.current.numpad3Key.isPressed;
+        #elif ENABLE_LEGACY_INPUT_MANAGER
+        return Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
+        #endif
+    }
+    static bool GetKey4Down()
+    {
+        #if ENABLE_INPUT_SYSTEM
+        return Keyboard.current.digit4Key.isPressed || Keyboard.current.numpad4Key.isPressed;
+        #elif ENABLE_LEGACY_INPUT_MANAGER
+        return Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))
+        #endif
+    }
 
     static int? GetKeyboardInput()
     {
-        #if ENABLE_INPUT_SYSTEM
-        if (Keyboard.current.digit1Key.isPressed || Keyboard.current.numpad1Key.isPressed)
-        #elif ENABLE_LEGACY_INPUT_MANAGER
-        if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
-        #endif
+        if(GetKey1Down())
         {
             return 1;
         }
 
-        #if ENABLE_INPUT_SYSTEM
-        if (Keyboard.current.digit2Key.isPressed || Keyboard.current.numpad2Key.isPressed)
-        #elif ENABLE_LEGACY_INPUT_MANAGER
-        if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
-        #endif
+        if (GetKey2Down())
         {
             return 2;
         }
 
-        #if ENABLE_INPUT_SYSTEM
-        if (Keyboard.current.digit3Key.isPressed || Keyboard.current.numpad3Key.isPressed)
-        #elif ENABLE_LEGACY_INPUT_MANAGER
-        if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
-        #endif
+        if (GetKey3Down())
         {
             return 3;
         }
 
-        #if ENABLE_INPUT_SYSTEM
-        if (Keyboard.current.digit4Key.isPressed || Keyboard.current.numpad4Key.isPressed)
-        #elif ENABLE_LEGACY_INPUT_MANAGER
-        if (Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))
-        #endif
+        if (GetKey4Down())
         {
             return 4;
         }
@@ -115,9 +132,9 @@ public class CesiumSamplesSubSceneManager : MonoBehaviour
             yawAndPitch = this.subSceneYawAndPitch[index];
         }
 
-        if(this.cameraController != null)
+        if(this.flyToController != null)
         {
-            this.cameraController.FlyToLocationEarthCenteredEarthFixed(
+            this.flyToController.FlyToLocationEarthCenteredEarthFixed(
                 coordinatesECEF,
                 yawAndPitch.x,
                 yawAndPitch.y,
