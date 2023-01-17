@@ -671,14 +671,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873770202}
-  m_LocalRotation: {x: -0.009777859, y: 0.21203023, z: -0.009969119, w: 0.9771634}
-  m_LocalPosition: {x: 245, y: 38, z: -1769}
+  m_LocalRotation: {x: 0.056999065, y: 0.24350385, z: -0.014337286, w: 0.9681175}
+  m_LocalPosition: {x: 252.2, y: 54.5, z: -1777.8}
   m_LocalScale: {x: 1, y: 1.0000004, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 819515654}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -0.853, y: 24.495, z: -1.354}
+  m_LocalEulerAnglesHint: {x: 6.739, y: 28.237, z: 0}
 --- !u!114 &1873770204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -801,15 +801,15 @@ MonoBehaviour:
   _adjustOrientationForGlobeWhenMoving: 1
   _detectTransformChanges: 1
   _positionAuthority: 3
-  _latitude: -37.825808457190305
-  _longitude: 144.95432075416468
-  _height: 178.5855806970893
-  _ecefX: -4129863.974103609
-  _ecefY: 2896671.4807112324
-  _ecefZ: -3890299.733376271
-  _unityX: 245
-  _unityY: 38
-  _unityZ: -1769
+  _latitude: -37.8258876960437
+  _longitude: 144.95440252868877
+  _height: 195.08831360608974
+  _ecefX: -4129874.364274235
+  _ecefY: 2896669.9743066328
+  _ecefZ: -3890316.801062552
+  _unityX: 252.1999969482422
+  _unityY: 54.5
+  _unityZ: -1777.800048828125
 --- !u!114 &1873770207
 MonoBehaviour:
   m_ObjectHideFlags: 0
