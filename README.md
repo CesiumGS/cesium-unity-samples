@@ -43,12 +43,18 @@ Grab some cool screenshots to share with us as you explore and customize the sce
 ![Photogrammetry of the Ferry Building in San Francisco, CA captured by [Aerometrex](https://aerometrex.com.au/) and visualized in Unity 3D using Cesium for Unity.](Images~/ferry_building.jpg)
 *<p align="center">Photogrammetry of the Ferry Building in San Francisco, CA captured by [Aerometrex](https://aerometrex.com.au/).<br>Open <b>03_CesiumSanFrancisco</b> in the Cesium for Unity Samples to walk around the dataset.</p>*
 
-### :four: Level 4 - Metadata
+### :four: Level 4 - Using Subscenes to Explore the World
+
+With Cesium for Unity, you can build experiences in different locations around the world, without even changing scenes. In this level, we've added a few locations around the world that you can explore. Enter play mode and jump between locations by pressing the 1-4 keys on your keyboard. These levels are loaded in and georeferenced using the `CesiumSubScene` component.
+
+You can also add your own locations, like your hometown or your favorite vacation spot.
+
+### :five: Level 5 - Metadata
 
 Cesium for Unity enables you to access metadata encoded in your 3D Tiles datasets. In this scene, explore the buildings in New York City and see what information is included in the tileset about each building.
 
 ![Metadata of New York City buildings visualized.](Images~/metadata.jpg)
-*<p align="center">Metadata of New York City buildings visualized.<br>Open <b>04_CesiumMetadata</b> in the Cesium for Unity Samples to explore the New York City buildings' metadata.</p>*
+*<p align="center">Metadata of New York City buildings visualized.<br>Open <b>05_CesiumMetadata</b> in the Cesium for Unity Samples to explore the New York City buildings' metadata.</p>*
 
 ### :goggles: :one: VR Level 1 - Denver Photogrammetry
 
