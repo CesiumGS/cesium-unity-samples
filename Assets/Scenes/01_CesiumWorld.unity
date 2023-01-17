@@ -824,16 +824,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _adjustOrientationForGlobeWhenMoving: 1
   _detectTransformChanges: 1
-  _positionAuthority: 3
+  _positionAuthority: 2
   _latitude: 37.792430588658114
   _longitude: -122.3768792710714
   _height: 125.69655911223805
   _ecefX: -2702426.6749069183
   _ecefY: -4262143.720191068
   _ecefZ: 3887340.310637725
-  _unityX: 104
-  _unityY: -187
-  _unityZ: -1316
+  _unityX: 104.00000000046569
+  _unityY: -186.99999999906868
+  _unityZ: -1315.9999999995343
 --- !u!114 &1961636179
 MonoBehaviour:
   m_ObjectHideFlags: 0
