@@ -867,7 +867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _adjustOrientationForGlobeWhenMoving: 1
   _detectTransformChanges: 1
-  _positionAuthority: 3
+  _positionAuthority: 2
   _latitude: 40.710295999902705
   _longitude: -74.007328
   _height: 348.05268076377445
@@ -875,7 +875,7 @@ MonoBehaviour:
   _ecefY: -4654503.72848886
   _ecefZ: 4138316.47659845
   _unityX: 0
-  _unityY: -51.79999923706055
+  _unityY: -51.799999236129224
   _unityZ: 0
 --- !u!114 &1574618767
 MonoBehaviour:
