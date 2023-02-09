@@ -57,14 +57,13 @@ public class CesiumSamplesMetadataPicking : MonoBehaviour
                 CesiumMetadata metadata = hit.transform.GetComponentInParent<CesiumMetadata>();
                 if (metadata != null)
                 {
-                    CesiumMetadata.Feature[] features = metadata.GetFeatures(hit.transform, hit.triangleIndex);
+                    CesiumFeature[] features = metadata.GetFeatures(hit.transform, hit.triangleIndex);
                     // List out each metadata property in the UI.
                     foreach (var feature in features)
                     {
-                        foreach (var property in feature.properties.Values)
+                        foreach (var propertyName in feature.properties)
                         {
-                            string propertyName = property.GetPropertyName();
-                            string propertyValue = property.GetString("null");
+                            string propertyValue = feature.GetString(propertyName, "null");
                             if (propertyValue != "null" && propertyValue != "")
                             {
                                 metadataText.text += "<b>" + propertyName + "</b>" + ": "
