@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d32e60d18ac734197b079b61b10ce0, type: 3}
+  m_Name: CesiumRuntimeSettings
+  m_EditorClassIdentifier: 
+  _defaultIonAccessTokenID: 080474e6-7ae3-4ea6-9346-1e466ffefd0f
+  _defaultIonAccessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIwODA0NzRlNi03YWUzLTRlYTYtOTM0Ni0xZTQ2NmZmZWZkMGYiLCJpZCI6MjU5LCJpYXQiOjE2NzUyNTAwMjN9.zscqj3hbjfTTDYMVK7fney9RcsmYtKDFSAvJFDItsgk
