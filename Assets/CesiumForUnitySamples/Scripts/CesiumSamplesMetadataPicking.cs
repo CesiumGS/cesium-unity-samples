@@ -29,8 +29,16 @@ public class CesiumSamplesMetadataPicking : MonoBehaviour
 
     void Update()
     {
-        #if ENABLE_INPUT_SYSTEM
-        bool getMetadata = Mouse.current.leftButton.isPressed;
+#if ENABLE_INPUT_SYSTEM
+        bool getMetadata = false;
+        if (Mouse.current != null)
+        {
+            getMetadata = Mouse.current.leftButton.isPressed;
+        }
+        else if(Gamepad.current != null)
+        {
+            getMetadata = Gamepad.current.rightShoulder.isPressed;
+        }
         #elif ENABLE_LEGACY_INPUT_MANAGER
         bool getMetadata = Input.GetMouseButtonDown(0);
         #endif
@@ -49,18 +57,18 @@ public class CesiumSamplesMetadataPicking : MonoBehaviour
                 CesiumMetadata metadata = hit.transform.GetComponentInParent<CesiumMetadata>();
                 if (metadata != null)
                 {
-                    MetadataProperty[] properties =
-                        metadata.GetProperties(hit.transform, hit.triangleIndex);
-
+                    CesiumFeature[] features = metadata.GetFeatures(hit.transform, hit.triangleIndex);
                     // List out each metadata property in the UI.
-                    foreach (MetadataProperty property in properties)
+                    foreach (var feature in features)
                     {
-                        string propertyName = property.GetPropertyName();
-                        string propertyValue = property.GetString("null");
-                        if (propertyValue != "null" && propertyValue != "")
+                        foreach (var propertyName in feature.properties)
                         {
-                            metadataText.text += "<b>" + propertyName + "</b>" + ": "
-                                + propertyValue + "\n";
+                            string propertyValue = feature.GetString(propertyName, "null");
+                            if (propertyValue != "null" && propertyValue != "")
+                            {
+                                metadataText.text += "<b>" + propertyName + "</b>" + ": "
+                                    + propertyValue + "\n";
+                            }
                         }
                     }
                 }
