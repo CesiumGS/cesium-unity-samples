@@ -579,7 +579,7 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 0
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 0}
-  _suspendUpdate: 1
+  _suspendUpdate: 0
   _showTilesInHierarchy: 0
   _updateInEditor: 1
   _logSelectionStats: 0
@@ -1104,26 +1104,25 @@ PrefabInstance:
     - target: {fileID: 7752603225714643755, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_text
-      value: 'You may recognize this Melbourne cityscape from the 02_CesiumMelbourne
-        level. However, everything in this dataset is a collection of points; there
-        are no triangle meshes. Cesium for Unity supports rendering point cloud 3D
-        Tilesets in addition to terrain and photogrammetry datasets.
+      value: 'In this scene, explore several point cloud datasets around the world.
+        Cesium for Unity supports rendering point cloud 3D Tilesets in addition to
+        terrain and photogrammetry datasets.
 
 
-        Use
-        the following keys in play mode to visit the following point cloud datasets.
+        Use the following keys in
+        play mode to visit the following point cloud datasets.
 
 
-        "1"
-        - Melbourne
+        "1" - Melbourne
 
-        "2" - Mount St. Helens
+        "2"
+        - Mount St. Helens
 
         "3" - Church in France
 
 
-        The
-        Mount St. Helens tileset was generated from LAS data provided by https://liblas.org. 
+        The Mount St.
+        Helens tileset was generated from LAS data provided by https://liblas.org. 
         The Chappes Cathedral point cloud is from Prof. Peter Allen, Columbia University
         Robotics Lab. Scanning by Alejandro Troccoli and Matei Ciocarlie.
 
@@ -1244,7 +1243,7 @@ PrefabInstance:
     - target: {fileID: 7752603227654311266, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 200
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 7752603227654311266, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
