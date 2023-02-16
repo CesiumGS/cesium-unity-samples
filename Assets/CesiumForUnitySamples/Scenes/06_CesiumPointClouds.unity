@@ -177,7 +177,7 @@ MonoBehaviour:
   _url: 
   _ionAssetID: 1
   _ionAccessToken: 
-  _maximumScreenSpaceError: 32
+  _maximumScreenSpaceError: 16
   _preloadAncestors: 1
   _preloadSiblings: 1
   _forbidHoles: 0
@@ -579,7 +579,7 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 0
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 0}
-  _suspendUpdate: 0
+  _suspendUpdate: 1
   _showTilesInHierarchy: 0
   _updateInEditor: 1
   _logSelectionStats: 0
