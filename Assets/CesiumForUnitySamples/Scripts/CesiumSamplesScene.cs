@@ -51,7 +51,7 @@ static class CesiumSamplesSceneManager
             {
                 int classId = (int)ClassId.GetValue(annotation);
                 string scriptClass = (string)ScriptClass.GetValue(annotation);
-                if(scriptClass == "TextMeshPro" || scriptClass == "TextMeshProUGUI")
+                if (scriptClass == "TextMeshPro" || scriptClass == "TextMeshProUGUI")
                 {
                     SetIconEnabled.Invoke(
                         null,
@@ -64,12 +64,12 @@ static class CesiumSamplesSceneManager
     static void ResetSceneViewCamera(Scene scene, OpenSceneMode mode)
     {
         GameObject[] gameObjects = scene.GetRootGameObjects();
-        for(int i = 0; i < gameObjects.Length; i++)
+        for (int i = 0; i < gameObjects.Length; i++)
         {
             CesiumSamplesScene sampleScene =
                 gameObjects[i].GetComponent<CesiumSamplesScene>();
 
-            if(sampleScene != null)
+            if (sampleScene != null)
             {
                 EditorApplication.update += sampleScene.ResetSceneViewOnLoad;
                 return;
@@ -120,16 +120,22 @@ class CesiumSamplesScene : MonoBehaviour
 
         for (int i = 0; i < this._objectsToDisable.Count; i++)
         {
-            this._objectsToDisable[i].SetActive(false);
+            if (this._objectsToDisable[i] != null)
+            {
+                this._objectsToDisable[i].SetActive(false);
+            }
         }
 
         for (int i = 0; i < this._objectsToEnable.Count; i++)
         {
-            this._objectsToEnable[i].SetActive(true);
+            if(this._objectsToEnable[i] != null)
+            {
+                this._objectsToEnable[i].SetActive(true);
+            }
         }
     }
 
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
     void Update()
     {
         #if ENABLE_INPUT_SYSTEM
@@ -138,7 +144,7 @@ class CesiumSamplesScene : MonoBehaviour
         #elif ENABLE_LEGACY_INPUT_MANAGER
         bool resetView = Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1);
         #endif
-        
+
         if (resetView && EditorWindow.focusedWindow == SceneView.lastActiveSceneView)
         {
             ResetSceneView();
@@ -158,5 +164,5 @@ class CesiumSamplesScene : MonoBehaviour
         ResetSceneView();
         EditorApplication.update -= ResetSceneViewOnLoad;
     }
-    #endif
+#endif
 }
