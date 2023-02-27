@@ -721,7 +721,7 @@ GameObject:
   - component: {fileID: 1574618769}
   - component: {fileID: 1574618768}
   - component: {fileID: 1574618767}
-  - component: {fileID: 1574618766}
+  - component: {fileID: 1574618771}
   - component: {fileID: 1574618765}
   - component: {fileID: 1574618764}
   m_Layer: 0
@@ -738,7 +738,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574618762}
-  m_LocalRotation: {x: -0.0000000013969504, y: -0.29198956, z: -4.2648052e-10, w: 0.95642155}
+  m_LocalRotation: {x: -0.0000000013969507, y: -0.2919896, z: -4.2648057e-10, w: 0.95642155}
   m_LocalPosition: {x: 0, y: -51.8, z: 0}
   m_LocalScale: {x: 1, y: 1.0000004, z: 1}
   m_ConstrainProportionsScale: 0
@@ -853,30 +853,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bef32f31a547984f88be1ab98b65f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1574618766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1574618762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f433d33c11d379a4a97ac9a1cdede88c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _adjustOrientationForGlobeWhenMoving: 1
-  _detectTransformChanges: 1
-  _positionAuthority: 2
-  _latitude: 40.710295999902705
-  _longitude: -74.007328
-  _height: 348.05268076377445
-  _ecefX: 1334013.242975212
-  _ecefY: -4654503.72848886
-  _ecefZ: 4138316.47659845
-  _unityX: 0
-  _unityY: -51.799999236129224
-  _unityZ: 0
 --- !u!114 &1574618767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -980,6 +956,42 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1574618771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574618762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f14e1eb550b9a4fb6c0a2f0456845b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _adjustOrientationForGlobeWhenMoving: 1
+  _detectTransformChanges: 1
+  _localToGlobeFixedMatrix:
+    c0:
+      x: 0.6970126848367121
+      y: 0.5787284435273101
+      z: 0.42337541056678896
+      w: 0
+    c1:
+      x: 0.20884468527136005
+      y: -0.7286796915169298
+      z: 0.6522350188854962
+      w: 0
+    c2:
+      x: -0.6859717755386464
+      y: 0.36619624632446635
+      z: 0.6287631229530319
+      w: 0
+    c3:
+      x: 1334013.242975212
+      y: -4654503.72848886
+      z: 4138316.47659845
+      w: 1
+  _localToGlobeFixedMatrixIsValid: 1
 --- !u!1001 &1842346980
 PrefabInstance:
   m_ObjectHideFlags: 0

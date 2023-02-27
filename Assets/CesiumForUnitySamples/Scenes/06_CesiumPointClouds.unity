@@ -830,7 +830,7 @@ GameObject:
   - component: {fileID: 1873770209}
   - component: {fileID: 1873770208}
   - component: {fileID: 1873770207}
-  - component: {fileID: 1873770206}
+  - component: {fileID: 1873770211}
   - component: {fileID: 1873770205}
   - component: {fileID: 1873770204}
   m_Layer: 0
@@ -847,7 +847,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873770202}
-  m_LocalRotation: {x: 0.056962464, y: 0.24350479, z: -0.014324027, w: 0.9681196}
+  m_LocalRotation: {x: 0.056962468, y: 0.2435048, z: -0.014324028, w: 0.96811956}
   m_LocalPosition: {x: -27, y: 191.8, z: -2189.8}
   m_LocalScale: {x: 1.0000002, y: 1.0000004, z: 1}
   m_ConstrainProportionsScale: 0
@@ -962,30 +962,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bef32f31a547984f88be1ab98b65f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1873770206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1873770202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f433d33c11d379a4a97ac9a1cdede88c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _adjustOrientationForGlobeWhenMoving: 1
-  _detectTransformChanges: 1
-  _positionAuthority: 3
-  _latitude: -37.829599129024366
-  _longitude: 144.95123132083654
-  _height: 332.5118741389954
-  _ecefX: -4129596.058463356
-  _ecefY: 2896815.793827935
-  _ecefZ: -3890726.4722379744
-  _unityX: -27
-  _unityY: 191.8000030517578
-  _unityZ: -2189.800048828125
 --- !u!114 &1873770207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1089,6 +1065,42 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1873770211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873770202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f14e1eb550b9a4fb6c0a2f0456845b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _adjustOrientationForGlobeWhenMoving: 1
+  _detectTransformChanges: 1
+  _localToGlobeFixedMatrix:
+    c0:
+      x: -0.26848940205006033
+      y: -0.8878040408270214
+      z: -0.37378860759860777
+      w: 0
+    c1:
+      x: -0.7260352902998191
+      y: 0.44152722350451906
+      z: -0.527187997372806
+      w: 0
+    c2:
+      x: -0.6330771039827519
+      y: -0.1298392523690547
+      z: 0.7631219890994262
+      w: 0
+    c3:
+      x: -4129596.058463356
+      y: 2896815.7938279356
+      z: -3890726.4722379744
+      w: 1
+  _localToGlobeFixedMatrixIsValid: 1
 --- !u!1001 &1974305822
 PrefabInstance:
   m_ObjectHideFlags: 0
