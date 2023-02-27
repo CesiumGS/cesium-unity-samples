@@ -47,7 +47,7 @@ Grab some cool screenshots to share with us as you explore and customize the sce
 
 With Cesium for Unity, you can build experiences in different locations around the world, without even changing scenes. In this level, we've added a few locations around the world that you can explore. Enter play mode and jump between locations by pressing the 1-4 keys on your keyboard. These levels are loaded in and georeferenced using the `CesiumSubScene` component.
 
-You can also add your own locations, like your hometown or your favorite vacation spot.
+You can also add your own locations, like your hometown or your favorite vacation spot. Check out the [Sub-scenes tutorial](https://cesium.com/learn/unity/unity-subscenes/) to learn how.
 
 ### :five: Level 5 - Metadata
 
@@ -55,6 +55,10 @@ Cesium for Unity enables you to access metadata encoded in your 3D Tiles dataset
 
 ![Metadata of New York City buildings visualized.](Images~/metadata.jpg)
 *<p align="center">Metadata of New York City buildings visualized.<br>Open <b>05_CesiumMetadata</b> in the Cesium for Unity Samples to explore the New York City buildings' metadata.</p>*
+
+### :six: Level 6 - Point Clouds
+
+Cesium for Unity supports rendering point cloud 3D Tilesets in addition to terrain and photogrammetry datasets. In this scene, you can explore several point cloud datasets around the world. Feel free to add your own point clouds as well.
 
 ### :goggles: :one: VR Level 1 - Denver Photogrammetry
 
