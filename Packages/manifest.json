@@ -3,11 +3,13 @@
     {
       "name": "Cesium",
       "url": "https://unity.pkg.cesium.com",
-      "scopes": ["com.cesium.unity"]
+      "scopes": [
+        "com.cesium.unity"
+      ]
     }
   ],
   "dependencies": {
-    "com.cesium.unity": "0.2.0",
+    "com.cesium.unity": "0.3.0",
     "com.unity.cinemachine": "2.8.9",
     "com.unity.collab-proxy": "1.17.2",
     "com.unity.ide.rider": "3.0.15",
