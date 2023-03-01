@@ -654,7 +654,7 @@ GameObject:
   - component: {fileID: 1873770209}
   - component: {fileID: 1873770208}
   - component: {fileID: 1873770207}
-  - component: {fileID: 1873770206}
+  - component: {fileID: 1873770211}
   - component: {fileID: 1873770205}
   - component: {fileID: 1873770204}
   m_Layer: 0
@@ -786,30 +786,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bef32f31a547984f88be1ab98b65f04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1873770206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1873770202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f433d33c11d379a4a97ac9a1cdede88c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _adjustOrientationForGlobeWhenMoving: 1
-  _detectTransformChanges: 1
-  _positionAuthority: 2
-  _latitude: -37.8258876960437
-  _longitude: 144.95440252868877
-  _height: 195.08831360608974
-  _ecefX: -4129874.364274235
-  _ecefY: 2896669.9743066328
-  _ecefZ: -3890316.801062552
-  _unityX: 252.1999969477765
-  _unityY: 54.50000000046566
-  _unityZ: -1777.8000488276593
 --- !u!114 &1873770207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -913,3 +889,39 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1873770211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873770202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f14e1eb550b9a4fb6c0a2f0456845b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _adjustOrientationForGlobeWhenMoving: 1
+  _detectTransformChanges: 1
+  _localToGlobeFixedMatrix:
+    c0:
+      x: -0.26848447311229473
+      y: -0.8878074302611714
+      z: -0.3737834403257221
+      w: 0
+    c1:
+      x: -0.7260865030533656
+      y: 0.44151022066928536
+      z: -0.5271317014943975
+      w: 0
+    c2:
+      x: -0.6330204244033394
+      y: -0.12987238742085816
+      z: 0.7631633582406142
+      w: 0
+    c3:
+      x: -4129874.364274235
+      y: 2896669.9743066328
+      z: -3890316.801062552
+      w: 1
+  _localToGlobeFixedMatrixIsValid: 1
