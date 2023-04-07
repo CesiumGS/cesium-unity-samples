@@ -63,8 +63,8 @@ public class CesiumSamplesSubSceneManager : MonoBehaviour
     {
         #if ENABLE_INPUT_SYSTEM
         return Keyboard.current.digit1Key.isPressed || Keyboard.current.numpad1Key.isPressed;
-        #elif ENABLE_LEGACY_INPUT_MANAGER
-        return Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
+        #else
+        return Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1);
         #endif
     }
 
@@ -72,24 +72,24 @@ public class CesiumSamplesSubSceneManager : MonoBehaviour
     {
         #if ENABLE_INPUT_SYSTEM
         return Keyboard.current.digit2Key.isPressed || Keyboard.current.numpad2Key.isPressed;
-        #elif ENABLE_LEGACY_INPUT_MANAGER
-        return Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
+        #else
+        return Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2);
         #endif
     }
     static bool GetKey3Down()
     {
         #if ENABLE_INPUT_SYSTEM
         return Keyboard.current.digit3Key.isPressed || Keyboard.current.numpad3Key.isPressed;
-        #elif ENABLE_LEGACY_INPUT_MANAGER
-        return Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
+        #else
+        return Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3);
         #endif
     }
     static bool GetKey4Down()
     {
         #if ENABLE_INPUT_SYSTEM
         return Keyboard.current.digit4Key.isPressed || Keyboard.current.numpad4Key.isPressed;
-        #elif ENABLE_LEGACY_INPUT_MANAGER
-        return Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))
+        #else
+        return Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4);
         #endif
     }
 

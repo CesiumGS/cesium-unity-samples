@@ -39,7 +39,7 @@ public class CesiumSamplesMetadataPicking : MonoBehaviour
         {
             getMetadata = Gamepad.current.rightShoulder.isPressed;
         }
-        #elif ENABLE_LEGACY_INPUT_MANAGER
+        #else
         bool getMetadata = Input.GetMouseButtonDown(0);
         #endif
 
