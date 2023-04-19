@@ -185,6 +185,11 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 0
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 0}
+  _pointCloudShading:
+    _attenuation: 0
+    _geometricErrorScale: 1
+    _maximumAttenuation: 0
+    _baseResolution: 0
   _suspendUpdate: 0
   _showTilesInHierarchy: 0
   _updateInEditor: 1
@@ -268,6 +273,11 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 0
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 0}
+  _pointCloudShading:
+    _attenuation: 0
+    _geometricErrorScale: 1
+    _maximumAttenuation: 0
+    _baseResolution: 0
   _suspendUpdate: 0
   _showTilesInHierarchy: 0
   _updateInEditor: 1

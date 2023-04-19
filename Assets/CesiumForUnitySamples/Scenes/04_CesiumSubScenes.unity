@@ -240,6 +240,11 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 0
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 0}
+  _pointCloudShading:
+    _attenuation: 0
+    _geometricErrorScale: 1
+    _maximumAttenuation: 0
+    _baseResolution: 0
   _suspendUpdate: 0
   _showTilesInHierarchy: 0
   _updateInEditor: 1
@@ -323,6 +328,11 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 0
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 0}
+  _pointCloudShading:
+    _attenuation: 0
+    _geometricErrorScale: 1
+    _maximumAttenuation: 0
+    _baseResolution: 0
   _suspendUpdate: 0
   _showTilesInHierarchy: 0
   _updateInEditor: 1
@@ -916,7 +926,25 @@ MonoBehaviour:
   - {fileID: 911748173}
   - {fileID: 1184409368}
   - {fileID: 5875669}
+  locations:
+  - x: -104.988892
+    y: 39.743462
+    z: 1798.679443
+  - x: -112.108161
+    y: 36.061385
+    z: 2157.885751
+  - x: -71.041824
+    y: 42.357479
+    z: 378.686462
+  - x: 2.297891
+    y: 48.85609
+    z: 150
   subSceneYawAndPitch:
+  - {x: -45, y: 10}
+  - {x: 60, y: 10}
+  - {x: -90, y: 20}
+  - {x: -45, y: 10}
+  yawAndPitchAngles:
   - {x: -45, y: 10}
   - {x: 60, y: 10}
   - {x: -90, y: 20}
@@ -1292,6 +1320,11 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 0
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 2100000, guid: d2032d88bf6556a459f397ec48ec5573, type: 2}
+  _pointCloudShading:
+    _attenuation: 0
+    _geometricErrorScale: 1
+    _maximumAttenuation: 0
+    _baseResolution: 0
   _suspendUpdate: 0
   _showTilesInHierarchy: 0
   _updateInEditor: 1
@@ -1553,6 +1586,11 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 1
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 0}
+  _pointCloudShading:
+    _attenuation: 0
+    _geometricErrorScale: 1
+    _maximumAttenuation: 0
+    _baseResolution: 0
   _suspendUpdate: 0
   _showTilesInHierarchy: 0
   _updateInEditor: 1

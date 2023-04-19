@@ -189,6 +189,11 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 0
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 0}
+  _pointCloudShading:
+    _attenuation: 0
+    _geometricErrorScale: 1
+    _maximumAttenuation: 0
+    _baseResolution: 0
   _suspendUpdate: 0
   _showTilesInHierarchy: 0
   _updateInEditor: 1
@@ -385,6 +390,11 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 1
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 0}
+  _pointCloudShading:
+    _attenuation: 0
+    _geometricErrorScale: 1
+    _maximumAttenuation: 0
+    _baseResolution: 0
   _suspendUpdate: 0
   _showTilesInHierarchy: 0
   _updateInEditor: 1
@@ -440,7 +450,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 161818295}
-  - {fileID: 1405176089}
   - {fileID: 835163112}
   - {fileID: 1873770203}
   - {fileID: 1819081790}
@@ -461,10 +470,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subScenes:
-  - {fileID: 1405176090}
+  - {fileID: 0}
   - {fileID: 1819081791}
   - {fileID: 1640106346}
+  locations:
+  - x: 144.951538
+    y: -37.809871
+    z: 140.334974
+  - x: -122.144938238938
+    y: 46.2504405759478
+    z: 4806.4209444103
+  - x: 2.9268371261879502
+    y: 46.3886199874858
+    z: 431.618708463399
   subSceneYawAndPitch:
+  - {x: 120, y: 15}
+  - {x: -135, y: 30}
+  - {x: -115, y: 15}
+  yawAndPitchAngles:
   - {x: 120, y: 15}
   - {x: -135, y: 30}
   - {x: -115, y: 15}
@@ -548,7 +571,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 819515654}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &835163113
 MonoBehaviour:
@@ -579,6 +602,11 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 0
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 0}
+  _pointCloudShading:
+    _attenuation: 0
+    _geometricErrorScale: 1
+    _maximumAttenuation: 0
+    _baseResolution: 0
   _suspendUpdate: 0
   _showTilesInHierarchy: 0
   _updateInEditor: 1
@@ -645,6 +673,11 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 1
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 0}
+  _pointCloudShading:
+    _attenuation: 0
+    _geometricErrorScale: 1
+    _maximumAttenuation: 0
+    _baseResolution: 0
   _suspendUpdate: 0
   _showTilesInHierarchy: 0
   _updateInEditor: 1
@@ -656,59 +689,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1974305822}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1405176088
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1405176089}
-  - component: {fileID: 1405176090}
-  m_Layer: 0
-  m_Name: Melbourne Sub-Scene
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1405176089
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405176088}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 819515654}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1405176090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405176088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02b70542355cdf840b919385d7c2c34a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _activationRadius: 6000
-  _showActivationRadius: 1
-  _originAuthority: 0
-  _latitude: -37.809871
-  _longitude: 144.951538
-  _height: 140.334974
-  _ecefX: -4130586.5224907133
-  _ecefY: 2897477.59298748
-  _ecefZ: -3888878.840408319
 --- !u!1 &1640106344
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,7 +720,7 @@ Transform:
   m_Children:
   - {fileID: 596347080}
   m_Father: {fileID: 819515654}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1640106346
 MonoBehaviour:
@@ -756,11 +736,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _activationRadius: 3000
   _showActivationRadius: 1
-  _originAuthority: 1
+  _originAuthority: 0
   _latitude: 46.38861998748578
   _longitude: 2.926837126187954
   _height: 431.6187084633987
-  _ecefX: 4401693.611886394
+  _ecefX: 4401693.611886395
   _ecefY: 225047.25578495054
   _ecefZ: 4595461.662644926
 --- !u!1 &1819081789
@@ -794,7 +774,7 @@ Transform:
   m_Children:
   - {fileID: 965448636}
   m_Father: {fileID: 819515654}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1819081791
 MonoBehaviour:
@@ -810,13 +790,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _activationRadius: 5000
   _showActivationRadius: 1
-  _originAuthority: 1
+  _originAuthority: 0
   _latitude: 46.250440575947835
   _longitude: -122.14493823893807
   _height: 4806.4209444103
-  _ecefX: -2352556.7883556997
-  _ecefY: -3743770.8180661495
-  _ecefZ: 4588013.2178706555
+  _ecefX: -2352556.788355701
+  _ecefY: -3743770.81806615
+  _ecefZ: 4588013.217870654
 --- !u!1 &1873770202
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,7 +833,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 819515654}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 6.739, y: 28.237, z: 0}
 --- !u!114 &1873770204
 MonoBehaviour:
