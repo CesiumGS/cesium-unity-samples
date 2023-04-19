@@ -469,10 +469,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29a5872289de9349bb16d5f25d8e87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subScenes:
-  - {fileID: 0}
-  - {fileID: 1819081791}
-  - {fileID: 1640106346}
   locations:
   - x: 144.951538
     y: -37.809871
@@ -483,10 +479,6 @@ MonoBehaviour:
   - x: 2.9268371261879502
     y: 46.3886199874858
     z: 431.618708463399
-  subSceneYawAndPitch:
-  - {x: 120, y: 15}
-  - {x: -135, y: 30}
-  - {x: -115, y: 15}
   yawAndPitchAngles:
   - {x: 120, y: 15}
   - {x: -135, y: 30}
