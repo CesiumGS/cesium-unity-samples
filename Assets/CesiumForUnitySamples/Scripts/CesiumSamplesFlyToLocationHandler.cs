@@ -15,8 +15,8 @@ public class CesiumSamplesFlyToLocationHandler : MonoBehaviour
     [InspectorName("Locations (Longitude Latitude Height")]
     [Tooltip("The locations in Longitude Latitude Height to fly between at runtime." +
              "\n\n" +
-             "This script only handles four locations. These subscene locations can " +
-             "be flown to by pressing the 1, 2, 3, 4 keys.")]
+             "This script handles up to eight locations. These subscene locations can " +
+             "be flown to by pressing the 1-8 keys on the keyboard.")]
     public List<double3> locations = new List<double3>();
 
     [Tooltip("The desired yaw and pitch angles that the camera should have upon " +
@@ -29,11 +29,13 @@ public class CesiumSamplesFlyToLocationHandler : MonoBehaviour
         "If no value is provided for a location, Vector2.zero is used by default.")]
     public List<Vector2> yawAndPitchAngles = new List<Vector2>();
 
+    const int locationLimit = 8;
+
     private void OnValidate()
     {
-        if (this.locations.Count > 4)
+        if (this.locations.Count > locationLimit)
         {
-            this.locations.RemoveRange(4, this.locations.Count - 4);
+            this.locations.RemoveRange(locationLimit, this.locations.Count - locationLimit);
         }
 
         if (this.yawAndPitchAngles.Count > this.locations.Count)
@@ -60,6 +62,9 @@ public class CesiumSamplesFlyToLocationHandler : MonoBehaviour
         int index = (int)keyboardInput - 1;
         this.FlyToLocation(index);
     }
+
+    #region Inputs
+
     static bool GetKey1Down()
     {
 #if ENABLE_INPUT_SYSTEM
@@ -93,6 +98,40 @@ public class CesiumSamplesFlyToLocationHandler : MonoBehaviour
         return Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4);
 #endif
     }
+    static bool GetKey5Down()
+    {
+#if ENABLE_INPUT_SYSTEM
+        return Keyboard.current.digit5Key.isPressed || Keyboard.current.numpad5Key.isPressed;
+#else
+        return Input.GetKeyDown(KeyCode.Alpha5) || Input.GetKeyDown(KeyCode.Keypad5);
+#endif
+    }
+
+    static bool GetKey6Down()
+    {
+#if ENABLE_INPUT_SYSTEM
+        return Keyboard.current.digit6Key.isPressed || Keyboard.current.numpad6Key.isPressed;
+#else
+        return Input.GetKeyDown(KeyCode.Alpha6) || Input.GetKeyDown(KeyCode.Keypad6);
+#endif
+    }
+
+    static bool GetKey7Down()
+    {
+#if ENABLE_INPUT_SYSTEM
+        return Keyboard.current.digit7Key.isPressed || Keyboard.current.numpad7Key.isPressed;
+#else
+        return Input.GetKeyDown(KeyCode.Alpha7) || Input.GetKeyDown(KeyCode.Keypad7);
+#endif
+    }
+    static bool GetKey8Down()
+    {
+#if ENABLE_INPUT_SYSTEM
+        return Keyboard.current.digit8Key.isPressed || Keyboard.current.numpad8Key.isPressed;
+#else
+        return Input.GetKeyDown(KeyCode.Alpha8) || Input.GetKeyDown(KeyCode.Keypad8);
+#endif
+    }
 
     static int? GetKeyboardInput()
     {
@@ -116,8 +155,30 @@ public class CesiumSamplesFlyToLocationHandler : MonoBehaviour
             return 4;
         }
 
+        if (GetKey5Down())
+        {
+            return 5;
+        }
+
+        if (GetKey6Down())
+        {
+            return 6;
+        }
+
+        if (GetKey7Down())
+        {
+            return 7;
+        }
+
+        if (GetKey8Down())
+        {
+            return 8;
+        }
+
         return null;
     }
+
+    #endregion
 
     void FlyToLocation(int index)
     {
