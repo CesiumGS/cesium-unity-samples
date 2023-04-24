@@ -164,38 +164,41 @@ PrefabInstance:
     - target: {fileID: 7752603225714643755, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_text
-      value: 'Welcome to the Googleplex! This scene showcases Google Photorealistic
-        Tiles, a high quality, full-scale global dataset that is available as 3D
-        Tiles courtesy of Google. You can stream Google Photorealistic Tiles in your
-        own projects by obtaining a Google Maps API Key.
+      value: 'Welcome to the Googleplex! This scene showcases Photorealistic 3D Tiles,
+        a high quality, full-scale global dataset that is available through the Google
+        Map Tiles API. You can stream the Experimental release of Photorealistic
+        3D Tiles in your own projects by obtaining a Google Maps API Key.
 
+        
 
-        You can navigate
-        the world freely, or use the following keys in play mode to fly to these
-        locations.
+        Feel
+        free to navigate the world freely or use the following keys in play mode
+        to fly to
+
+        these locations.
 
 
         "1" - Googleplex
 
-        "2" - Philadelphia
+        "2"
+        - Philadelphia
 
-        "3"
-        - Tokyo
+        "3" - Tokyo
 
         "4" - Sydney
 
-        "5" - New York City
+        "5" -
+        New York City
 
-        "6" -
-        London
+        "6" - London
 
         "7" - San Francisco
 
-        "8" - Las Vegas
+        "8"
+        - Las Vegas
 
 
-        Press
-        "1" in the editor to return to this view.
+        Press "1" in the editor to return to this view.
 
 '
       objectReference: {fileID: 0}
