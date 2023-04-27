@@ -141,7 +141,7 @@ class CesiumSamplesScene : MonoBehaviour
         #if ENABLE_INPUT_SYSTEM
         bool resetView =
             Keyboard.current.digit1Key.isPressed || Keyboard.current.numpad1Key.isPressed;
-        #elif ENABLE_LEGACY_INPUT_MANAGER
+        #else
         bool resetView = Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1);
         #endif
 

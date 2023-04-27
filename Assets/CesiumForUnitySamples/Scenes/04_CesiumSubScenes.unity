@@ -240,6 +240,11 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 0
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 0}
+  _pointCloudShading:
+    _attenuation: 0
+    _geometricErrorScale: 1
+    _maximumAttenuation: 0
+    _baseResolution: 0
   _suspendUpdate: 0
   _showTilesInHierarchy: 0
   _updateInEditor: 1
@@ -323,6 +328,11 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 0
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 0}
+  _pointCloudShading:
+    _attenuation: 0
+    _geometricErrorScale: 1
+    _maximumAttenuation: 0
+    _baseResolution: 0
   _suspendUpdate: 0
   _showTilesInHierarchy: 0
   _updateInEditor: 1
@@ -911,17 +921,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29a5872289de9349bb16d5f25d8e87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subScenes:
-  - {fileID: 1339608741}
-  - {fileID: 911748173}
-  - {fileID: 1184409368}
-  - {fileID: 5875669}
-  subSceneYawAndPitch:
+  flyToController: {fileID: 485487350}
+  locations:
+  - x: -104.988892
+    y: 39.743462
+    z: 1798.679443
+  - x: -112.108161
+    y: 36.061385
+    z: 2157.885751
+  - x: -71.041824
+    y: 42.357479
+    z: 378.686462
+  - x: 2.297891
+    y: 48.85609
+    z: 150
+  yawAndPitchAngles:
   - {x: -45, y: 10}
   - {x: 60, y: 10}
   - {x: -90, y: 20}
   - {x: -45, y: 10}
-  flyToController: {fileID: 485487350}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,6 +1310,11 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 0
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 2100000, guid: d2032d88bf6556a459f397ec48ec5573, type: 2}
+  _pointCloudShading:
+    _attenuation: 0
+    _geometricErrorScale: 1
+    _maximumAttenuation: 0
+    _baseResolution: 0
   _suspendUpdate: 0
   _showTilesInHierarchy: 0
   _updateInEditor: 1
@@ -1553,6 +1576,11 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 1
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 0}
+  _pointCloudShading:
+    _attenuation: 0
+    _geometricErrorScale: 1
+    _maximumAttenuation: 0
+    _baseResolution: 0
   _suspendUpdate: 0
   _showTilesInHierarchy: 0
   _updateInEditor: 1
@@ -1569,8 +1597,9 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: 'In the previous three scenes, you explored terrain and photogrammetry
-        around the world. In this level, we use CesiumSubScenes to fly around the
-        world in the same scene.
+        around the world at single locations. In this scene, we use CesiumSubScenes
+        to place objects in multiple locations around the world, then fly between
+        them, all in the same scene.
 
 
         This is possible with Cesium''s georeferencing
@@ -1579,7 +1608,7 @@ PrefabInstance:
 
 
         The scene starts with a view of Denver. Use
-        the following keys in play mode to fly through the sublevels.
+        the following keys in play mode to fly through the sub-scenes.
 
         "1"
         - Denver (Photogrammetry)
@@ -1710,7 +1739,7 @@ PrefabInstance:
     - target: {fileID: 7752603227654311266, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 180
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1f6fb4b452d026489986bf620a2d8bc, type: 3}
