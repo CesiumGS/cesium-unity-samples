@@ -166,10 +166,9 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Welcome to the Googleplex! This scene showcases Photorealistic 3D Tiles,
         a high quality, full-scale global dataset that is available through the Google
-        Map Tiles API. You can stream the Experimental release of Photorealistic
-        3D Tiles in your own projects by obtaining a Google Maps API Key.
+        Map Platform. You can stream the Experimental release of Photorealistic 3D
+        Tiles in your own projects by obtaining a Google Maps API Key.
 
-        
 
         Feel
         free to navigate the world freely or use the following keys in play mode
@@ -974,7 +973,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _showCreditsOnScreen: 1
   _tilesetSource: 1
-  _url: https://www.googleapis.com/tile/v1/tiles3d/rootTileset?key=AIzaSyDmPivxMPv_RzstnVKuXxLD0rLuWOEJGNU
+  _url: https://tile.googleapis.com/v1/3dtiles/root.json?key=AIzaSyDmPivxMPv_RzstnVKuXxLD0rLuWOEJGNU
   _ionAssetID: 0
   _ionAccessToken: 
   _maximumScreenSpaceError: 16
@@ -989,6 +988,7 @@ MonoBehaviour:
   _enforceCulledScreenSpaceError: 1
   _culledScreenSpaceError: 64
   _opaqueMaterial: {fileID: 0}
+  _generateSmoothNormals: 0
   _pointCloudShading:
     _attenuation: 0
     _geometricErrorScale: 1
