@@ -182,6 +182,11 @@ public class CesiumSamplesFlyToLocationHandler : MonoBehaviour
 
     void FlyToLocation(int index)
     {
+        if (index >= this.locations.Count)
+        {
+            return;
+        }
+
         double3 coordinatesLLH = this.locations[index];
 
         Vector2 yawAndPitch = Vector2.zero;
