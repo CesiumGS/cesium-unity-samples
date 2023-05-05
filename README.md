@@ -65,11 +65,12 @@ Cesium for Unity supports rendering point cloud 3D Tilesets in addition to terra
 
 ### :seven: Level 7 - Google Photorealistic 3D Tiles
 
-Explore the world through Google's Photorealistic 3D Tiles, streamed via the Google Map Tiles API. You can learn how to use Photorealistic 3D Tiles in your own 
-projects in the [Getting Started with Google's Photorealistic 3D Tiles tutorial](TODO).
+Explore the world through Photorealistic 3D Tiles streamed via the Google Map Platform. You can learn how to use Photorealistic 3D Tiles in your own 
+projects in the [Getting Started with Photorealistic 3D Tiles tutorial](TODO).
 
 ![The Googleplex in Mountain View, California visualized with Photorealistic 3D Tiles in Cesium for Unity.](Images~/googleplex.jpeg)
-*<p align="center">The Googleplex in Mountain View, California visualized with Google's Photorealistic 3D Tiles in Cesium for Unity.<br>Open <b>07_CesiumGoogleMapTiles</b> in the Cesium for Unity Samples to explore the world as Photorealistic 3D Tiles.</p>*
+
+*<p align="center">The Googleplex in Mountain View, California visualized with Photorealistic 3D Tiles in Cesium for Unity.<br>Open <b>07_CesiumGoogleMapTiles</b> in the Cesium for Unity Samples to explore the world as Photorealistic 3D Tiles.</p>*
 
 ### :goggles: :one: VR Level 1 - Denver Photogrammetry
 
