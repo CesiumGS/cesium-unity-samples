@@ -165,7 +165,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: 'Welcome to the Googleplex! This scene showcases Photorealistic 3D Tiles,
-        a high quality, full-scale global dataset that is available through the Google
+        a high quality, full-scale global dataset that is available through Google
         Maps Platform. You can stream the Experimental release of Photorealistic
         3D Tiles in your own projects by obtaining a Google Maps API Key.
 
@@ -814,6 +814,7 @@ MonoBehaviour:
   _ecefX: -2693796.45373749
   _ecefY: -4297353.838092205
   _ecefZ: 3854717.908782406
+  _scale: 1
 --- !u!4 &666272557
 Transform:
   m_ObjectHideFlags: 0
