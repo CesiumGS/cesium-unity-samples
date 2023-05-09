@@ -63,6 +63,15 @@ Cesium for Unity supports rendering point cloud 3D Tilesets in addition to terra
 ![Point Cloud of Melbourne, Australia visualized using Cesium for Unity.](Images~/melbourne_point_cloud.jpg)
 *<p align="center">Point Cloud of Melbourne, Australia visualized using Cesium for Unity.<br>Open <b>06_CesiumPointClouds</b> in the Cesium for Unity Samples to explore multiple point cloud datasets, including the Melbourne Point Cloud.</p>*
 
+### :seven: Level 7 - Photorealistic 3D Tiles via Google Maps Platform
+
+Explore the world through Photorealistic 3D Tiles streamed via Google Maps Platform. You can learn how to use Photorealistic 3D Tiles in your own 
+projects in the [Getting Started with Photorealistic 3D Tiles tutorial](https://cesium.com/learn/unity/unity-photorealistic-3d-tiles).
+
+![The Googleplex in Mountain View, California visualized with Photorealistic 3D Tiles in Cesium for Unity.](Images~/googleplex.jpeg)
+
+*<p align="center">The Googleplex in Mountain View, California visualized with Photorealistic 3D Tiles in Cesium for Unity.<br>Open <b>07_CesiumGoogleMapsTiles</b> in the Cesium for Unity Samples to explore the world as Photorealistic 3D Tiles.</p>*
+
 ### :goggles: :one: VR Level 1 - Denver Photogrammetry
 
 Cesium for Unity supports virtual reality platforms. This level is set up for users with VR headsets to get started quickly. In this scene, explore high-resolution photogrammetry data of Denver, Colorado with VR controller support. To build this for the Oculus Quest 2, open **VR01_CesiumDenver** in the Unity Editor and follow the instructions to build an `APK` file for the headset. These instructions also appear in the UI of the scene itself.

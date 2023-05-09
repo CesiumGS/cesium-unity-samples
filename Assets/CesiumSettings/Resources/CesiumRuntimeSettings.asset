@@ -15,4 +15,4 @@ MonoBehaviour:
   _defaultIonAccessTokenID: 
   _defaultIonAccessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhOWE1MGI2Mi0wNGUxLTRkZmQtYmUzZS05YmY5YmJjMGRiZTQiLCJpZCI6MjU5LCJpYXQiOjE2ODI5NDY5MzB9.PB2CfTYmGQMbLYwCK6gxav9FYwdVNzsAfYpkQMxUZo0
   _requestsPerCachePrune: 10000
-  _maxItems: 4096
+  _maxItems: 8192
