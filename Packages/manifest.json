@@ -2,14 +2,14 @@
   "scopedRegistries": [
     {
       "name": "Cesium",
-      "url": "https://unity.pkg.cesium.com",
+      "url": "https://unity.pkg.cesium.com/test",
       "scopes": [
         "com.cesium.unity"
       ]
     }
   ],
   "dependencies": {
-    "com.cesium.unity": "1.1.0",
+    "com.cesium.unity": "1.2.0",
     "com.unity.cinemachine": "2.8.9",
     "com.unity.collab-proxy": "1.17.2",
     "com.unity.ide.rider": "3.0.15",
