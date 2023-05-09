@@ -2,7 +2,7 @@
   "scopedRegistries": [
     {
       "name": "Cesium",
-      "url": "https://unity.pkg.cesium.com/test",
+      "url": "https://unity.pkg.cesium.com",
       "scopes": [
         "com.cesium.unity"
       ]
