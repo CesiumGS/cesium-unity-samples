@@ -581,7 +581,7 @@ MonoBehaviour:
   _tilesetSource: 0
   _url: 
   _ionAssetID: 43978
-  _ionAccessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4YTI2MmM3Zi1lNGUwLTRkMTYtODBlOS01NDFlOTU1MmU1MTciLCJpZCI6NTcxMzksImlhdCI6MTY2NjM3MTcxNn0.iq1vCgyu0Lew8raF4OjMRK4WLyWE16ljVVJjyhtBMGk
+  _ionAccessToken: 
   _maximumScreenSpaceError: 8
   _preloadAncestors: 1
   _preloadSiblings: 1

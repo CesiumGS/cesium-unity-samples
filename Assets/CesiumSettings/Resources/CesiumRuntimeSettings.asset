@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: CesiumRuntimeSettings
   m_EditorClassIdentifier: 
   _defaultIonAccessTokenID: 
-  _defaultIonAccessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJhOWE1MGI2Mi0wNGUxLTRkZmQtYmUzZS05YmY5YmJjMGRiZTQiLCJpZCI6MjU5LCJpYXQiOjE2ODI5NDY5MzB9.PB2CfTYmGQMbLYwCK6gxav9FYwdVNzsAfYpkQMxUZo0
+  _defaultIonAccessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJjYjhkM2FiOC0xMjIwLTQzYjUtODUyMi1kNjQwM2M2ZDg4ZjAiLCJpZCI6MjU5LCJpYXQiOjE2ODU2MTE0OTV9.2npI_ugfhXUIVgb6EP-iVt5xEnhaU8ADiIh7l7XmR40
   _requestsPerCachePrune: 10000
   _maxItems: 8192
