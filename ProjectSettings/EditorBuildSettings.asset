@@ -5,12 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/CesiumForUnitySamples/Scenes/01_CesiumWorld.unity
     guid: f247585a97d347241b998d973481c4f5
-  - enabled: 1
-    path: Assets/CesiumForUnitySamples/Scenes/VR01_CesiumDenver.unity
-    guid: 3c4da89010866304a8d930a88fe839a9
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 104c734f532456449b2b22836e63b8d3,
       type: 2}
