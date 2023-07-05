@@ -2148,23 +2148,31 @@ PrefabInstance:
     - target: {fileID: 7752603225714643755, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_text
-      value: "This scene is for the Oculus Quest 2. To build this scene correctly,
-        follow these steps:\r\n\r\n1. Go to <b>File > Build Settings</b> and switch
-        the platform to Android.\r\n2. Click \u201CAdd Open Scenes\u201D and uncheck
-        \u201C01_CesiumWorld\u201D.\r\n3. Go to <b>Edit > Project Settings</b> and
-        select \u201CXR Plug-In Management\u201D.\r\n4. Under \u201CAndroid\u201D,
-        enable \u201COculus\u201D.\r\n5. Click \u201CBuild and Run\u201D to create
-        an APK for the Quest 2.\r\n\r\nFor better performance, use the Built-in Render
-        Pipeline like this:\r\n\r\n1. In <b>Project Settings > Graphics</b>, set
-        \"Scriptable Render Pipeline Settings\" to None.\r\n2. In <b>Project Settings
-        > Quality</b>, pick \"Performant\" Quality Setting and uncheck \"Balanced\"
-        and \"High Fidelity\" for Android. Set the \"Render Pipeline Asset\" to None
-        and, optionally, set \"Anti Aliasing\" to 2x Multi Sampling.\r\n4. In <b>XR
-        Plug-in Management > Oculus</b>, set \"Stereo Rendering Mode\" to Multi Pass.\r\n\r\nTo
-        test the scene with the XR Device Simulator, enable it in the scene and press
-        Y or T to toggle the controllers. Press left-click to interact and G to select.
-        Disable the XR Device Simulator before building.\r\n\r\nPress \u201C1\u201D
-        in the editor to return to this view."
+      value: 'This Unity Scene is designed for Oculus Quest 2, a virtual reality
+        headset that allows you to experience immersive 3D environments. The build
+        instructions are the same as the previous Quest 2 demo scene.
+
+
+
+        The
+        scene recreates a part of New York City, one of the most iconic and diverse
+        cities in the world. You can explore the city by walking around and pointing
+        at different buildings with your right controller.
+
+
+
+        The right controller
+        has an XR Ray Interactor, a tool that lets you select and interact with objects
+        in the scene. When you point at a building, a panel will pop up with some
+        information about that building, such as its name, height, year of construction,
+        and architectural style.
+
+
+
+        The scene uses a scaled-down version
+        of the globe, which makes the city look like a miniature model. This scene
+        demonstrates how you can use Unity and Oculus Quest 2 to create engaging
+        and educational experiences that showcase real-world locations.'
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225714643755, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
@@ -2289,7 +2297,7 @@ PrefabInstance:
     - target: {fileID: 7752603227654311266, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 255
+      value: 231
       objectReference: {fileID: 0}
     - target: {fileID: 7752603227654311266, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
