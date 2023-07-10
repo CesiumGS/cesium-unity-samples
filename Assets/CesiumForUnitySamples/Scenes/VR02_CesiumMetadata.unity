@@ -2148,31 +2148,15 @@ PrefabInstance:
     - target: {fileID: 7752603225714643755, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_text
-      value: 'This Unity Scene is designed for Oculus Quest 2, a virtual reality
-        headset that allows you to experience immersive 3D environments. The build
-        instructions are the same as the previous Quest 2 demo scene.
-
-
-
-        The
-        scene recreates a part of New York City, one of the most iconic and diverse
-        cities in the world. You can explore the city by walking around and pointing
-        at different buildings with your right controller.
-
-
-
-        The right controller
-        has an XR Ray Interactor, a tool that lets you select and interact with objects
-        in the scene. When you point at a building, a panel will pop up with some
-        information about that building, such as its name, height, year of construction,
-        and architectural style.
-
-
-
-        The scene uses a scaled-down version
-        of the globe, which makes the city look like a miniature model. This scene
-        demonstrates how you can use Unity and Oculus Quest 2 to create engaging
-        and educational experiences that showcase real-world locations.'
+      value: "In this scene, explore the buildings in New York City, one of the most
+        iconic and diverse cities in the world. You can view detailed per-building
+        metadata by selecting different buildings with your right controller.\n\nThis
+        scene makes use of Unity's XR Interaction Toolkit. With Cesium for Unity,
+        you can create interactive VR experiences at real-world locations, just like
+        this example. Check out the \"Cesium Samples Metadata Picking VR\" script
+        for an example of how to access this metadata via the Cesium For Unity API.\r\n\nTo
+        build this scene, see the tooltip in the previous Quest 2 demo scene, VR01_CesiumDenver.\n\nPress
+        \u201C1\u201D in the editor to return to this view."
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225714643755, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
@@ -2292,12 +2276,12 @@ PrefabInstance:
     - target: {fileID: 7752603227654311266, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 400
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 7752603227654311266, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 231
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 7752603227654311266, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
@@ -2313,6 +2297,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.0025
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752603227654311266, guid: d1f6fb4b452d026489986bf620a2d8bc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752603227654311266, guid: d1f6fb4b452d026489986bf620a2d8bc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752603227654311266, guid: d1f6fb4b452d026489986bf620a2d8bc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7752603227654311266, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}

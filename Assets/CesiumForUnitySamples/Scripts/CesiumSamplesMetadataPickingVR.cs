@@ -84,7 +84,7 @@ public class MetadataInteractable : XRBaseInteractable
         return ret;
     }
 
-    Vector3 GetTopOfBuildiing(Vector3 hitLocation, CesiumFeature feature)
+    Vector3 GetTopOfBuilding(Vector3 hitLocation, CesiumFeature feature)
     {
         var georeference = GetComponentInParent<CesiumGeoreference>();
         if(georeference != null)
@@ -122,7 +122,7 @@ public class MetadataInteractable : XRBaseInteractable
                 {
                     CesiumFeature feature = features[0];
 
-                    Vector3 topOfBuilding = GetTopOfBuildiing(hit.point, feature);
+                    Vector3 topOfBuilding = GetTopOfBuilding(hit.point, feature);
                     canvas.transform.position = topOfBuilding;
                     Vector3 camPos = Camera.main.transform.position;
                     float distance = Vector3.Distance(camPos, topOfBuilding);
