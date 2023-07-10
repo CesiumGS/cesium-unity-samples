@@ -83,6 +83,10 @@ Cesium for Unity supports virtual reality platforms. This level is set up for us
 5. Go to the "Android" section and check the box next to "OpenXR".
 6. Finally, in the Build Settings window, click "Build and Run" to build an `APK`.
 
+### :goggles: :two: VR Level 2 - Metadata in VR
+
+In this scene, experience a miniature version of New York City using an Oculus Quest 2 and the XR Interaction Toolkit. You can walk around and point at buildings with your controller to view their detailed metadata.
+
 ### :green_book:License
 
 [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). Cesium for Unity Samples is free to use as starter project for both commercial and non-commercial use.
