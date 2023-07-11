@@ -87,6 +87,10 @@ Cesium for Unity supports virtual reality platforms. This level is set up for us
 
 In this scene, experience a miniature version of New York City using an Oculus Quest 2 and the XR Interaction Toolkit. You can walk around and point at buildings with your controller to view their detailed metadata.
 
+### :goggles: :two: VR Level 3 - Photorealistic 3D Tiles in VR
+
+This scene demonstrates Google Photorealistic Tiles in VR with Meta Quest 2. You can travel around the world in high resolution, using a custom script that adjusts the camera settings and speed based on the camera’s altitude, similar to the Dynamic Camera feature. Use the thumbsticks to move and turn. Have fun exploring the globe!
+
 ### :green_book:License
 
 [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). Cesium for Unity Samples is free to use as starter project for both commercial and non-commercial use.
