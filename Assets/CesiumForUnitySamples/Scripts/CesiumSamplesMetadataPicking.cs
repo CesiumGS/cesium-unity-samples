@@ -1,6 +1,8 @@
 using CesiumForUnity;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.Collections.Generic;
 
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -15,6 +17,10 @@ public class CesiumSamplesMetadataPicking : MonoBehaviour
     // The text to display the metadata properties.
     public Text metadataText;
 
+    // Cached Dictionary of metadata values. This prevents reallocation every
+    // time metadata is sampled from the tileset.
+    private Dictionary<String, CesiumMetadataValue> _metadataValues;
+
     void Start()
     {
         // Fix the cursor to the center of the screen and hide it.
@@ -25,56 +31,64 @@ public class CesiumSamplesMetadataPicking : MonoBehaviour
         {
             metadataPanel.SetActive(false);
         }
+
+        this._metadataValues = new Dictionary<String, CesiumMetadataValue>();
     }
 
     void Update()
     {
 #if ENABLE_INPUT_SYSTEM
-        bool getMetadata = false;
+        bool receivedInput = false;
+
         if (Mouse.current != null)
         {
-            getMetadata = Mouse.current.leftButton.isPressed;
+            receivedInput = Mouse.current.leftButton.isPressed;
         }
-        else if(Gamepad.current != null)
+        else if (Gamepad.current != null)
         {
-            getMetadata = Gamepad.current.rightShoulder.isPressed;
+            receivedInput = Gamepad.current.rightShoulder.isPressed;
         }
-        #else
-        bool getMetadata = Input.GetMouseButtonDown(0);
-        #endif
+#else
+        bool receivedInput = Input.GetMouseButtonDown(0);
+#endif
 
-        if (getMetadata && metadataText != null)
+        if (receivedInput && metadataText != null)
         {
-            metadataText.text = "";
+            metadataText.text = String.Empty;
 
             RaycastHit hit;
             if (Physics.Raycast(
-                Camera.main.transform.position,
-                Camera.main.transform.TransformDirection(Vector3.forward),
-                out hit,
-                Mathf.Infinity))
+                    Camera.main.transform.position,
+                    Camera.main.transform.TransformDirection(Vector3.forward),
+                    out hit,
+                    Mathf.Infinity))
             {
-                CesiumMetadata metadata = hit.transform.GetComponentInParent<CesiumMetadata>();
-                if (metadata != null)
+                CesiumPrimitiveFeatures features = hit.transform.GetComponent<CesiumPrimitiveFeatures>();
+                CesiumModelMetadata metadata = hit.transform.GetComponentInParent<CesiumModelMetadata>();
+
+                if (features != null && features.featureIdSets.Length > 0)
                 {
-                    CesiumFeature[] features = metadata.GetFeatures(hit.transform, hit.triangleIndex);
-                    // List out each metadata property in the UI.
-                    foreach (var feature in features)
+                    CesiumFeatureIdSet featureIdSet = features.featureIdSets[0];
+                    Int64 propertyTableIndex = featureIdSet.propertyTableIndex;
+                    if (metadata != null && propertyTableIndex >= 0 && propertyTableIndex < metadata.propertyTables.Length)
                     {
-                        foreach (var propertyName in feature.properties)
+                        CesiumPropertyTable propertyTable = metadata.propertyTables[propertyTableIndex];
+                        Int64 featureID = featureIdSet.GetFeatureIdFromRaycastHit(hit);
+                        propertyTable.GetMetadataValuesForFeature(this._metadataValues, featureID);
+                    }
+
+                    foreach (var valuePair in this._metadataValues)
+                    {
+                        string valueAsString = valuePair.Value.GetString();
+                        if (!String.IsNullOrEmpty(valueAsString) && valueAsString != "null")
                         {
-                            string propertyValue = feature.GetString(propertyName, "null");
-                            if (propertyValue != "null" && propertyValue != "")
-                            {
-                                metadataText.text += "<b>" + propertyName + "</b>" + ": "
-                                    + propertyValue + "\n";
-                            }
+                            metadataText.text += "<b>" + valuePair.Key + "</b>" + ": " + valueAsString + "\n";
                         }
                     }
                 }
             }
 
-            if(metadataPanel != null)
+            if (metadataPanel != null)
             {
                 metadataPanel.SetActive(metadataText.text.Length > 0);
             }
