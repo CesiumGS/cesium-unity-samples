@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa5e53a75492ec2458e267d6fb65843f, type: 3}
+  m_Name: Locations
+  m_EditorClassIdentifier: 
+  _locations:
+  - Name: New York City
+    Longitude: -74.06668402
+    Latitude: 40.71068528
+    Height: 3086.1461
+  - Name: One World Trade Center
+    Longitude: -74.01407807
+    Latitude: 40.71304984
+    Height: -28.587932
+  - Name: Statue of Liberty
+    Longitude: -74.04539309
+    Latitude: 40.69024158
+    Height: -28.7203
+  - Name: Belvedere Castle
+    Longitude: -73.96898954
+    Latitude: 40.7794302
+    Height: 12.2851
+  - Name: Empire State Building
+    Longitude: -73.98564288
+    Latitude: 40.74846975
+    Height: 362.0147
+  - Name: Brooklyn Bridge Park
+    Longitude: -73.99580302
+    Latitude: 40.70317212
+    Height: -29.2321
+  - Name: Times Square
+    Longitude: -73.98511558
+    Latitude: 40.75885471
+    Height: -16.8135
+  - Name: Trinity Church
+    Longitude: -74.01170209
+    Latitude: 40.70774265
+    Height: -21.0372
+  - Name: Madison Square Park
+    Longitude: -73.98925736
+    Latitude: 40.4156237
+    Height: -19.6322
+  - Name: City Hall Park
+    Longitude: -74.00700125
+    Latitude: 40.71220486
+    Height: -19.8924
+  - Name: Ellis Island
+    Longitude: -74.04003879
+    Latitude: 40.6987499
+    Height: -29.7102
+  - Name: Rockefeller Center
+    Longitude: -73.97871193
+    Latitude: 40.75873755
+    Height: -10.8606
+  - Name: Battery Park
+    Longitude: -74.01631
+    Latitude: 40.70369
+    Height: -28.0684
+  - Name: Little Island
+    Longitude: -74.0106259
+    Latitude: 40.7420177
+    Height: -24.5618

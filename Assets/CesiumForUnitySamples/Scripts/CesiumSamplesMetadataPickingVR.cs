@@ -10,6 +10,7 @@ public class MetadataInteractable : XRBaseInteractable
 {
     public TextMeshProUGUI metadataText;
     public GameObject canvas;
+    public LayerMask layerMask;
 
     static HashSet<string> ignoreProperties = new HashSet<string>() {
     "addr:city",
@@ -87,12 +88,12 @@ public class MetadataInteractable : XRBaseInteractable
     Vector3 GetTopOfBuilding(Vector3 hitLocation, CesiumFeature feature)
     {
         var georeference = GetComponentInParent<CesiumGeoreference>();
-        if(georeference != null)
+        if (georeference != null)
         {
             float buildingHeight = feature.GetFloat32("cesium#estimatedHeight", 0.0f);
-            foreach(RaycastHit hit in Physics.RaycastAll(hitLocation, Vector3.down, 100.0f))
+            foreach (RaycastHit hit in Physics.RaycastAll(hitLocation, Vector3.down, 100.0f, layerMask.value))
             {
-                if(!hit.transform.parent.name.Contains("CesiumWorldTerrain"))
+                if (!hit.transform.parent.name.Contains("CesiumWorldTerrain"))
                 {
                     continue;
                 }
@@ -110,7 +111,7 @@ public class MetadataInteractable : XRBaseInteractable
         Transform interactorTransform = args.interactorObject.transform;
         if (Physics.Raycast(interactorTransform.position,
                             interactorTransform.TransformDirection(Vector3.forward),
-                            out hit, Mathf.Infinity))
+                            out hit, Mathf.Infinity, layerMask.value))
         {
             CesiumMetadata metadata =
                 hit.transform.GetComponentInParent<CesiumMetadata>();
@@ -126,7 +127,7 @@ public class MetadataInteractable : XRBaseInteractable
                     canvas.transform.position = topOfBuilding;
                     Vector3 camPos = Camera.main.transform.position;
                     float distance = Vector3.Distance(camPos, topOfBuilding);
-                    if(distance > 1.0f)
+                    if (distance > 1.0f)
                     {
                         canvas.transform.localScale = distance * Vector3.one;
                     }
@@ -153,18 +154,21 @@ public class CesiumSamplesMetadataPickingVR : MonoBehaviour
     public CharacterController characterController;
     public TextMeshProUGUI metadataText;
     public GameObject canvas;
-    public InputActionReference activateButton;
+    public InputActionProperty activateButton;
     public XRRayInteractor rayInteractor;
+    public LayerMask layerMask;
+
     void Start()
     {
-        if(activateButton != null)
+        if (activateButton != null)
         {
             activateButton.action.performed += Action_performed;
         }
         if (tileset != null && characterController != null &&
             metadataText != null)
         {
-            tileset.OnTileGameObjectCreated += go => {
+            tileset.OnTileGameObjectCreated += go =>
+            {
                 foreach (Transform child in go.transform)
                 {
                     var mc = child.GetComponent<MeshCollider>();
@@ -176,6 +180,7 @@ public class CesiumSamplesMetadataPickingVR : MonoBehaviour
                 var script = go.AddComponent<MetadataInteractable>();
                 script.metadataText = metadataText;
                 script.canvas = canvas;
+                script.layerMask = layerMask;
             };
         }
     }
