@@ -11,7 +11,10 @@ using UnityEngine.UIElements;
 using UnityEngine.XR.Management;
 using UnityEngine.XR.OpenXR;
 using UnityEngine.XR.OpenXR.Features;
+
+#if CESIUM_MAGIC_LEAP
 using UnityEngine.XR.OpenXR.Features.MagicLeapSupport;
+#endif
 using UnityEngine.XR.OpenXR.Features.MetaQuestSupport;
 
 [ExecuteInEditMode]
@@ -28,21 +31,29 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
     private const string ML_MIN_VERSION_TEXT =
         "The Magic Leap sample requires Unity version 2022.2 or greater. Please reopen the project in a compatible version of Unity to continue.";
 
-    private const string CESIUM_ML_DEFINE = "CESIUM_MAGIC_LEAP";
     private const string ML_FEATURE_SET_ID = "com.magicleap.openxr.featuregroup";
 
     private static bool _waitingForReturnToEditMode = false;
+    private static CesiumSamplesRequiresMagicLeap _instance = null;
 
 #if UNITY_2022_2_OR_NEWER
     static CesiumSamplesRequiresMagicLeap()
     {
         EditorApplication.playModeStateChanged += OnStateChanged;
-
     }
 #endif // UNITY_2022_2_OR_NEWER
 
     private void Start()
     {
+        // There should only ever be one of these at most in a scene.
+        if(_instance != null && _instance != this)
+        {
+            DestroyImmediate(this);
+            return;
+        }
+
+        _instance = this;
+
 #if !UNITY_2022_2_OR_NEWER
         EditorUtility.DisplayDialog("Unity 2022.2 or Greater Required", ML_MIN_VERSION_TEXT, "Ok");
         return;
@@ -70,7 +81,7 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
         {
             if (EditorUtility.DisplayDialog("Build settings need changing", ML_BUILD_SETTINGS_TEXT, "Ok", "Cancel"))
             {
-                StartCoroutine(ChangeBuildSettings());
+                ChangeBuildSettings();
             }
         }
 #endif // UNITY_2022_2_OR_NEWER
@@ -80,48 +91,33 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
     private static void OnStateChanged(PlayModeStateChange obj)
     {
         // If we're waiting for the editor to return to edit mode and we're there, actually change the build settings
-        if (_waitingForReturnToEditMode && obj == PlayModeStateChange.EnteredEditMode)
+        if (_waitingForReturnToEditMode && obj == PlayModeStateChange.EnteredEditMode && _instance != null)
         {
-            CesiumSamplesRequiresMagicLeap thisRml = FindObjectOfType<CesiumSamplesRequiresMagicLeap>();
-            if (thisRml != null)
-            {
-                thisRml.StartCoroutine(thisRml.ChangeBuildSettings());
-            }
+            _instance.ChangeBuildSettings();
         }
     }
 
-    private IEnumerator ChangeBuildSettings()
+    private void ChangeBuildSettings()
     {
         // We can't make these changes from within play mode, so let's kick the user out of play mode
         if (EditorApplication.isPlayingOrWillChangePlaymode)
         {
             _waitingForReturnToEditMode = true;
             EditorApplication.ExitPlaymode();
-            yield break;
+            return;
         }
 
         // MagicLeap is an Android target
         EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android);
 
-        yield return null;
-
         // ML runs on X86_64, not the ARM default for Android
         PlayerSettings.Android.targetArchitectures |= AndroidArchitecture.X86_64;
-
-        // Make sure defines include our CESIUM_MAGIC_LEAP define so we know if we're configured properly
-        PlayerSettings.GetScriptingDefineSymbols(UnityEditor.Build.NamedBuildTarget.Android, out string[] defines);
-        HashSet<string> definesSet = new HashSet<string>(defines)
-        {
-            CESIUM_ML_DEFINE
-        };
-        PlayerSettings.SetScriptingDefineSymbols(UnityEditor.Build.NamedBuildTarget.Android, definesSet.ToArray());
 
         // Make sure the OpenXRLoader is enabled in the project settings
         XRGeneralSettings xrSettings = XRGeneralSettingsPerBuildTarget.XRGeneralSettingsForBuildTarget(BuildTargetGroup.Android);
         if (!xrSettings.Manager.activeLoaders.Any(l => l is OpenXRLoader))
         {
             XRPackageMetadataStore.AssignLoader(xrSettings.Manager, "Unity.XR.OpenXR.OpenXRLoader", BuildTargetGroup.Android);
-            yield return null;
         }
 
         // Make sure the Magic Leap feature group is enabled too
@@ -139,6 +135,7 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
             metaQuestFeature.enabled = false;
         }
 
+#if CESIUM_MAGIC_LEAP
         // Make sure we can use the global dimmer feature
         MagicLeapRenderingExtensionsFeature renderFeature = oxrSettings.GetFeature<MagicLeapRenderingExtensionsFeature>();
         renderFeature.enabled = true;
@@ -162,7 +159,9 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
         farClipProperty.intValue = (int)MagicLeapFeature.FarClipMode.None;
         mlFeatureObject.ApplyModifiedPropertiesWithoutUndo();
 
-        yield return null;
+#else  // CESIUM_MAGIC_LEAP
+        return;
+#endif // CESIUM_MAGIC_LEAP
 
         // If we forced the user out of playmode to make these changes, put them back in
         if (_waitingForReturnToEditMode)
@@ -175,12 +174,6 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
     private bool CheckIfSettingsCorrect()
     {
         if (EditorUserBuildSettings.activeBuildTarget != BuildTarget.Android)
-        {
-            return false;
-        }
-
-        PlayerSettings.GetScriptingDefineSymbols(UnityEditor.Build.NamedBuildTarget.Android, out string[] defines);
-        if (!defines.Any(d => d == CESIUM_ML_DEFINE))
         {
             return false;
         }
@@ -214,6 +207,7 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
             return false;
         }
 
+#if CESIUM_MAGIC_LEAP
         MagicLeapRenderingExtensionsFeature renderFeature = oxrSettings.GetFeature<MagicLeapRenderingExtensionsFeature>();
         if (renderFeature == null || !renderFeature.enabled || !renderFeature.GlobalDimmerEnabled)
         {
@@ -231,6 +225,9 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
         {
             return false;
         }
+#else  // CESIUM_MAGIC_LEAP
+        return false;
+#endif // CESIUM_MAGIC_LEAP
 
         return true;
     }
