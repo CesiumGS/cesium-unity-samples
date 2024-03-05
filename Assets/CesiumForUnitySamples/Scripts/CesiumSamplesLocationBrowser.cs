@@ -52,6 +52,9 @@ public class CesiumSamplesLocationBrowser : MonoBehaviour
     [SerializeField]
     private Slider _dimmerSlider;
 
+    [SerializeField]
+    private CesiumCameraController _cameraController;
+
     private CesiumGeoreference _georeference;
     private double3 _originEcef;
     private CanvasGroup[] _createdCanvasGroups;
@@ -74,7 +77,8 @@ public class CesiumSamplesLocationBrowser : MonoBehaviour
 
     public void OnBackButtonPressed()
     {
-        MoveToLocation(_locationsData.Locations[0]);
+        //MoveToLocation(_locationsData.Locations[0]);
+        this._globeAnchor.positionGlobeFixed = _locationsData.Locations[0].CoordinatesEcef;
     }
 
     private void Awake()
@@ -115,6 +119,11 @@ public class CesiumSamplesLocationBrowser : MonoBehaviour
             this._iconOffsets[i] = 0;
             this._iconOffsetTargets[i] = 0;
             this._iconOffsetVelocities[i] = 0;
+
+            if(!loc.IsEnabled)
+            {
+                continue;
+            }
 
             GameObject newObject = Instantiate(_locationIconCanvasPrefab, _locationIconsParent);
             TMP_Text newText = newObject.GetComponentInChildren<TMP_Text>();
@@ -162,7 +171,7 @@ public class CesiumSamplesLocationBrowser : MonoBehaviour
 
     private void MoveToLocation(CesiumSamplesLocationsData.Location location)
     {
-        _flyToController.FlyToLocationLongitudeLatitudeHeight(new double3(location.Longitude, location.Latitude, location.Height), 0, 0, false);
+        _flyToController.FlyToLocationEarthCenteredEarthFixed(location.CoordinatesEcef, 0, 0, false);
     }
 
     private void Update()
@@ -172,15 +181,19 @@ public class CesiumSamplesLocationBrowser : MonoBehaviour
         float distanceToOrigin = Vector3.Distance(
             (float3)this._georeference.TransformEarthCenteredEarthFixedPositionToUnity(this._originEcef),
             cameraPosition);
-        float normalizedDistanceToOrigin = Mathf.Clamp01(distanceToOrigin / this._originRadius);
+        float normalizedDistanceFromOrigin = Mathf.Clamp01(distanceToOrigin / this._originRadius);
 
         for (int i = 0; i < _createdGameObjects.Length; i++)
         {
             CesiumSamplesLocationsData.Location loc = _locationsData.Locations[i];
+            if(!loc.IsEnabled)
+            {
+                continue;
+            }
 
             // Base alpha on distance from origin, making for a smooth fade out as we move away from the origin
-            _createdCanvasGroups[i].alpha = 1.0f - normalizedDistanceToOrigin;
-            _createdCanvasGroups[i].blocksRaycasts = _createdCanvasGroups[i].interactable = normalizedDistanceToOrigin < 0.1f;
+            _createdCanvasGroups[i].alpha = 1.0f - normalizedDistanceFromOrigin;
+            _createdCanvasGroups[i].blocksRaycasts = _createdCanvasGroups[i].interactable = normalizedDistanceFromOrigin < 0.1f;
 
             // We want to place the icon close to the camera but in the direction of the actual position it's representing
             Vector3 realLocationPosition = LocationToUnityCoordinates(loc);
@@ -192,8 +205,9 @@ public class CesiumSamplesLocationBrowser : MonoBehaviour
             _iconOffsets[i] = Mathf.SmoothDamp(this._iconOffsets[i], this._iconOffsetTargets[i], ref this._iconOffsetVelocities[i], Time.deltaTime * this._iconHoverEffectTime);
         }
 
-        _backButtonGroup.alpha = normalizedDistanceToOrigin;
-        _backButtonGroup.interactable = _backButtonGroup.blocksRaycasts = normalizedDistanceToOrigin > 0.9f;
+        _cameraController.enabled = normalizedDistanceFromOrigin > 0.9f;
+        _backButtonGroup.alpha = normalizedDistanceFromOrigin;
+        _backButtonGroup.interactable = _backButtonGroup.blocksRaycasts = normalizedDistanceFromOrigin > 0.9f;
     }
 
     private Vector3 LocationToUnityCoordinates(CesiumSamplesLocationsData.Location loc)

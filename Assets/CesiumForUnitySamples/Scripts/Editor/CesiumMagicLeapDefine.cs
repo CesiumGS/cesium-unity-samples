@@ -9,6 +9,7 @@ public class CesiumMagicLeapDefine
 {
     private const string CESIUM_ML_DEFINE = "CESIUM_MAGIC_LEAP";
 
+    [InitializeOnLoadMethod]
     private static void CheckAndEnableMagicLeapDefine()
     {
         // We don't get a script define for the ML SDK package being included, so we check if its assembly exists

@@ -1,21 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+#if UNITY_EDITOR
 using System.Linq;
 using UnityEditor;
-using UnityEditor.PackageManager;
 using UnityEditor.XR.Management;
 using UnityEditor.XR.Management.Metadata;
 using UnityEditor.XR.OpenXR.Features;
+#endif
 using UnityEngine;
-using UnityEngine.UIElements;
+#if UNITY_EDITOR
 using UnityEngine.XR.Management;
 using UnityEngine.XR.OpenXR;
+using UnityEngine.XR.OpenXR.Features.MetaQuestSupport;
 using UnityEngine.XR.OpenXR.Features;
 
 #if CESIUM_MAGIC_LEAP
 using UnityEngine.XR.OpenXR.Features.MagicLeapSupport;
 #endif
-using UnityEngine.XR.OpenXR.Features.MetaQuestSupport;
+#endif
 
 [ExecuteInEditMode]
 public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
@@ -163,12 +163,7 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
         return;
 #endif // CESIUM_MAGIC_LEAP
 
-        // If we forced the user out of playmode to make these changes, put them back in
-        if (_waitingForReturnToEditMode)
-        {
-            _waitingForReturnToEditMode = false;
-            EditorApplication.EnterPlaymode();
-        }
+        _waitingForReturnToEditMode = false;
     }
 
     private bool CheckIfSettingsCorrect()
