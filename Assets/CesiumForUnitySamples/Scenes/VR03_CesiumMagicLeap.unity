@@ -2772,6 +2772,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   useXrInteractionSystem: 0
+  placeOnBuilding: 0
 --- !u!1 &2035968785
 GameObject:
   m_ObjectHideFlags: 0
@@ -3335,9 +3336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3859a92a05d4f5d418cb6ca605290e74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AttemptUpdate: 1
-  m_MatchFrameRate: 1
-  m_TrackingMode: 2
 --- !u!1 &5589497133069085203
 GameObject:
   m_ObjectHideFlags: 0
@@ -4145,12 +4143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4966719baa26e4b0e8231a24d9bd491a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FocusMode: -1
-  m_LightEstimationMode: -1
-  m_AutoFocus: 1
-  m_LightEstimation: 0
-  m_FacingDirection: 1
-  m_RenderMode: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

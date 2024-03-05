@@ -1,12 +1,10 @@
-using UnityEngine;
 using CesiumForUnity;
-using UnityEngine.XR.Interaction.Toolkit;
-using TMPro;
 using System.Collections.Generic;
-using UnityEngine.UI;
-using UnityEngine.InputSystem;
-using UnityEngine.XR.ARSubsystems;
 using System.Linq;
+using TMPro;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class CesiumSamplesMetadataPickingVR : MonoBehaviour
 {
@@ -16,64 +14,66 @@ public class CesiumSamplesMetadataPickingVR : MonoBehaviour
     public GameObject canvas;
     public InputActionProperty activateButton;
     public XRRayInteractor rayInteractor;
-    public LayerMask layerMask;
-    public bool useXrInteractionSystem = true;
+    public LayerMask layerMask = ~0;
+    public bool placeOnBuilding = true;
+
+    private const string ESTIMATED_HEIGHT_KEY = "cesium#estimatedHeight";
 
     private static HashSet<string> ignoreProperties = new HashSet<string>() {
-    "addr:city",
-    "addr:country",
-    "addr:housenumber",
-    "addr:postcode",
-    "addr:state",
-    "addr:street",
-    "building:colour",
-    "cesium#color",
-    "cesium#estimatedHeight",
-    "cesium#latitude",
-    "cesium#longitude",
-    "ele",
-    "elementId",
-    "elementType",
-    "gnis:county_id",
-    "gnis:created",
-    "gnis:edited",
-    "gnis:feature_id",
-    "gnis:state_id",
-    "layer",
-    "name",
-    "name:ar",
-    "name:de",
-    "name:el",
-    "name:es",
-    "name:etymology",
-    "name:fr",
-    "name:he",
-    "name:hi",
-    "name:hr",
-    "name:ja",
-    "name:ko",
-    "name:pl",
-    "name:uk",
-    "name:zh",
-    "name:zh_pinyin",
-    "nycdoitt:bin",
-    "part#elementId",
-    "part#elementType",
-    "part#building:colour",
-    "part#roof:colour",
-    "part#roof:direction",
-    "part#addr:city",
-    "part#addr:country",
-    "part#addr:housenumber",
-    "part#addr:postcode",
-    "part#addr:state",
-    "part#addr:street",
-    "part#wikidata",
-    "part#nycdoitt:bin",
-    "roof:colour",
-    "type",
-    "wikidata",
-  };
+        "addr:city",
+        "addr:country",
+        "addr:housenumber",
+        "addr:postcode",
+        "addr:state",
+        "addr:street",
+        "building:colour",
+        "cesium#color",
+        "cesium#estimatedHeight",
+        "cesium#latitude",
+        "cesium#longitude",
+        "ele",
+        "elementId",
+        "elementType",
+        "gnis:county_id",
+        "gnis:created",
+        "gnis:edited",
+        "gnis:feature_id",
+        "gnis:state_id",
+        "layer",
+        "name",
+        "name:ar",
+        "name:de",
+        "name:el",
+        "name:es",
+        "name:etymology",
+        "name:fr",
+        "name:he",
+        "name:hi",
+        "name:hr",
+        "name:ja",
+        "name:ko",
+        "name:pl",
+        "name:uk",
+        "name:zh",
+        "name:zh_pinyin",
+        "nycdoitt:bin",
+        "part#elementId",
+        "part#elementType",
+        "part#building:colour",
+        "part#roof:colour",
+        "part#roof:direction",
+        "part#addr:city",
+        "part#addr:country",
+        "part#addr:housenumber",
+        "part#addr:postcode",
+        "part#addr:state",
+        "part#addr:street",
+        "part#wikidata",
+        "part#nycdoitt:bin",
+        "roof:colour",
+        "type",
+        "wikidata",
+    };
 
 
     private void Start()
@@ -85,15 +85,15 @@ public class CesiumSamplesMetadataPickingVR : MonoBehaviour
         }
     }
 
-    private string GetInterestingProperties(Dictionary<string, CesiumMetadataValue> metadataValues)
+    private string GetInterestingProperties(CesiumPropertyTable propertyTable, long featureId)
     {
         string ret = "";
-        foreach ((string propertyName, CesiumMetadataValue property) in metadataValues.OrderBy(kv => kv.Key))
+        foreach ((string propertyName, CesiumPropertyTableProperty property) in propertyTable.properties.OrderBy(p => p.Key))
         {
             if (!ignoreProperties.Contains(propertyName))
             {
-                string propertyValue = property.GetString("null");
-                if (propertyValue != "null")
+                string propertyValue = property.GetString(featureId, "null");
+                if (!string.IsNullOrWhiteSpace(propertyValue) && propertyValue != "null")
                 {
                     ret += $"{propertyName}: {propertyValue}\n";
                 }
@@ -102,40 +102,54 @@ public class CesiumSamplesMetadataPickingVR : MonoBehaviour
         return ret;
     }
 
-    private string GetBuildingName(Dictionary<string, CesiumMetadataValue> metadataValues)
+    private string GetBuildingName(CesiumPropertyTable propertyTable, long featureId)
     {
-        if (metadataValues.ContainsKey("name:en") && metadataValues["name:en"].GetString("null") != null)
+        string name;
+        if (TryGetString(propertyTable, featureId, "name:en", out name))
         {
-            return metadataValues["name:en"].GetString();
+            return name;
         }
 
-        if (metadataValues.ContainsKey("name") && metadataValues["name"].GetString("null") != null)
+        if (TryGetString(propertyTable, featureId, "name", out name))
         {
-            return metadataValues["name"].GetString();
+            return name;
         }
 
-        if (metadataValues.ContainsKey("addr:housename") && metadataValues["addr:housename"].GetString("null") != null)
+        if (TryGetString(propertyTable, featureId, "addr:housename", out name))
         {
-            return metadataValues["addr:housename"].GetString();
+            return name;
         }
 
-        if (metadataValues.ContainsKey("addr:street") && metadataValues.ContainsKey("addr:housenumber"))
+        if (TryGetString(propertyTable, featureId, "addr:housenumber", out string houseNum) && TryGetString(propertyTable, featureId, "addr:street", out string street))
         {
-            return metadataValues["addr:housenumber"] + " " + metadataValues["addr:street"];
+            return $"{houseNum} {street}";
         }
 
         return "Name N/A";
     }
 
-    private Vector3 GetTopOfBuilding(Vector3 hitLocation, Dictionary<string, CesiumMetadataValue> metadataValues)
+    private bool TryGetString(CesiumPropertyTable table, long featureId, string key, out string value)
+    {
+        if (table.properties.ContainsKey(key))
+        {
+            value = table.properties[key].GetString(featureId, "null");
+            return !string.IsNullOrWhiteSpace(value) && value != "null";
+        }
+
+        value = null;
+        return false;
+    }
+
+    private Vector3 GetTopOfBuilding(Vector3 hitLocation, CesiumPropertyTable propertyTable, long featureId)
     {
         var georeference = GetComponentInParent<CesiumGeoreference>();
         if (georeference != null)
         {
-            float buildingHeight =
-                metadataValues.ContainsKey("cesium#estimatedHeight") ?
-                    metadataValues["cesium#estimatedHeight"].GetFloat(0.0f) :
-                    0.0f;
+            float buildingHeight = 0.0f;
+            if (propertyTable.properties.ContainsKey(ESTIMATED_HEIGHT_KEY))
+            {
+                buildingHeight = propertyTable.properties[ESTIMATED_HEIGHT_KEY].GetFloat(featureId, 0.0f);
+            }
 
             foreach (RaycastHit hit in Physics.RaycastAll(hitLocation, Vector3.down, 100.0f, layerMask.value))
             {
@@ -158,7 +172,7 @@ public class CesiumSamplesMetadataPickingVR : MonoBehaviour
             canvas.SetActive(false);
         }
 
-        if (!useXrInteractionSystem && !rayInteractor.IsOverUIGameObject())
+        if (!rayInteractor.IsOverUIGameObject())
         {
             if (Physics.Raycast(
                 rayInteractor.transform.position,
@@ -183,15 +197,26 @@ public class CesiumSamplesMetadataPickingVR : MonoBehaviour
                         propertyTable.GetMetadataValuesForFeature(metadataValues, featureId);
 
                         Vector3 camPos = Camera.main.transform.position;
-                        Vector3 dir = Vector3.Normalize(hit.point - camPos);
-                        canvas.transform.parent.position = camPos + dir * 20;
 
-                        //canvas.transform.parent.rotation = Quaternion.LookRotation(new Vector3(topOfBuilding.x - camPos.x, 0, topOfBuilding.z - camPos.z), Vector3.up);
-                        canvas.transform.parent.rotation = Quaternion.LookRotation(dir);
+                        if (placeOnBuilding)
+                        {
+                            Vector3 topOfBuilding = GetTopOfBuilding(hit.point, propertyTable, featureId);
+                            float distance = Vector3.Distance(camPos, topOfBuilding);
+                            if (distance > 1.0f)
+                            {
+                                canvas.transform.localScale = distance * Vector3.one;
+                            }
+                            canvas.transform.parent.rotation = Quaternion.LookRotation(new Vector3(topOfBuilding.x - camPos.x, 0, topOfBuilding.z - camPos.z), Vector3.up);
+                        }
+                        else
+                        {
+                            Vector3 dir = Vector3.Normalize(hit.point - camPos);
+                            canvas.transform.parent.position = camPos + dir * 20;
+                            canvas.transform.parent.rotation = Quaternion.LookRotation(dir);
+                        }
 
                         metadataText.text =
-                            $"<size=150%><b>{GetBuildingName(metadataValues)}</b></size>\n<size=75%>{GetInterestingProperties(metadataValues)}</size>";
-                        Debug.Log(metadataText.text);
+                            $"<size=150%><b>{GetBuildingName(propertyTable, featureId)}</b></size>\n<size=75%>{GetInterestingProperties(propertyTable, featureId)}</size>";
 
                         canvas.SetActive(true);
                     }
