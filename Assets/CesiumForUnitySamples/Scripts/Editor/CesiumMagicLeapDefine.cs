@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
-using UnityEngine;
 
 [InitializeOnLoad]
 public class CesiumMagicLeapDefine
@@ -14,7 +12,16 @@ public class CesiumMagicLeapDefine
     {
         // We don't get a script define for the ML SDK package being included, so we check if its assembly exists
         // If it does, we set our own define
-        System.Reflection.Assembly mlAssembly = System.Reflection.Assembly.Load("MagicLeap.SDK");
+        System.Reflection.Assembly mlAssembly;
+        try
+        {
+            mlAssembly = System.Reflection.Assembly.Load("MagicLeap.SDK");
+        }
+        catch (System.IO.FileNotFoundException e)
+        {
+            mlAssembly = null;
+        }
+
         if (mlAssembly == null)
         {
 #if CESIUM_MAGIC_LEAP

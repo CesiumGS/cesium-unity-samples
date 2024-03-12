@@ -11,6 +11,9 @@ using UnityEngine.XR.Management;
 using UnityEngine.XR.OpenXR;
 using UnityEngine.XR.OpenXR.Features.MetaQuestSupport;
 using UnityEngine.XR.OpenXR.Features;
+using System;
+using static UnityEditor.XR.OpenXR.Features.OpenXRFeatureSetManager;
+using UnityEngine.XR;
 
 #if CESIUM_MAGIC_LEAP
 using UnityEngine.XR.OpenXR.Features.MagicLeapSupport;
@@ -35,8 +38,101 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
 
     private static bool _waitingForReturnToEditMode = false;
     private static CesiumSamplesRequiresMagicLeap _instance = null;
+    private static int _idx = -1;
 
 #if UNITY_2022_2_OR_NEWER
+    private static readonly Case[] _cases = new Case[]
+    {
+        // MagicLeap is an Android target
+        new Case(() => EditorUserBuildSettings.activeBuildTarget == BuildTarget.Android, () => EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android)),
+        // ML runs on X86_64, not the ARM default for Android
+        new Case(() => PlayerSettings.Android.targetArchitectures.HasFlag(AndroidArchitecture.X86_64), () => PlayerSettings.Android.targetArchitectures |= AndroidArchitecture.X86_64),
+        // Make sure the OpenXRLoader is enabled in the project settings
+        new Case(
+            () => XRGeneralSettingsPerBuildTarget.XRGeneralSettingsForBuildTarget(BuildTargetGroup.Android).Manager.activeLoaders.Any(l => l is OpenXRLoader),
+            () => XRPackageMetadataStore.AssignLoader(XRGeneralSettingsPerBuildTarget.XRGeneralSettingsForBuildTarget(BuildTargetGroup.Android).Manager, "Unity.XR.OpenXR.OpenXRLoader", BuildTargetGroup.Android)),
+        // Make sure the Magic Leap feature group is enabled too
+        new Case(
+            () => OpenXRFeatureSetManager.GetFeatureSetWithId(BuildTargetGroup.Android, ML_FEATURE_SET_ID)?.isEnabled ?? false,
+            () =>
+            {
+                OpenXRFeatureSetManager.FeatureSet featureSet = OpenXRFeatureSetManager.GetFeatureSetWithId(BuildTargetGroup.Android, ML_FEATURE_SET_ID);
+                featureSet.isEnabled = true;
+                OpenXRFeatureSetManager.SetFeaturesFromEnabledFeatureSets(BuildTargetGroup.Android);
+            }),
+        // Meta Quest support will cause a build error if it's enabled and an unsupported interaction feature
+        // (like the MagicLeapControllerProfile) is configured. So let's disable it so we can build.
+        new Case(
+            () =>
+            {
+                OpenXRSettings oxrSettings = OpenXRSettings.GetSettingsForBuildTargetGroup(BuildTargetGroup.Android);
+                MetaQuestFeature metaQuestFeature = oxrSettings.GetFeature<MetaQuestFeature>();
+                return metaQuestFeature == null || !metaQuestFeature.enabled;
+            },
+            () =>
+            {
+                OpenXRSettings oxrSettings = OpenXRSettings.GetSettingsForBuildTargetGroup(BuildTargetGroup.Android);
+                MetaQuestFeature metaQuestFeature = oxrSettings.GetFeature<MetaQuestFeature>();
+                metaQuestFeature.enabled = false;
+            }),
+#if CESIUM_MAGIC_LEAP
+        // Make sure we can use the global dimmer feature
+        new Case(
+            () =>
+            {
+                OpenXRSettings oxrSettings = OpenXRSettings.GetSettingsForBuildTargetGroup(BuildTargetGroup.Android);
+                MagicLeapRenderingExtensionsFeature renderFeature = oxrSettings.GetFeature<MagicLeapRenderingExtensionsFeature>();
+                return renderFeature != null && renderFeature.enabled && renderFeature.GlobalDimmerEnabled;
+            },
+            () =>
+            {
+                OpenXRSettings oxrSettings = OpenXRSettings.GetSettingsForBuildTargetGroup(BuildTargetGroup.Android);
+                MagicLeapRenderingExtensionsFeature renderFeature = oxrSettings.GetFeature<MagicLeapRenderingExtensionsFeature>();
+                renderFeature.enabled = true;
+                renderFeature.GlobalDimmerEnabled = true;
+            }),
+        // Make sure the Magic Leap Controller is enabled as an input source
+        new Case(
+            () =>
+            {
+                OpenXRSettings oxrSettings = OpenXRSettings.GetSettingsForBuildTargetGroup(BuildTargetGroup.Android);
+                OpenXRFeature[] interactionFeatures = oxrSettings.GetFeatures<OpenXRInteractionFeature>();
+                return interactionFeatures.Any(f => f.GetType() == typeof(MagicLeapControllerProfile) && f.enabled);
+            },
+            () =>
+            {
+                OpenXRSettings oxrSettings = OpenXRSettings.GetSettingsForBuildTargetGroup(BuildTargetGroup.Android);
+
+                OpenXRFeature[] interactionFeatures = oxrSettings.GetFeatures<OpenXRInteractionFeature>();
+                MagicLeapControllerProfile magicLeapProfile = interactionFeatures.FirstOrDefault(f => f.GetType() == typeof(MagicLeapControllerProfile)) as MagicLeapControllerProfile;
+                if (magicLeapProfile != null)
+                {
+                    magicLeapProfile.enabled = true;
+                }
+            }),
+        // We need to disable ML's handling of the far clip plane, so we can see distant terrain
+        // This property is private so we use SerializedProperty to access it
+        new Case(
+            () =>
+            {
+                OpenXRSettings oxrSettings = OpenXRSettings.GetSettingsForBuildTargetGroup(BuildTargetGroup.Android);
+                MagicLeapFeature mlFeature = oxrSettings.GetFeature<MagicLeapFeature>();
+                return mlFeature != null && mlFeature.enabled && mlFeature.FarClipPolicy == MagicLeapFeature.FarClipMode.None;
+            },
+            () =>
+            {
+                OpenXRSettings oxrSettings = OpenXRSettings.GetSettingsForBuildTargetGroup(BuildTargetGroup.Android);
+                MagicLeapFeature mlFeature = oxrSettings.GetFeature<MagicLeapFeature>();
+                mlFeature.enabled = true;
+
+                SerializedObject mlFeatureObject = new SerializedObject(mlFeature);
+                SerializedProperty farClipProperty = mlFeatureObject.FindProperty("farClipPolicy");
+                farClipProperty.intValue = (int)MagicLeapFeature.FarClipMode.None;
+                mlFeatureObject.ApplyModifiedPropertiesWithoutUndo();
+            })
+#endif // CESIUM_MAGIC_LEAP
+    };
+
     static CesiumSamplesRequiresMagicLeap()
     {
         EditorApplication.playModeStateChanged += OnStateChanged;
@@ -46,7 +142,7 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
     private void Start()
     {
         // There should only ever be one of these at most in a scene.
-        if(_instance != null && _instance != this)
+        if (_instance != null && _instance != this)
         {
             DestroyImmediate(this);
             return;
@@ -81,6 +177,7 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
         {
             if (EditorUtility.DisplayDialog("Build settings need changing", ML_BUILD_SETTINGS_TEXT, "Ok", "Cancel"))
             {
+                _idx = -1;
                 ChangeBuildSettings();
             }
         }
@@ -97,6 +194,11 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
         }
     }
 
+    private bool CheckIfSettingsCorrect()
+    {
+        return _cases.All(c => c.OnCheck());
+    }
+
     private void ChangeBuildSettings()
     {
         // We can't make these changes from within play mode, so let's kick the user out of play mode
@@ -107,125 +209,35 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
             return;
         }
 
-        // MagicLeap is an Android target
-        EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android);
-
-        // ML runs on X86_64, not the ARM default for Android
-        PlayerSettings.Android.targetArchitectures |= AndroidArchitecture.X86_64;
-
-        // Make sure the OpenXRLoader is enabled in the project settings
-        XRGeneralSettings xrSettings = XRGeneralSettingsPerBuildTarget.XRGeneralSettingsForBuildTarget(BuildTargetGroup.Android);
-        if (!xrSettings.Manager.activeLoaders.Any(l => l is OpenXRLoader))
-        {
-            XRPackageMetadataStore.AssignLoader(xrSettings.Manager, "Unity.XR.OpenXR.OpenXRLoader", BuildTargetGroup.Android);
-        }
-
-        // Make sure the Magic Leap feature group is enabled too
-        OpenXRFeatureSetManager.FeatureSet featureSet = OpenXRFeatureSetManager.GetFeatureSetWithId(BuildTargetGroup.Android, ML_FEATURE_SET_ID);
-        featureSet.isEnabled = true;
-        OpenXRFeatureSetManager.SetFeaturesFromEnabledFeatureSets(BuildTargetGroup.Android);
-
-        OpenXRSettings oxrSettings = OpenXRSettings.GetSettingsForBuildTargetGroup(BuildTargetGroup.Android);
-
-        // Meta Quest support will cause a build error if it's enabled and an unsupported interaction feature
-        // (like the MagicLeapControllerProfile) is configured. So let's disable it so we can build.
-        MetaQuestFeature metaQuestFeature = oxrSettings.GetFeature<MetaQuestFeature>();
-        if (metaQuestFeature != null && metaQuestFeature.enabled)
-        {
-            metaQuestFeature.enabled = false;
-        }
-
-#if CESIUM_MAGIC_LEAP
-        // Make sure we can use the global dimmer feature
-        MagicLeapRenderingExtensionsFeature renderFeature = oxrSettings.GetFeature<MagicLeapRenderingExtensionsFeature>();
-        renderFeature.enabled = true;
-        renderFeature.GlobalDimmerEnabled = true;
-
-        // Make sure the Magic Leap Controller is enabled as an input source
-        OpenXRFeature[] interactionFeatures = oxrSettings.GetFeatures<OpenXRInteractionFeature>();
-        MagicLeapControllerProfile magicLeapProfile = interactionFeatures.FirstOrDefault(f => f.GetType() == typeof(MagicLeapControllerProfile)) as MagicLeapControllerProfile;
-        if (magicLeapProfile != null)
-        {
-            magicLeapProfile.enabled = true;
-        }
-
-        MagicLeapFeature mlFeature = oxrSettings.GetFeature<MagicLeapFeature>();
-        mlFeature.enabled = true;
-
-        // We need to disable ML's handling of the far clip plane, so we can see distant terrain
-        // This property is private so we use SerializedProperty to access it
-        SerializedObject mlFeatureObject = new SerializedObject(mlFeature);
-        SerializedProperty farClipProperty = mlFeatureObject.FindProperty("farClipPolicy");
-        farClipProperty.intValue = (int)MagicLeapFeature.FarClipMode.None;
-        mlFeatureObject.ApplyModifiedPropertiesWithoutUndo();
-
-#else  // CESIUM_MAGIC_LEAP
-        return;
-#endif // CESIUM_MAGIC_LEAP
-
         _waitingForReturnToEditMode = false;
-    }
 
-    private bool CheckIfSettingsCorrect()
-    {
-        if (EditorUserBuildSettings.activeBuildTarget != BuildTarget.Android)
+        _idx++;
+        if(_idx >= _cases.Length)
         {
-            return false;
+            Debug.Log("Successfully updated build settings for the Magic Leap!");
+            return;
         }
 
-        var targetArchitectures = PlayerSettings.Android.targetArchitectures;
-        if (!PlayerSettings.Android.targetArchitectures.HasFlag(AndroidArchitecture.X86_64))
+        if (!_cases[_idx].OnCheck())
         {
-            return false;
+            _cases[_idx].OnPerform();
         }
 
-        XRGeneralSettingsPerBuildTarget buildTargetSettings = null;
-        EditorBuildSettings.TryGetConfigObject(XRGeneralSettings.k_SettingsKey, out buildTargetSettings);
-        XRGeneralSettings settings = buildTargetSettings.SettingsForBuildTarget(BuildTargetGroup.Android);
-        OpenXRLoader loader = settings.Manager.activeLoaders.FirstOrDefault(l => l.GetType() == typeof(OpenXRLoader)) as OpenXRLoader;
-        if (loader == null)
-        {
-            return false;
-        }
-
-        OpenXRFeatureSetManager.FeatureSet featureSet = OpenXRFeatureSetManager.GetFeatureSetWithId(BuildTargetGroup.Android, ML_FEATURE_SET_ID);
-        if (featureSet == null || !featureSet.isInstalled || !featureSet.isEnabled)
-        {
-            return false;
-        }
-
-        OpenXRSettings oxrSettings = OpenXRSettings.GetSettingsForBuildTargetGroup(BuildTargetGroup.Android);
-
-        MetaQuestFeature metaQuestFeature = oxrSettings.GetFeature<MetaQuestFeature>();
-        if (metaQuestFeature != null && metaQuestFeature.enabled)
-        {
-            return false;
-        }
-
-#if CESIUM_MAGIC_LEAP
-        MagicLeapRenderingExtensionsFeature renderFeature = oxrSettings.GetFeature<MagicLeapRenderingExtensionsFeature>();
-        if (renderFeature == null || !renderFeature.enabled || !renderFeature.GlobalDimmerEnabled)
-        {
-            return false;
-        }
-
-        OpenXRFeature[] interactionFeatures = oxrSettings.GetFeatures<OpenXRInteractionFeature>();
-        if (!interactionFeatures.Any(f => f.GetType() == typeof(MagicLeapControllerProfile) && f.enabled))
-        {
-            return false;
-        }
-
-        MagicLeapFeature mlFeature = oxrSettings.GetFeature<MagicLeapFeature>();
-        if (mlFeature == null || !mlFeature.enabled || mlFeature.FarClipPolicy != MagicLeapFeature.FarClipMode.None)
-        {
-            return false;
-        }
-#else  // CESIUM_MAGIC_LEAP
-        return false;
-#endif // CESIUM_MAGIC_LEAP
-
-        return true;
+        // Execute the next case when we get a chance
+        EditorApplication.delayCall += ChangeBuildSettings;
     }
 #endif // UNITY_2022_2_OR_NEWER
 #endif // UNITY_EDITOR
+
+    private class Case
+    {
+        public Func<bool> OnCheck;
+        public Action OnPerform;
+
+        public Case(Func<bool> onCheck, Action onPerform)
+        {
+            this.OnCheck = onCheck;
+            this.OnPerform = onPerform;
+        }
+    }
 }
