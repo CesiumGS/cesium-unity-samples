@@ -47,6 +47,8 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
         new Case(() => EditorUserBuildSettings.activeBuildTarget == BuildTarget.Android, () => EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android)),
         // ML runs on X86_64, not the ARM default for Android
         new Case(() => PlayerSettings.Android.targetArchitectures.HasFlag(AndroidArchitecture.X86_64), () => PlayerSettings.Android.targetArchitectures |= AndroidArchitecture.X86_64),
+        // ML only supports DXT texture compression
+        new Case(() => EditorUserBuildSettings.androidBuildSubtarget == MobileTextureSubtarget.DXT, () => EditorUserBuildSettings.androidBuildSubtarget = MobileTextureSubtarget.DXT),
         // Make sure the OpenXRLoader is enabled in the project settings
         new Case(
             () => XRGeneralSettingsPerBuildTarget.XRGeneralSettingsForBuildTarget(BuildTargetGroup.Android).Manager.activeLoaders.Any(l => l is OpenXRLoader),
