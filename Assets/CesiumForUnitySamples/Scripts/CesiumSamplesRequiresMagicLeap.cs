@@ -32,7 +32,7 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
     private const string ML_BUILD_SETTINGS_TEXT =
         "Build settings need to be changed to support the Magic Leap. Click Ok to perform these changes automatically.";
     private const string ML_MIN_VERSION_TEXT =
-        "The Magic Leap sample requires Unity version 2022.2 or greater. Please reopen the project in a compatible version of Unity to continue.";
+        "The Magic Leap sample requires Unity version 2022.3.11 or greater. Please reopen the project in a compatible version of Unity to continue.";
 
     private const string ML_FEATURE_SET_ID = "com.magicleap.openxr.featuregroup";
 
@@ -40,7 +40,9 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
     private static CesiumSamplesRequiresMagicLeap _instance = null;
     private static int _idx = -1;
 
-#if UNITY_2022_2_OR_NEWER
+#if UNITY_2022_3_OR_NEWER
+    // Each case describes a change that needs to be made for Magic Leap support
+    // Each gives a function to check if the case has been applied successfully, and if not, a method to apply it.
     private static readonly Case[] _cases = new Case[]
     {
         // MagicLeap is an Android target
@@ -150,12 +152,13 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
 
         _instance = this;
 
-#if !UNITY_2022_2_OR_NEWER
-        EditorUtility.DisplayDialog("Unity 2022.2 or Greater Required", ML_MIN_VERSION_TEXT, "Ok");
-        return;
-#endif // !UNITY_2022_2_OR_NEWER
+        if(!CheckUnityVersion(2022, 3, 11))
+        {
+            EditorUtility.DisplayDialog("Unity 2022.3.11 or Greater Required", ML_MIN_VERSION_TEXT, "Ok");
+            return;
+        }
 
-#if UNITY_2022_2_OR_NEWER
+#if UNITY_2022_3_OR_NEWER
         if (_waitingForReturnToEditMode)
         {
             return;
@@ -164,7 +167,7 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
         bool hasMagicLeap = UnityEditor.PackageManager.PackageInfo.GetAllRegisteredPackages().Any(p => p.name == "com.magicleap.unitysdk");
         if (!hasMagicLeap)
         {
-            if (EditorUtility.DisplayDialog("Setup required", ML_PACKAGE_REQUIRED_TEXT, "Open documentation", "I'll add it manually"))
+            if (EditorUtility.DisplayDialog("Magic Leap SDK Setup required", ML_PACKAGE_REQUIRED_TEXT, "Open Magic Leap documentation", "Ok"))
             {
                 Application.OpenURL(ML_PACKAGE_DOCS_LINK);
             }
@@ -175,16 +178,16 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
 
         if (!CheckIfSettingsCorrect())
         {
-            if (EditorUtility.DisplayDialog("Build settings need changing", ML_BUILD_SETTINGS_TEXT, "Ok", "Cancel"))
+            if (EditorUtility.DisplayDialog("Change Build Settings for Magic Leap", ML_BUILD_SETTINGS_TEXT, "Ok", "Cancel"))
             {
                 _idx = -1;
                 ChangeBuildSettings();
             }
         }
-#endif // UNITY_2022_2_OR_NEWER
+#endif // UNITY_2022_3_OR_NEWER
     }
 
-#if UNITY_2022_2_OR_NEWER
+#if UNITY_2022_3_OR_NEWER
     private static void OnStateChanged(PlayModeStateChange obj)
     {
         // If we're waiting for the editor to return to edit mode and we're there, actually change the build settings
@@ -226,7 +229,47 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
         // Execute the next case when we get a chance
         EditorApplication.delayCall += ChangeBuildSettings;
     }
-#endif // UNITY_2022_2_OR_NEWER
+#endif // UNITY_2022_3_OR_NEWER
+
+    private bool CheckUnityVersion(int minYear, int minMajor, int minMinor)
+    {
+        string[] parts = Application.unityVersion.Split('.');
+        if (!int.TryParse(parts[0], out int year))
+        {
+            return false;
+        }
+
+        if(year > minYear)
+        {
+            return true;
+        }
+        else if(year < minYear)
+        {
+            return false;
+        }
+
+        if (parts.Length < 2 || !int.TryParse(parts[1], out int major))
+        {
+            return false;
+        }
+
+        if(major > minMajor)
+        {
+            return true;
+        }
+        else if(major < minMajor)
+        {
+            return false;
+        }
+
+        string[] minorParts = parts[2].Split("f");
+        if (!int.TryParse(minorParts[0], out int minor))
+        {
+            return false;
+        }
+
+        return minor >= minMinor;
+    }
 
     private class Case
     {
