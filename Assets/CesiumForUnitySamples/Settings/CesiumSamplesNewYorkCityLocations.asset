@@ -10,132 +10,76 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa5e53a75492ec2458e267d6fb65843f, type: 3}
-  m_Name: Locations
+  m_Name: CesiumSamplesNewYorkCityLocations
   m_EditorClassIdentifier: 
   _locations:
   - Name: New York City
     Longitude: -74.06668402
     Latitude: 40.71068528
     Height: 3086.1461
-    CoordinatesEcef:
-      x: 1329752.6826922249
-      y: -4657851.870887691
-      z: 4140135.1399898543
     IsEnabled: 0
   - Name: One World Trade Center
     Longitude: -74.01407807
     Latitude: 40.71304984
-    Height: -28.587932
-    CoordinatesEcef:
-      x: 1333331.3225351316
-      y: -4654194.64723325
-      z: 4138302.6214566734
+    Height: -18.587932
     IsEnabled: 1
   - Name: Statue of Liberty
     Longitude: -74.04539309
     Latitude: 40.69024158
-    Height: -28.7203
-    CoordinatesEcef:
-      x: 1331241.354978986
-      y: -4656510.656814379
-      z: 4136382.3772396245
+    Height: -18.7203
     IsEnabled: 1
   - Name: Belvedere Castle
     Longitude: -73.96898954
     Latitude: 40.7794302
-    Height: 12.2851
-    CoordinatesEcef:
-      x: 1335673.3357074936
-      y: -4648549.388641223
-      z: 4143913.9778086455
+    Height: 22.2851
     IsEnabled: 1
   - Name: Empire State Building
     Longitude: -73.98564288
     Latitude: 40.74846975
     Height: 362.0147
-    CoordinatesEcef:
-      x: 1335014.5695144408
-      y: -4651349.8772373805
-      z: 4141538.188843384
     IsEnabled: 1
   - Name: Brooklyn Bridge Park
     Longitude: -73.99580302
     Latitude: 40.70317212
-    Height: -29.2321
-    CoordinatesEcef:
-      x: 1335012.8633585514
-      y: -4654456.337689151
-      z: 4137470.7059995183
+    Height: -19.2321
     IsEnabled: 0
   - Name: Times Square
     Longitude: -73.98511558
     Latitude: 40.75885471
-    Height: -10
-    CoordinatesEcef:
-      x: 1334771.9227395034
-      y: -4650343.070699833
-      z: 4142168.965635141
+    Height: 0
     IsEnabled: 1
   - Name: Trinity Church
     Longitude: -74.01170209
     Latitude: 40.70774265
-    Height: -21.0372
-    CoordinatesEcef:
-      x: 1333631.7797960055
-      y: -4654514.3813802935
-      z: 4137860.8079140335
+    Height: -11.0372
     IsEnabled: 1
   - Name: Madison Square Park
     Longitude: -73.98925736
     Latitude: 40.4156237
-    Height: -19.6322
-    CoordinatesEcef:
-      x: 1341273.2801733324
-      y: -4674267.961705448
-      z: 4113218.109067196
+    Height: -9.6322
     IsEnabled: 1
   - Name: City Hall Park
     Longitude: -74.00700125
     Latitude: 40.71220486
-    Height: -19.8924
-    CoordinatesEcef:
-      x: 1333924.8486400975
-      y: -4654095.098250097
-      z: 4138237.1685048416
+    Height: -9.8924
     IsEnabled: 1
   - Name: Ellis Island
     Longitude: -74.04003879
     Latitude: 40.6987499
-    Height: -29.7102
-    CoordinatesEcef:
-      x: 1331506.9014610166
-      y: -4655793.204651619
-      z: 4137098.097263653
+    Height: -19.7102
     IsEnabled: 1
   - Name: Rockefeller Center
     Longitude: -73.97871193
     Latitude: 40.75873755
-    Height: -10.8606
-    CoordinatesEcef:
-      x: 1335293.8234088484
-      y: -4650201.398941039
-      z: 4142158.548768182
+    Height: 0
     IsEnabled: 0
   - Name: Battery Park
     Longitude: -74.01631
     Latitude: 40.70369
-    Height: -28.0684
-    CoordinatesEcef:
-      x: 1333336.7968859372
-      y: -4654898.653400805
-      z: 4137515.062483352
+    Height: -18.0684
     IsEnabled: 1
   - Name: Little Island
     Longitude: -74.0106259
     Latitude: 40.7420177
-    Height: -24.5618
-    CoordinatesEcef:
-      x: 1333034.4337545733
-      y: -4652099.575119189
-      z: 4140743.0278824107
+    Height: -14.5618
     IsEnabled: 1

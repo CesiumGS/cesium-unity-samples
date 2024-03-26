@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CesiumSamplesPlaceFromCamera : MonoBehaviour
+public class CesiumSamplesTransformFromCamera : MonoBehaviour
 {
     [SerializeField]
     private Vector3 _cameraOffset = Vector3.zero;

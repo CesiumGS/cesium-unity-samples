@@ -29,7 +29,7 @@ public class CesiumSamplesLocationBrowser : MonoBehaviour
     private float _iconDistanceFromCamera = 10.0f;
 
     [SerializeField]
-    private CesiumSamplesLocationsData _locationsData;
+    private CesiumSamplesLocationData _locationData;
 
     [SerializeField]
     private GameObject _locationIconCanvasPrefab;
@@ -77,8 +77,8 @@ public class CesiumSamplesLocationBrowser : MonoBehaviour
 
     public void OnBackButtonPressed()
     {
-        //MoveToLocation(_locationsData.Locations[0]);
-        this._globeAnchor.positionGlobeFixed = _locationsData.Locations[0].CoordinatesEcef;
+        this._globeAnchor.positionGlobeFixed = _locationData.Locations[0].CoordinatesEcef;
+        this._globeAnchor.rotationEastUpNorth = quaternion.identity;
     }
 
     private void Awake()
@@ -100,27 +100,27 @@ public class CesiumSamplesLocationBrowser : MonoBehaviour
 
         _georeference = this._globeAnchor.GetComponentInParent<CesiumGeoreference>();
 
-        CesiumSamplesLocationsData.Location originLocation = this._locationsData.Locations.First();
-        this._originEcef = CesiumWgs84Ellipsoid.LongitudeLatitudeHeightToEarthCenteredEarthFixed(new double3(originLocation.Longitude, originLocation.Latitude, originLocation.Height));
+        CesiumSamplesLocationData.Location originLocation = this._locationData.Locations.First();
+        this._originEcef = originLocation.CoordinatesEcef;
         this._globeAnchor.positionGlobeFixed = this._originEcef;
 
-        this._iconOffsets = new float[this._locationsData.Locations.Length];
-        this._iconOffsetTargets = new float[this._locationsData.Locations.Length];
-        this._iconOffsetVelocities = new float[this._locationsData.Locations.Length];
-        this._createdCanvasGroups = new CanvasGroup[this._locationsData.Locations.Length];
-        this._createdGameObjects = new GameObject[this._locationsData.Locations.Length];
+        this._iconOffsets = new float[this._locationData.Locations.Length];
+        this._iconOffsetTargets = new float[this._locationData.Locations.Length];
+        this._iconOffsetVelocities = new float[this._locationData.Locations.Length];
+        this._createdCanvasGroups = new CanvasGroup[this._locationData.Locations.Length];
+        this._createdGameObjects = new GameObject[this._locationData.Locations.Length];
 
         // Create icons for each location.
-        for (int i = 0; i < this._locationsData.Locations.Length; i++)
+        for (int i = 0; i < this._locationData.Locations.Length; i++)
         {
             int locationIndex = i;
 
-            CesiumSamplesLocationsData.Location loc = this._locationsData.Locations[i];
+            CesiumSamplesLocationData.Location loc = this._locationData.Locations[i];
             this._iconOffsets[i] = 0;
             this._iconOffsetTargets[i] = 0;
             this._iconOffsetVelocities[i] = 0;
 
-            if(!loc.IsEnabled)
+            if (!loc.IsEnabled)
             {
                 continue;
             }
@@ -169,9 +169,14 @@ public class CesiumSamplesLocationBrowser : MonoBehaviour
         }
     }
 
-    private void MoveToLocation(CesiumSamplesLocationsData.Location location)
+    private void MoveToLocation(CesiumSamplesLocationData.Location location)
     {
-        _flyToController.FlyToLocationEarthCenteredEarthFixed(location.CoordinatesEcef, 0, 0, false);
+        Vector3 rotationEulerAngles = this.transform.rotation.eulerAngles;
+        // Prevent "roll" from being incorporated into the flight (to avoid motion sickness).
+        this.transform.rotation = Quaternion.Euler(rotationEulerAngles.x, rotationEulerAngles.y, 0.0f);
+        // Maintain the same rotation throughout the flight.
+        this._flyToController.FlyToLocationEarthCenteredEarthFixed(
+            location.CoordinatesEcef, rotationEulerAngles.y, rotationEulerAngles.x, false);
     }
 
     private void Update()
@@ -185,8 +190,8 @@ public class CesiumSamplesLocationBrowser : MonoBehaviour
 
         for (int i = 0; i < _createdGameObjects.Length; i++)
         {
-            CesiumSamplesLocationsData.Location loc = _locationsData.Locations[i];
-            if(!loc.IsEnabled)
+            CesiumSamplesLocationData.Location location = _locationData.Locations[i];
+            if (!location.IsEnabled)
             {
                 continue;
             }
@@ -196,7 +201,7 @@ public class CesiumSamplesLocationBrowser : MonoBehaviour
             _createdCanvasGroups[i].blocksRaycasts = _createdCanvasGroups[i].interactable = normalizedDistanceFromOrigin < 0.1f;
 
             // We want to place the icon close to the camera but in the direction of the actual position it's representing
-            Vector3 realLocationPosition = LocationToUnityCoordinates(loc);
+            Vector3 realLocationPosition = LocationToUnityCoordinates(location);
             Vector3 cameraDir = (realLocationPosition - cameraPosition).normalized;
 
             _createdGameObjects[i].transform.position = cameraPosition + cameraDir * _iconDistanceFromCamera + _iconOffsets[i] * Camera.main.transform.up * this._iconHoverYOffset;
@@ -210,8 +215,9 @@ public class CesiumSamplesLocationBrowser : MonoBehaviour
         _backButtonGroup.interactable = _backButtonGroup.blocksRaycasts = normalizedDistanceFromOrigin > 0.9f;
     }
 
-    private Vector3 LocationToUnityCoordinates(CesiumSamplesLocationsData.Location loc)
+    private Vector3 LocationToUnityCoordinates(CesiumSamplesLocationData.Location loc)
     {
-        return (float3)_georeference.TransformEarthCenteredEarthFixedPositionToUnity(CesiumWgs84Ellipsoid.LongitudeLatitudeHeightToEarthCenteredEarthFixed(new double3(loc.Longitude, loc.Latitude, loc.Height)));
+        return (float3)this._georeference.TransformEarthCenteredEarthFixedPositionToUnity(
+            CesiumWgs84Ellipsoid.LongitudeLatitudeHeightToEarthCenteredEarthFixed(new double3(loc.Longitude, loc.Latitude, loc.Height)));
     }
 }

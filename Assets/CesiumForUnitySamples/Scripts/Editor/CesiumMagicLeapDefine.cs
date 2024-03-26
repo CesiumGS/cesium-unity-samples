@@ -17,7 +17,7 @@ public class CesiumMagicLeapDefine
         {
             mlAssembly = System.Reflection.Assembly.Load("MagicLeap.SDK");
         }
-        catch (System.IO.FileNotFoundException e)
+        catch (System.IO.FileNotFoundException)
         {
             mlAssembly = null;
         }
