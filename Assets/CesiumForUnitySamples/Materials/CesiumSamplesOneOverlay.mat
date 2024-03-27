@@ -58,15 +58,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _overlay0Texture:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _overlay1Texture:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _overlay2Texture:
+    - _overlayTexture_0:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -122,17 +114,13 @@ Material:
     - _normalTextureCoordinateIndex: 0
     - _occlusionStrength: 0
     - _occlusionTextureCoordinateIndex: 0
-    - _overlay0TextureCoordinateIndex: 0
-    - _overlay1TextureCoordinateIndex: 0
-    - _overlay2TextureCoordinateIndex: 0
+    - _overlayTextureCoordinateIndex_0: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 0}
     - _baseColorFactor: {r: 1, g: 1, b: 1, a: 1}
     - _emissiveFactor: {r: 0, g: 0, b: 0, a: 0}
     - _metallicRoughnessFactor: {r: 0, g: 0, b: 0, a: 0}
-    - _overlay0TranslationAndScale: {r: 0, g: 0, b: 1, a: 1}
-    - _overlay1TranslationAndScale: {r: 0, g: 0, b: 1, a: 1}
-    - _overlay2TranslationAndScale: {r: 0, g: 0, b: 1, a: 1}
+    - _overlayTranslationAndScale_0: {r: 0, g: 0, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &3735925112415471796
 MonoBehaviour:
