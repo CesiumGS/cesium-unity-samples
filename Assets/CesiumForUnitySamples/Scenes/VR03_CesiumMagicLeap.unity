@@ -407,17 +407,18 @@ PrefabInstance:
     - target: {fileID: 7752603225714643755, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_text
-      value: "In this scene, explore Manhattan using the Magic Leap 2 headset. To
-        build this scene correctly, follow these steps:\r\n\r\n1. As prompted, follow
-        the steps in the Magic Leap documentation to install the Magic Leap SDK in
-        the project.\r\n2. Once installed, press play in the editor. This will pop
-        up a prompt to automatically change the project's build settings for the
-        Magic Leap. Press \"Ok\" and wait.\r\n3. Once completed, check <b>Edit ->
-        Project Settings -> XR Plug-in Management -> Project Validation</b> and make
-        sure no issues are present. If there are, resolve them by clicking \"Fix\"
-        next to each one.\r\n4. Go to <b>File -> Build Settings</b> and click \"Build
-        and Run\" to create an APK and launch it on the headset.\r\n\r\nPress \u201C1\u201D
-        in the editor to return to this view."
+      value: "In this scene, explore the landmarks of Manhattan in Mixed Reality
+        using the Magic Leap 2 headset. To build this scene correctly, follow these
+        steps:\r\n\r\n1. As prompted, follow the steps in the Magic Leap documentation
+        to install the Magic Leap SDK in the project.\r\n2. Once installed, press
+        play in the editor. This will pop up a prompt to automatically change the
+        project's build settings for the Magic Leap. Press \"Ok\" and wait.\r\n3.
+        Once completed, check <b>Edit -> Project Settings -> XR Plug-in Management
+        -> Project Validation</b> and make sure no issues are present. If there are,
+        resolve them by clicking \"Fix\" next to each one.\r\n4. Go to <b>File ->
+        Build Settings</b> and click \"Build and Run\" to create an APK and launch
+        it on the headset.\r\n\r\nPress \u201C1\u201D in the editor to return to
+        this view."
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829094, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
@@ -477,17 +478,17 @@ PrefabInstance:
     - target: {fileID: 7752603225896829113, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 47.2
+      value: 28.5
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829113, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.7
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829113, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 25.4
+      value: 11.9
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829113, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
