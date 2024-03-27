@@ -101,6 +101,10 @@ Upon opening the **VR03_CesiumMagicLeap** scene or playing it in the editor, you
 4. Once completed, check `Edit -> Project Settings -> XR Plug-in Management -> Project Validation` and make sure no issues are present. If there are, resolve them by clicking "Fix" next to each one.
 5. Go to `File -> Build Settings` and click "Build and Run" to create an APK and launch it on the headset.
 
+![New York City landmarks visualized with Photorealistic 3D Tiles in Cesium for Unity, rendered on the Magic Leap 2 headset.](Images~/new_york_magic_leap.jpg)
+
+*<p align="center">New York City landmarks visualized with Photorealistic 3D Tiles in Cesium for Unity, as rendered on the Magic Leap 2 headset.<br>Open <b>VR03_CesiumMagicLeap</b> in the Cesium for Unity Samples to explore the New York City skyline.</p>*
+
 ### :green_book:License
 
 [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). Cesium for Unity Samples is free to use as starter project for both commercial and non-commercial use.
