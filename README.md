@@ -87,6 +87,18 @@ Cesium for Unity supports virtual reality platforms. This level is set up for us
 
 In this scene, experience a miniature version of New York City using an Oculus Quest 2 and the XR Interaction Toolkit. You can walk around and point at buildings with your controller to view their detailed metadata.
 
+### :goggles: :three: VR Level 3 - New York City with Magic Leap
+
+This demo is intended for use with the Magic Leap 2 headset and SDK. In this scene, explore the New York City skyline using Cesium for Unity and Google Photorealistic 3D Tiles. Select from a set of interesting locations in and around Manhattan, and explore the metadata of buildings along the street as you walk around in Mixed Reality. **This sample requires Unity 2022.3.11 or newer.**
+
+Upon opening this scene or pressing play in editor, you will be prompted with instructions to configure the project to support Magic Leap. This will handle most of the configuration necessary. To build for the Magic Leap, follow these instructions:
+
+1. Open the **VR03_CesiumMagicLeap** scene in the editor
+2. As prompted, [follow the steps in the Magic Leap documentation](https://developer-docs.magicleap.cloud/docs/guides/unity/getting-started/configure-unity-settings/#import-magic-leap-unity-sdk) to install the Magic Leap SDK in the project.
+3. Once installed, press play in the editor. This will pop up a prompt to automatically change the project's build settings for the Magic Leap. Press "Ok" and wait.
+    a. Once completed, check `Edit -> Project Settings -> XR Plug-in Management -> Project Validation` and make sure no issues are present. If there are, resolve them by clicking "Fix" next to each one.
+4. Go to `File -> Build Settings` and click "Build and Run" to create an APK and launch it on the headset.
+
 ### :green_book:License
 
 [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). Cesium for Unity Samples is free to use as starter project for both commercial and non-commercial use.
