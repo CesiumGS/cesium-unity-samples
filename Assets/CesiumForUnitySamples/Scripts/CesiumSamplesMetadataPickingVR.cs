@@ -1,23 +1,16 @@
-using CesiumForUnity;
-using System.Collections.Generic;
-using System.Linq;
-using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using CesiumForUnity;
 using UnityEngine.XR.Interaction.Toolkit;
+using TMPro;
+using System.Collections.Generic;
+using UnityEngine.UI;
+using UnityEngine.InputSystem;
+using System;
 
-public class CesiumSamplesMetadataPickingVR : MonoBehaviour
+public class MetadataInteractable : XRBaseInteractable
 {
-    public Cesium3DTileset tileset;
-    public CharacterController characterController;
     public TextMeshProUGUI metadataText;
     public GameObject canvas;
-    public InputActionProperty activateButton;
-    public XRRayInteractor rayInteractor;
-    public LayerMask layerMask = ~0;
-    public bool placeOnBuilding = true;
-
-    private const string ESTIMATED_HEIGHT_KEY = "cesium#estimatedHeight";
 
     private static HashSet<string> ignoreProperties = new HashSet<string>() {
         "addr:city",
@@ -73,87 +66,33 @@ public class CesiumSamplesMetadataPickingVR : MonoBehaviour
         "roof:colour",
         "type",
         "wikidata",
-    };
+      };
 
-
-    private void Start()
+    private string GetInterestingProperties(CesiumPropertyTable propertyTable, Int64 featureID)
     {
-        if (activateButton.action != null)
-        {
-            activateButton.action.Enable();
-            activateButton.action.performed += Action_performed;
-        }
-    }
-
-    private string GetInterestingProperties(CesiumPropertyTable propertyTable, long featureId)
-    {
-        string ret = "";
-        foreach ((string propertyName, CesiumPropertyTableProperty property) in propertyTable.properties.OrderBy(p => p.Key))
+        string result = "";
+        foreach (var propertyName in propertyTable.properties.Keys)
         {
             if (!ignoreProperties.Contains(propertyName))
             {
-                string propertyValue = property.GetString(featureId, "null");
-                if (!string.IsNullOrWhiteSpace(propertyValue) && propertyValue != "null")
+                string propertyValue = propertyTable.properties[propertyName].GetString(featureID);
+                if (!String.IsNullOrEmpty(propertyValue) && propertyValue != "null")
                 {
-                    ret += $"{propertyName}: {propertyValue}\n";
+                    result += $"{propertyName}: {propertyValue}\n";
                 }
             }
         }
-        return ret;
+        return result;
     }
 
-    private string GetBuildingName(CesiumPropertyTable propertyTable, long featureId)
-    {
-        string name;
-        if (TryGetString(propertyTable, featureId, "name:en", out name))
-        {
-            return name;
-        }
-
-        if (TryGetString(propertyTable, featureId, "name", out name))
-        {
-            return name;
-        }
-
-        if (TryGetString(propertyTable, featureId, "addr:housename", out name))
-        {
-            return name;
-        }
-
-        if (TryGetString(propertyTable, featureId, "addr:housenumber", out string houseNum) && TryGetString(propertyTable, featureId, "addr:street", out string street))
-        {
-            return $"{houseNum} {street}";
-        }
-
-        return "Name N/A";
-    }
-
-    private bool TryGetString(CesiumPropertyTable table, long featureId, string key, out string value)
-    {
-        if (table.properties.ContainsKey(key))
-        {
-            value = table.properties[key].GetString(featureId, "null");
-            return !string.IsNullOrWhiteSpace(value) && value != "null";
-        }
-
-        value = null;
-        return false;
-    }
-
-    private Vector3 GetTopOfBuilding(Vector3 hitLocation, CesiumPropertyTable propertyTable, long featureId)
+    private Vector3 GetTopOfBuilding(Vector3 hitLocation, float buildingHeight)
     {
         var georeference = GetComponentInParent<CesiumGeoreference>();
         if (georeference != null)
         {
-            float buildingHeight = 0.0f;
-            if (propertyTable.properties.ContainsKey(ESTIMATED_HEIGHT_KEY))
+            foreach (RaycastHit hit in Physics.RaycastAll(hitLocation, Vector3.down, 100.0f))
             {
-                buildingHeight = propertyTable.properties[ESTIMATED_HEIGHT_KEY].GetFloat(featureId, 0.0f);
-            }
-
-            foreach (RaycastHit hit in Physics.RaycastAll(hitLocation, Vector3.down, 100.0f, layerMask.value))
-            {
-                if (!hit.transform.IsChildOf(tileset.transform))
+                if (!hit.transform.parent.name.Contains("CesiumWorldTerrain"))
                 {
                     continue;
                 }
@@ -165,63 +104,101 @@ public class CesiumSamplesMetadataPickingVR : MonoBehaviour
         return Vector3.zero;
     }
 
+    const string estimatedHeightKey = "cesium#estimatedHeight";
+
+    protected override void OnActivated(ActivateEventArgs args)
+    {
+        RaycastHit hit;
+        Transform interactorTransform = args.interactorObject.transform;
+        if (Physics.Raycast(interactorTransform.position,
+                            interactorTransform.TransformDirection(Vector3.forward),
+                            out hit, Mathf.Infinity))
+        {
+            CesiumPrimitiveFeatures features = hit.transform.GetComponent<CesiumPrimitiveFeatures>();
+            CesiumModelMetadata metadata =
+                hit.transform.GetComponentInParent<CesiumModelMetadata>();
+            if (features != null && metadata != null && metadata.propertyTables.Length > 0)
+            {
+                CesiumPropertyTable propertyTable = metadata.propertyTables[0];
+
+                Int64 featureID = features.GetFeatureIdFromRaycastHit(hit);
+
+                float estimatedHeight = 0.0f;
+                if (propertyTable.properties.ContainsKey(estimatedHeightKey))
+                {
+                    estimatedHeight = propertyTable.properties[estimatedHeightKey].GetFloat(featureID);
+                }
+
+                Vector3 topOfBuilding = GetTopOfBuilding(hit.point, estimatedHeight);
+                canvas.transform.position = topOfBuilding;
+                Vector3 camPos = Camera.main.transform.position;
+                float distance = Vector3.Distance(camPos, topOfBuilding);
+                if (distance > 1.0f)
+                {
+                    canvas.transform.localScale = distance * Vector3.one;
+                }
+                canvas.transform.rotation = Quaternion.LookRotation(
+                    new Vector3(topOfBuilding.x - camPos.x, 0, topOfBuilding.z - camPos.z), Vector3.up);
+
+                string name = String.Empty;
+                if (propertyTable.properties.ContainsKey("name"))
+                {
+                    name = propertyTable.properties["name"].GetString(featureID);
+                }
+
+                if (String.IsNullOrEmpty(name) || name == "null")
+                {
+                    name = "Name N/A";
+                }
+
+                metadataText.text =
+                    $"<size=150%><b>{name}</b></size>\n<size=75%>{GetInterestingProperties(propertyTable, featureID)}</size>";
+
+                canvas.SetActive(true);
+            }
+        }
+    }
+}
+
+public class CesiumSamplesMetadataPickingVR : MonoBehaviour
+{
+    public Cesium3DTileset tileset;
+    public CharacterController characterController;
+    public TextMeshProUGUI metadataText;
+    public GameObject canvas;
+    public InputActionReference activateButton;
+    public XRRayInteractor rayInteractor;
+    void Start()
+    {
+        if (activateButton != null)
+        {
+            activateButton.action.performed += Action_performed;
+        }
+        if (tileset != null && characterController != null &&
+            metadataText != null)
+        {
+            tileset.OnTileGameObjectCreated += go =>
+            {
+                foreach (Transform child in go.transform)
+                {
+                    var mc = child.GetComponent<MeshCollider>();
+                    if (mc != null)
+                    {
+                        Physics.IgnoreCollision(mc, characterController);
+                    }
+                }
+                var script = go.AddComponent<MetadataInteractable>();
+                script.metadataText = metadataText;
+                script.canvas = canvas;
+            };
+        }
+    }
+
     private void Action_performed(InputAction.CallbackContext obj)
     {
         if (!rayInteractor.IsOverUIGameObject())
         {
             canvas.SetActive(false);
-        }
-
-        if (!rayInteractor.IsOverUIGameObject())
-        {
-            if (Physics.Raycast(
-                rayInteractor.transform.position,
-                rayInteractor.transform.TransformDirection(Vector3.forward),
-                out RaycastHit hit,
-                Mathf.Infinity,
-                layerMask.value))
-            {
-                CesiumPrimitiveFeatures features = hit.transform.GetComponent<CesiumPrimitiveFeatures>();
-                if (features != null && features.featureIdSets.Length > 0)
-                {
-                    CesiumFeatureIdSet featureIdSet = features.featureIdSets[0];
-                    long propertyTableIndex = featureIdSet.propertyTableIndex;
-
-                    CesiumModelMetadata metadata = hit.transform.GetComponentInParent<CesiumModelMetadata>();
-
-                    if (metadata != null && propertyTableIndex >= 0 && propertyTableIndex < metadata.propertyTables.Length)
-                    {
-                        CesiumPropertyTable propertyTable = metadata.propertyTables[propertyTableIndex];
-                        long featureId = featureIdSet.GetFeatureIdFromRaycastHit(hit);
-                        Dictionary<string, CesiumMetadataValue> metadataValues = new Dictionary<string, CesiumMetadataValue>();
-                        propertyTable.GetMetadataValuesForFeature(metadataValues, featureId);
-
-                        Vector3 camPos = Camera.main.transform.position;
-
-                        if (placeOnBuilding)
-                        {
-                            Vector3 topOfBuilding = GetTopOfBuilding(hit.point, propertyTable, featureId);
-                            float distance = Vector3.Distance(camPos, topOfBuilding);
-                            if (distance > 1.0f)
-                            {
-                                canvas.transform.localScale = distance * Vector3.one;
-                            }
-                            canvas.transform.parent.rotation = Quaternion.LookRotation(new Vector3(topOfBuilding.x - camPos.x, 0, topOfBuilding.z - camPos.z), Vector3.up);
-                        }
-                        else
-                        {
-                            Vector3 dir = Vector3.Normalize(hit.point - camPos);
-                            canvas.transform.parent.position = camPos + dir * 20;
-                            canvas.transform.parent.rotation = Quaternion.LookRotation(dir);
-                        }
-
-                        metadataText.text =
-                            $"<size=150%><b>{GetBuildingName(propertyTable, featureId)}</b></size>\n<size=75%>{GetInterestingProperties(propertyTable, featureId)}</size>";
-
-                        canvas.SetActive(true);
-                    }
-                }
-            }
         }
     }
 }

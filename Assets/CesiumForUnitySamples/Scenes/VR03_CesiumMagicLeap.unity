@@ -2731,7 +2731,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1848406316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08354287c9ec5b04cbf9bdefcbc63e8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 60291a147eda25341b95f426b9dcf7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tileset: {fileID: 1848406318}
@@ -2744,29 +2744,20 @@ MonoBehaviour:
       m_Name: Activate Button
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: f017ad62-7910-4e04-a69e-112a6bd435d2
+      m_Id: d2705c08-7fc8-4750-9689-1cb1dfade2eb
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings:
       - m_Name: 
-        m_Id: f343e10f-094e-4dbc-97ce-7546b5b5aa26
-        m_Path: <MagicLeapController>/trigger
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Activate Button
-        m_Flags: 0
-      - m_Name: 
-        m_Id: 04b49a6a-d4dc-4638-93cf-bdc653de33e0
-        m_Path: <Mouse>/leftButton
+        m_Id: ef79ca82-95d7-49c9-a644-15130267a80c
+        m_Path: <MagicLeapController>/pointer
         m_Interactions: 
         m_Processors: 
         m_Groups: 
         m_Action: Activate Button
         m_Flags: 0
       m_Flags: 0
-    m_Reference: {fileID: -2439264783773714294, guid: 0be0028c24f2a4c14a96b6aa39055933,
-      type: 3}
+    m_Reference: {fileID: 0}
   rayInteractor: {fileID: 6251450305900903671}
   layerMask:
     serializedVersion: 2
@@ -3335,6 +3326,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3859a92a05d4f5d418cb6ca605290e74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_AttemptUpdate: 1
+  m_MatchFrameRate: 1
+  m_TrackingMode: 2
 --- !u!1 &5589497133069085203
 GameObject:
   m_ObjectHideFlags: 0
@@ -4142,6 +4136,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4966719baa26e4b0e8231a24d9bd491a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_FocusMode: -1
+  m_LightEstimationMode: -1
+  m_AutoFocus: 1
+  m_LightEstimation: 0
+  m_FacingDirection: 1
+  m_RenderMode: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
