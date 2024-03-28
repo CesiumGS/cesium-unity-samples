@@ -87,6 +87,24 @@ Cesium for Unity supports virtual reality platforms. This level is set up for us
 
 In this scene, experience a miniature version of New York City using an Oculus Quest 2 and the XR Interaction Toolkit. You can walk around and point at buildings with your controller to view their detailed metadata.
 
+### :goggles: :three: VR Level 3 - New York City Landmarks in Mixed Reality
+
+**This sample requires Unity 2022.3.11f or newer.**
+
+This demo is intended for use with the Magic Leap 2 headset and SDK. In this scene, explore the New York City skyline visualized with Google Photorealistic 3D Tiles. You can visit a set of interesting locations in and around Manhattan, as well as view building metadata while you walk through the streets in Mixed Reality. 
+
+Upon opening the **VR03_CesiumMagicLeap** scene or playing it in the editor, you will be prompted with instructions to configure the project for Magic Leap development. The scene will show you prompts that handle most of the configuration necessary. To build for the Magic Leap, follow these instructions:
+
+1. Open the scene in the editor.
+2. As prompted, [follow the steps in the Magic Leap documentation](https://developer-docs.magicleap.cloud/docs/guides/unity/getting-started/configure-unity-settings/#import-magic-leap-unity-sdk) to install the Magic Leap SDK in the project.
+3. Once installed, press play in the editor. This opens a prompt that will automatically change the project's Build Settings for the Magic Leap. Press "Ok" and wait.
+4. Once completed, check `Edit -> Project Settings -> XR Plug-in Management -> Project Validation` and make sure no issues are present. If there are, resolve them by clicking "Fix" next to each one.
+5. Go to `File -> Build Settings` and click "Build and Run" to create an APK and launch it on the headset.
+
+![New York City landmarks visualized with Photorealistic 3D Tiles in Cesium for Unity, rendered on the Magic Leap 2 headset.](Images~/new_york_magic_leap.jpg)
+
+*<p align="center">New York City landmarks visualized with Photorealistic 3D Tiles in Cesium for Unity, as rendered on the Magic Leap 2 headset.<br>Open <b>VR03_CesiumMagicLeap</b> in the Cesium for Unity Samples to explore the New York City skyline.</p>*
+
 ### :green_book:License
 
 [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). Cesium for Unity Samples is free to use as starter project for both commercial and non-commercial use.
