@@ -408,17 +408,19 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: "In this scene, explore the landmarks of Manhattan in Mixed Reality
-        using the Magic Leap 2 headset. To build this scene correctly, follow these
-        steps:\r\n\r\n1. As prompted, follow the steps in the Magic Leap documentation
-        to install the Magic Leap SDK in the project.\r\n2. Once installed, press
-        play in the editor. This will pop up a prompt to automatically change the
-        project's build settings for the Magic Leap. Press \"Ok\" and wait.\r\n3.
-        Once completed, check <b>Edit -> Project Settings -> XR Plug-in Management
-        -> Project Validation</b> and make sure no issues are present. If there are,
-        resolve them by clicking \"Fix\" next to each one.\r\n4. Go to <b>File ->
-        Build Settings</b> and click \"Build and Run\" to create an APK and launch
-        it on the headset.\r\n\r\nPress \u201C1\u201D in the editor to return to
-        this view."
+        using the Magic Leap 2 headset. With the Magic Leap Controller, use the trigger
+        to fly to landmark locations or view metadata of selected buildings. Use
+        the trackpad to move around after flying to a landmark.\n\nTo build this
+        scene correctly, follow these steps:\r\n\r\n1. As prompted, follow the steps
+        in the Magic Leap documentation to install the Magic Leap SDK in the project.\r\n2.
+        Once installed, press play in the editor. This will pop up a prompt to automatically
+        change the project's build settings for the Magic Leap. Press \"Ok\" and
+        wait.\r\n3. Once completed, check <b>Edit -> Project Settings -> XR Plug-in
+        Management -> Project Validation</b> and make sure no issues are present.
+        If there are, resolve them by clicking \"Fix\" next to each one.\r\n4. Go
+        to <b>File -> Build Settings</b> and click \"Build and Run\" to create an
+        APK and launch it on the headset.\r\n\r\nPress \u201C1\u201D in the editor
+        to return to this view."
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829094, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
@@ -483,7 +485,7 @@ PrefabInstance:
     - target: {fileID: 7752603225896829113, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13
+      value: -21.1
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829113, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
@@ -528,7 +530,12 @@ PrefabInstance:
     - target: {fileID: 7752603227654311266, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 179.1
+      value: 225
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752603227654311266, guid: d1f6fb4b452d026489986bf620a2d8bc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7752603227654311266, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
@@ -2694,9 +2701,9 @@ MonoBehaviour:
   _detectTransformChanges: 1
   _localToGlobeFixedMatrix:
     c0:
-      x: 0.961581846932353
-      y: 0.2745183994747246
-      z: 0
+      x: 0.4218308107451427
+      y: -0.5347664294398309
+      z: -0.7321901751230929
       w: 0
     c1:
       x: 0.20808825092628674
@@ -2704,14 +2711,14 @@ MonoBehaviour:
       z: 0.6522407466433039
       w: 0
     c2:
-      x: -0.17905208584071913
-      y: 0.627182861801805
-      z: 0.7580120360764587
+      x: 0.8824830012686539
+      y: 0.4274954158438581
+      z: 0.19618990754293805
       w: 0
     c3:
-      x: 1329578.690357773
-      y: -4657242.4113008855
-      z: 4139589.772242232
+      x: 1329578.6903579044
+      y: -4657242.411300726
+      z: 4139589.7722423393
       w: 1
   _localToGlobeFixedMatrixIsValid: 1
 --- !u!1 &1651363561
@@ -2903,7 +2910,7 @@ MonoBehaviour:
       m_SingletonActionBindings:
       - m_Name: 
         m_Id: ef79ca82-95d7-49c9-a644-15130267a80c
-        m_Path: <MagicLeapController>/pointer
+        m_Path: <MagicLeapController>/triggerPressed
         m_Interactions: 
         m_Processors: 
         m_Groups: 
@@ -3512,14 +3519,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5589497133069085203}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 6.938893e-18, z: 0, w: 1}
-  m_LocalPosition: {x: 4.656613e-10, y: 0, z: 0.00000033294782}
-  m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_LocalRotation: {x: -3.4984803e-17, y: 0.60876137, z: -3.4984807e-17, w: 0.7933534}
+  m_LocalPosition: {x: 0.00000017043203, y: -0.000000018626451, z: 0.0000004898757}
+  m_LocalScale: {x: 1.0000094, y: 1.0000001, z: 1.0000095}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5589497133415299685}
   m_Father: {fileID: 1145129950}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 75, z: 0}
 --- !u!143 &5589497133069085208
 CharacterController:
   m_ObjectHideFlags: 0
