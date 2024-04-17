@@ -24,6 +24,11 @@ using UnityEngine.XR.OpenXR.Features.MagicLeapSupport;
 public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
 {
 #if UNITY_EDITOR
+    private const string ML_MIN_VERSION_TEXT =
+        "The Magic Leap sample requires Unity version 2022.3.11 or greater. Please reopen the project in a compatible version of Unity to continue.";
+    private static CesiumSamplesRequiresMagicLeap _instance = null;
+
+#if UNITY_2022_3_OR_NEWER
     private const string ML_PACKAGE_REQUIRED_TEXT =
          "The Magic Leap SDK needs to be installed in the project for this sample to work. " +
          "Click below to read instructions from the Magic Leap documentation on how to add the SDK to the project.";
@@ -31,16 +36,12 @@ public class CesiumSamplesRequiresMagicLeap : MonoBehaviour
 
     private const string ML_BUILD_SETTINGS_TEXT =
         "Build settings need to be changed to support the Magic Leap. Click Ok to perform these changes automatically.";
-    private const string ML_MIN_VERSION_TEXT =
-        "The Magic Leap sample requires Unity version 2022.3.11 or greater. Please reopen the project in a compatible version of Unity to continue.";
 
     private const string ML_FEATURE_SET_ID = "com.magicleap.openxr.featuregroup";
 
     private static bool _waitingForReturnToEditMode = false;
-    private static CesiumSamplesRequiresMagicLeap _instance = null;
     private static int _idx = -1;
 
-#if UNITY_2022_3_OR_NEWER
     // Each case describes a change that needs to be made for Magic Leap support
     // Each gives a function to check if the case has been applied successfully, and if not, a method to apply it.
     private static readonly Case[] _cases = new Case[]
