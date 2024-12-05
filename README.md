@@ -9,7 +9,7 @@ The scenes in this project will walk you through the plugin's features and demon
 The source code for Cesium for Unity itself may be found in the [cesium-unity](https://github.com/CesiumGS/cesium-unity) repo.
 
 ![Aerometrex Photogrammetry of San Francisco in Cesium for Unity](Images~/san_francisco.jpg)
-*<p align="center">Photogrammetry of San Francisco, California captured by Aerometrex, visualized using Cesium for Unity. <br>Open the <b>03_CesiumSanFrancisco</b> scene in Cesium for Unity Samples to experience it yourself!</p>*
+*<p align="center">Photogrammetry of San Francisco, California captured by Aerometrex, visualized using Cesium for Unity.<br>Open the <b>03_CesiumSanFrancisco</b> scene in Cesium for Unity Samples to experience it yourself!</p>*
 
 ### :rocket: Get Started
 
