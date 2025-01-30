@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Toggle))]
-public class CesiumToggleLayer : MonoBehaviour
+public class CesiumSamplesToggleLayer : MonoBehaviour
 {
     [SerializeField] private GameObject target;
     private Toggle toggle;
@@ -17,7 +17,7 @@ public class CesiumToggleLayer : MonoBehaviour
         }
         else
         {
-            Debug.LogError("CesiumToggleLayer requires a Toggle component on the same GameObject.");
+            Debug.LogError("CesiumSamplesToggleLayer requires a Toggle component on the same GameObject.");
         }
     }
 

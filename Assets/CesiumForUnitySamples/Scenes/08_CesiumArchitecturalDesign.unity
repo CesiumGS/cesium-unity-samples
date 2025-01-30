@@ -209,13 +209,15 @@ PrefabInstance:
     - target: {fileID: 7752603225714643755, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_text
-      value: "In this scene, explore the buildings of New York City by viewing per-building
-        metadata. \r\n\r\nClick the play button to test out the scene. Use your mouse
-        to aim the crosshair at a building, then left click to view its metadata.
-        If you need to free the cursor, press the Escape key to unlock it from the
-        scene view.\n\r\nCheck out the \"Cesium Samples Metadata Picking\" script
-        for an example of how to access this metadata via the Cesium For Unity API.\r\n\r\nPress
-        \"1\" in the editor to return to this view.\r\n"
+      value: "In this scene, explore the features of the Snowdon Architectural tileset,
+        which includes 3D Tiles 1.1 features and metadata extensions, both supported
+        by Cesium for Unity.\r\n\r\nClick the play button to test the scene. Use
+        your mouse to click on any part of the building to display that feature's
+        metadata in the on-screen widget. You can also use the Layer Toggle widget
+        to turn on and off different layers.\r\n\r\nCheck out the \"Cesium Samples
+        Toggle Layer\" and \"Cesium Samples Metadata Picking AEC\" scripts to find
+        out how layer toggling and metadata picking is implemented. \n\r\nPress \"1\"
+        in the editor to return to this view.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7752603225896829094, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
@@ -360,7 +362,7 @@ PrefabInstance:
     - target: {fileID: 7752603227654311266, guid: d1f6fb4b452d026489986bf620a2d8bc,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 145
+      value: 165
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2940,7 +2942,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566737972}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 6.1953623e-18, z: -9.228018e-18, w: 1}
+  m_LocalRotation: {x: 0, y: 6.6628166e-18, z: -1.9472976e-17, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2976,16 +2978,16 @@ MonoBehaviour:
   _localToGlobeFixedMatrix:
     c0:
       x: 0.9844621699588111
-      y: 0.1755967992874269
-      z: -0.00000000000000001423837244229721
+      y: 0.17559679928742694
+      z: -0.000000000000000034802128342998265
       w: 0
     c1:
-      x: 0.13447099995402617
+      x: 0.1344709999540262
       y: -0.7538953611254723
       z: 0.6430857910456876
       w: 0
     c2:
-      x: -0.11292380657484577
+      x: -0.11292380657484576
       y: 0.6330936333225162
       z: 0.7657941403243707
       w: 0
