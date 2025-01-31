@@ -72,6 +72,14 @@ projects in the [Photorealistic 3D Tiles from Google Maps Platform tutorial](htt
 
 *<p align="center">The Googleplex in Mountain View, California visualized with Photorealistic 3D Tiles in Cesium for Unity.<br>Open <b>07_CesiumGoogleMapsTiles</b> in the Cesium for Unity Samples to explore the world as Photorealistic 3D Tiles.</p>*
 
+### :eight: Level 8 - Architectural Design
+
+This level showcases an architectural design model streamed into Unity using 3D Tiles. It demonstrates the ability to toggle the visibility of different design layers and click on individual building features to display associated metadata.
+
+![The Googleplex in Mountain View, California visualized with Photorealistic 3D Tiles in Cesium for Unity.](Images~/architectural_design.jpg)
+
+*<p align="center">Snowdon Sample Model from Autodesk Revit, streamed with 3D Tiles and visualized using Cesium for Unity.<br>Open <b>08_CesiumArchitecturalDesign</b> in the Cesium for Unity Samples to learn more about streaming architectural designs using 3D Tiles.</p>*
+
 ### :goggles: :one: VR Level 1 - Denver Photogrammetry
 
 Cesium for Unity supports virtual reality platforms. This level is set up for users with VR headsets to get started quickly. In this scene, explore high-resolution photogrammetry data of Denver, Colorado with VR controller support. To build this for the Oculus Quest 2, open **VR01_CesiumDenver** in the Unity Editor and follow the instructions to build an `APK` file for the headset. These instructions also appear in the UI of the scene itself.
