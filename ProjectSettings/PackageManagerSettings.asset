@@ -26,15 +26,7 @@ MonoBehaviour:
     m_IsDefault: 1
     m_Capabilities: 7
     m_ConfigSource: 0
-  - m_Id: scoped:project:Cesium
-    m_Name: Cesium
-    m_Url: https://unity.pkg.cesium.com
-    m_Scopes:
-    - com.cesium.unity
-    m_IsDefault: 0
-    m_Capabilities: 0
-    m_ConfigSource: 4
-  m_UserSelectedRegistryName: Cesium
+  m_UserSelectedRegistryName: 
   m_UserAddingNewScopedRegistry: 0
   m_RegistryInfoDraft:
     m_Modified: 0
