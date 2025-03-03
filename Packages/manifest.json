@@ -9,7 +9,7 @@
     }
   ],
   "dependencies": {
-    "com.cesium.unity": "1.15.3",
+    "com.cesium.unity": "1.15.4",
     "com.unity.ai.navigation": "1.1.5",
     "com.unity.cinemachine": "2.10.3",
     "com.unity.collab-proxy": "2.6.0",
