@@ -8,3 +8,5 @@ Assets/CesiumForUnity/
 .vsconfig
 *.sln
 *.csproj
+.DS_Store
+
